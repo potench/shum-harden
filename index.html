@@ -1,0 +1,101 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta version="0.0"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="" /> 
+	<meta name="author" content="Christian Harden">
+	<title></title>
+	<link rel="shortcut icon" href="media/favicon.ico">
+	<link rel="apple-touch-icon" href="media/apple-touch-icon.png">
+	<link type="text/css" rel="stylesheet" href="media/css/style.css" />
+	<script type="text/javascript" src="media/js/libs/modernizr-1.7.min.js"></script>
+</head>
+<body>
+	<header>
+		
+	</header>
+	<section>
+		Demo - Check console to difference between new Page(); and new Page.Page2();
+	</section>
+	<footer>
+		
+	</footer>
+	<div class="hidden scripts">
+		<script type="text/javascript">
+			SYS = {
+				DEBUG : 'True',
+				VERSION : '0.0',
+				MEDIA_URL : '',
+				SOCIAL : {} // social API keys
+			};
+			
+			var SiteName = SiteName || {};
+			(function($site) {
+				Modernizr.load([
+					{ // jquery
+						load :"//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js",
+						complete : function() {
+							if(!window.jQuery) {Modernizr.load("media/js/libs/jquery-1.4.4.min.js");}
+						},
+						wait:true
+					},
+					{ // PLUGINS + DEMO 
+						load : [
+							// "media/js/demo/plugins.js?ver={{VERSION}}",
+							// "media/js/demo/demo.js?ver={{VERSION}}"
+							"media/js/demo/class.js",
+							"media/js/demo/site.js",
+							"media/js/demo/page.js",
+							"media/js/demo/home.js",
+							"media/js/demo/about.js"
+						],
+						wait : true,
+						complete : function() {
+							
+							// Call to instantiate page-specific functions based on body class
+							SiteName.init();
+						
+							// CREATE Page2
+							// $site.page2 = new $site.Page.Page2(); // log(2) log(2);
+							// vs
+							//$site.page = new $site.Page(); // log(1);
+							
+							console.group("new SiteName.Page()");
+								SiteName.page = new SiteName.Page();
+								console.log("SiteName.page", SiteName.page);
+							console.groupEnd();
+							
+							console.group("new SiteName.Page.Home()");
+								SiteName.home = new SiteName.Page.Home();
+								console.log("SiteName.home", SiteName.home);
+							console.groupEnd();
+							
+							console.group("new SiteName.Page.About()");
+								SiteName.about = new SiteName.Page.About();
+								console.log("SiteName.about", SiteName.about);
+							console.groupEnd();
+						}
+					},
+					{ // Google Analytics
+						load : ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js',
+						callback : function() {
+							var _gaq = _gaq || [];
+							_gaq.push(['_setAccount', 'UA-21782465-1']);
+							_gaq.push(['_setDomainName', 'none']);
+							_gaq.push(['_setAllowLinker', true]);
+							_gaq.push(['_trackPageview']);
+						}
+					}
+				]);
+			})(SiteName);
+		</script>
+	</div>
+</body>
+</html>
