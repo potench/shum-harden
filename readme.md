@@ -1,7 +1,7 @@
-h1. Demo
+### Demo
 
-Prototyping a classical-inherticance based javascript framework.
+Prototyping a classical-inheritance based javascript framework.
 
-h2. License
+### License
 
 See LICENSE.
