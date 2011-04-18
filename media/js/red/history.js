@@ -61,7 +61,7 @@ RED.History = RED.Utils.extend({
 	
 	onStateChange : function () { // Note: We are using statechange instead of popstate
 		this.scope.refresh.call(this.scope, History.getState());
-    }
+	}
 	
 });
 
