@@ -1,0 +1,17 @@
+// Not targeting Opera or KHTML
+// $experimental-support-for-opera: false;
+$experimental-support-for-khtml: false;
+
+// OR IE 6
+// $legacy-support-for-ie6: false;
+// $legacy-support-for-ie7: false;
+
+// Defaults
+$background-color: #ecedef !default;
+$text-color: #404040 !default;
+
+// Links
+$link-color: #0071b2;
+$link-active-color: #4bcbd9;
+$link-current-color: #b5bf00;
+$link-disabled-color: #dbdcdd;

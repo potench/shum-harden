@@ -1,0 +1,36 @@
+# Inline image
+background: inline-image("tiny-image.png");
+
+# Sprites
+@import "partials/icon-sprite";
+
+# Spacing
+$icon-spacing: 10px;
+
+# Magic import
+@include all-icon-sprites;
+
+.icon-delete {}
+
+.icon-edit {}
+
+.icon-new {}
+
+.icon-save {}
+
+# Alternative to magic import
+.new    {
+	@include icon-sprite(new);
+}
+
+.edit   {
+	@include icon-sprite(edit);
+}
+
+.save   {
+	@include icon-sprite(save);
+}
+
+.delete {
+	@include icon-sprite(delete);
+}

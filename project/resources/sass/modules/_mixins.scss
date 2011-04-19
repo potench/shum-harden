@@ -1,0 +1,18 @@
+// Locator Font
+@mixin typeface {
+	font : {
+		family : "Museo Sans","Museo Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		weight : bold;
+	}
+}
+
+// Default transition
+@mixin global-transition {
+	@include transition(all, 150ms, ease-in-out);
+}
+
+// Inline Block + Zoom Fix
+@mixin inline-block-zoom {
+	@include inline-block;
+	zoom: 1;
+}
