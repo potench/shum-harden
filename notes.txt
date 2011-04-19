@@ -2,10 +2,12 @@
 background: inline-image("tiny-image.png");
 
 # Sprites
-@import "partials/icon-sprite";
 
 # Spacing
 $icon-spacing: 10px;
+
+# Import
+@import "icon/*.png";
 
 # Magic import
 @include all-icon-sprites;
