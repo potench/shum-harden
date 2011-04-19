@@ -1,4 +1,5 @@
 ## Starters:
+
 - What is SASS?
 	- Sass is an extension of CSS3, adding nested rules, variables, mixins, selector inheritance, and more. It’s translated to well-formatted, standard CSS using the command line tool or a web-framework plugin
 - What is Compass?
@@ -6,20 +7,32 @@
 	- Compass:SASS::Django:Python
 	- Compass:SASS::Rails:Ruby
 
-## Things to show off about Compass + SASS:
+## Outline:
 
-- Nested Rules
-	- Parent Selectors
-- Variables
-- Math
-- Mixins
-	- border-radius
-	- opacity
-	- inline-block
-	- min-height / min-width
-	- clearfix / pie-clearfix
-	- inline-image
-- Sprites
+- resources vs static
+
+- resources/style.scss
+	- maps to: static/css/style.css
+	- show off SASS features
+		- Nested Rules
+			- Parent Selectors
+		- Variables
+		- Math
+		- Mixins
+			- border-radius
+			- opacity
+			- inline-block
+			- min-height / min-width
+			- clearfix / pie-clearfix
+			- inline-image
+		- Sprites
+
+- resources/config.rb
+
+- @import
+	- resources/sass/_base.scss
+	- resources/sass/_defaults.scss
+	- resources/sass/_mixins.scss
 
 ## Takeaways:
 
