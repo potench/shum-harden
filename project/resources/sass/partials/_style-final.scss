@@ -1,0 +1,76 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" /> */
+
+@import "modules/base";
+
+body {
+	background: inline-image("tiny-image.png");
+}
+
+header {
+	
+	/* Inline block */
+	@include inline-block;
+	
+	/* Min width */
+	@include min-width(100px);
+	
+	/* Min-height */
+	@include min-height(100px);
+  
+	width: 100%;
+	height: 100%;
+
+	a {
+
+		/* Opacity */
+		@include opacity(50);
+
+		color: #f00;
+
+		&:hover {
+			color: #000;
+		}
+
+		&:visited {
+			color: #0f0;
+		}
+	}
+
+	nav {
+		width: 50%;
+
+		border: 1px solid red;
+
+		/* Border radius */
+		@include border-radius(10px);
+
+		/* Clearfix */
+		@include pie-clearfix;
+	}
+}
+
+#relative-parent {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	
+	/* Variables + Math */
+	.child {
+		$child-width: 500px;
+		$child-height: 300px;
+		
+		top: 50%;
+		left: 50%;
+		width: $child-width;
+		height: $child-height;
+		margin-top: -($child-height / 2);
+		margin-left: -($child-width / 2);
+		position: absolute;
+		background: red;
+	}
+}
