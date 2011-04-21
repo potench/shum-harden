@@ -66,8 +66,8 @@
 						"/media/js/red/class.js",
 						"/media/js/red/utils.js",
 
-						// Optional Utilities
-						"/media/js/red/history.js",
+						// Optional Utilities // history4 api has errors
+						//"/media/js/red/history.js",
 
 						// Site Specific
 						"/media/js/site/common/site.js",
@@ -79,7 +79,6 @@
 						RED.SITE.init();
 					}
 				}, { // Google Analytics
-					// changed
 					load : ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js",
 					callback : function() {
 						var _gaq = _gaq || [];
