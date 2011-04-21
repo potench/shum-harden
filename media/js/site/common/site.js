@@ -46,30 +46,65 @@ RED.SITE = $.extend(RED.SITE, function () {
 			// Setup History Events
 			RED.require("history", this);
 			
+<<<<<<< HEAD
 			$(document).ready(this.onReady.call(this));
+=======
+			$(document).ready(this.onReady);
+>>>>>>> a1e654b44d9dc6e2592f1df71c413a49def38ca5
 		},
 		
 		onReady : function () {
 			var body = $(document.body);
 			
+<<<<<<< HEAD
 			this.load([{
 				test : $,
 				yep : {
 					"Global" : "/media/js/site/common/global.js"
+=======
+			Modernizr.load([{
+				test : $,
+				yep : {
+					"Global" : SYS.MEDIA_URL + "js/site/common/global.js"
+				},
+				callback : function (url, result, key) {
+					if (result) {
+						RED.HBO.models.Global = new RED.HBO.Global();
+					}
+>>>>>>> a1e654b44d9dc6e2592f1df71c413a49def38ca5
 				}
 			}, {
 				test : body.hasClass("home"),
 				yep : {
+<<<<<<< HEAD
 					"Home" : "/media/js/site/home.js"
+=======
+					"Home" : SYS.MEDIA_URL + "js/site/home.js"
+				},
+				callback : function (url, result, key) {
+					if (result) {
+						RED.HBO.models.Home = new RED.HBO.Home();
+					}
+>>>>>>> a1e654b44d9dc6e2592f1df71c413a49def38ca5
 				}
 			}, {
 				test : body.hasClass("about"),
 				yep : {
+<<<<<<< HEAD
 					"About" : "/media/js/site/about.js"
+=======
+					"About" : SYS.MEDIA_URL + "js/site/about.js"
+				},
+				callback : function (url, result, key) {
+					if (result) {
+						RED.HBO.models.About = new RED.HBO.About();
+					}
+>>>>>>> a1e654b44d9dc6e2592f1df71c413a49def38ca5
 				}
 			}, {
 				test : body.hasClass("contact"),
 				yep : {
+<<<<<<< HEAD
 					"Contact" : "/media/js/site/contact.js"
 				}
 			}]);
@@ -90,6 +125,17 @@ RED.SITE = $.extend(RED.SITE, function () {
 					console.log("RED.SITE." + key, RED.SITE.models[key]);
 				console.groupEnd();
 			}
+=======
+					"Contact" : SYS.MEDIA_URL + "js/site/contact.js"
+				},
+				callback : function (url, result, key) {
+					if (result) {
+						RED.HBO.models.Contact = new RED.HBO.Contact();
+					}
+				}
+			}]);
+			
+>>>>>>> a1e654b44d9dc6e2592f1df71c413a49def38ca5
 		},
 		
 		refresh : function (state) {
