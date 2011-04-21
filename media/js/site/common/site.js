@@ -46,50 +46,54 @@ RED.SITE = $.extend(RED.SITE, function () {
 			// Setup History Events
 			RED.require("history", this);
 			
-			$(document).ready(this.onReady.call(this));
+			$(document).ready(this.onReady);
 		},
 		
 		onReady : function () {
 			var body = $(document.body);
 			
-			this.load([{
+			Modernizr.load([{
 				test : $,
 				yep : {
-					"Global" : "/media/js/site/common/global.js"
+					"Global" : SYS.MEDIA_URL + "js/site/common/global.js"
+				},
+				callback : function (url, result, key) {
+					if (result) {
+						RED.HBO.models.Global = new RED.HBO.Global();
+					}
 				}
 			}, {
 				test : body.hasClass("home"),
 				yep : {
-					"Home" : "/media/js/site/home.js"
+					"Home" : SYS.MEDIA_URL + "js/site/home.js"
+				},
+				callback : function (url, result, key) {
+					if (result) {
+						RED.HBO.models.Home = new RED.HBO.Home();
+					}
 				}
 			}, {
 				test : body.hasClass("about"),
 				yep : {
-					"About" : "/media/js/site/about.js"
+					"About" : SYS.MEDIA_URL + "js/site/about.js"
+				},
+				callback : function (url, result, key) {
+					if (result) {
+						RED.HBO.models.About = new RED.HBO.About();
+					}
 				}
 			}, {
 				test : body.hasClass("contact"),
 				yep : {
-					"Contact" : "/media/js/site/contact.js"
+					"Contact" : SYS.MEDIA_URL + "js/site/contact.js"
+				},
+				callback : function (url, result, key) {
+					if (result) {
+						RED.HBO.models.Contact = new RED.HBO.Contact();
+					}
 				}
 			}]);
-		},
-		
-		load : function (stack) {
-			for (var i = 0, j = stack.length; i < j; i++) {
-				stack[i].callback = this.onScriptLoad;
-			}
 			
-			return Modernizr.load(stack);
-		},
-		
-		onScriptLoad : function (url, result, key) {
-			if (result) {
-				console.group("new RED.SITE.Page." + key);
-					RED.SITE.models[key] = new RED.SITE[key]();
-					console.log("RED.SITE." + key, RED.SITE.models[key]);
-				console.groupEnd();
-			}
 		},
 		
 		refresh : function (state) {
