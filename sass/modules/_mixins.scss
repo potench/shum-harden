@@ -1,12 +1,9 @@
-// Locator Font
+// Default font
 @mixin typeface {
-	font : {
-		family : "Museo Sans","Museo Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-		weight : bold;
-	}
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-// Default transition
+// Global transition
 @mixin global-transition {
 	@include transition(all, 150ms, ease-in-out);
 }

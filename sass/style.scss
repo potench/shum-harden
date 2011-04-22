@@ -1,0 +1,27 @@
+/*
+File: style.scss
+Outputs: style.css
+
+Project: RED
+
+Description:
+	Global styles
+
+Requires:
+	- Sass 3.1.0 <http://sass-lang.com/>
+	- Compass 0.11 <http://beta.compass-style.org/>
+
+Requires:
+	- <modules/_base.scss>
+
+*/
+
+// See modules/_base.scss
+@import "modules/base";
+
+// Import page globals
+@import "partials/header";
+@import "partials/footer";
+
+// Any IE styles?
+@import "partials/ie";
