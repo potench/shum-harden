@@ -6,15 +6,12 @@
   <your title>: <your name>
   Site: 
   Twitter: 
-  Location: 
-
-/* THANKS */
-  Names (& URL): 
+  Location: Santa Monica, CA
+  Team: RED Interactive Agency
 
 /* SITE */
   Standards: HTML5, CSS3
   Components: Modernizr, jQuery
-  Software:
   
 
                                     
