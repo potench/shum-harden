@@ -12,6 +12,9 @@
 		
 		<meta name="description" content="" />
 		<meta name="author" content="" />
+		
+		<meta name="version" content="{{ VERSION }}" />
+		<meta name="media-url" content="{{ MEDIA_URL }}" />
 
 		<!-- Mobile viewport optimized: j.mp/bplateviewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +28,7 @@
 		<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
 		<script src="{{ MEDIA_URL }}js/libs/modernizr-2.0b1.min.js"></script>
 	</head>
-	<body class="{{ PAGE }}">
+	<body class="{{ PAGE|lower }}" data-page-id="{{ PAGE }}">
 		<div id="container">
 			<header>
 				
@@ -42,18 +45,6 @@
 		<div class="hidden scripts">
 			<script type="text/javascript">
 				(function () {
-					// system wide vars set by template engine
-					window.RED = {};
-				
-					RED.SYS = {
-						DEBUG : "{{ DEBUG }}",
-						VERSION : "{{ VERSION }}",
-						MEDIA_URL : "{{ MEDIA_URL }}",
-						SOCIAL : {}, // social API keys
-						PAGE : "{{ PAGE }}", // page instance 
-						MODULES: [] // push modules
-					};
-				
 					Modernizr.load([{
 						// jQuery 1.5.2
 						load : "//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js",
