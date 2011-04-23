@@ -21,6 +21,7 @@ var Example = Example || {}; // site-specifc namespace
  * Model manager and shell manager
  */		
 Example.Page = (function() {
+	
 	// Private vars
 	
 	// Public vars
@@ -30,5 +31,7 @@ Example.Page = (function() {
 		
 		// Default page level functionality
 		init : function() {}
+		
 	});
+	
 }.call(Example));

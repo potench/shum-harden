@@ -27,12 +27,13 @@ var Example = Example || {}; // site-specifc namespace
  * Site shell object
  * Model manager and shell manager
  */		
-RED.SITE = $.extend(true, Example, RED, function() { // inherit the RED framework and go from there
+RED.SITE = $.extend(true, Example, RED, function () { // inherit the RED framework and go from there
 	
 	// Private variables/functions
 
 	// Public
 	return {
+		
 		models : {},
 		
 		init : function () {
@@ -49,5 +50,7 @@ RED.SITE = $.extend(true, Example, RED, function() { // inherit the RED framewor
 				this.models.Page = new Example.Page(); // defaults to Example.Page()
 			}
 		}
+		
 	};
+	
 }());
