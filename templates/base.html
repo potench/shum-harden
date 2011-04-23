@@ -60,22 +60,22 @@
 							"{{ MEDIA_URL }}js/libs/plugins/jquery.easing.js",
 							"{{ MEDIA_URL }}js/libs/plugins/jquery.tmpl.js"
 						
-							// RED Framework DEV
+							// RED Framework
 							"{{ MEDIA_URL }}js/red/base/class.js",
 							"{{ MEDIA_URL }}js/red/site.js",
 					
-							// Site Specific DEV
+							// Site Specific
 							"{{ MEDIA_URL }}js/example/site.js",
 							"{{ MEDIA_URL }}js/example/page.js"
 						
 							{% else %}
-							// jQuery Plugins min
+							// jQuery Plugins Minified
 							"{{ MEDIA_URL }}js/libs/plugins/plugins.min.js",
 						
-							// RED Framework min
+							// RED Framework Minified
 							"{{ MEDIA_URL }}js/red/red.min.js",
 						
-							// Site Specific min
+							// Site Specific Minified
 							"{{ MEDIA_URL }}js/example/example.min.js"
 							{% endif %}
 						],
