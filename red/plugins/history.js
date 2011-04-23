@@ -18,7 +18,8 @@ Requires:
 
 */
 
-/*global $: true, console: true, Class: true */
+/*global $: true, console: true, Class: true, Modernizr: true, History: true */
+/*jslint browser: true */
 
 /*
 Namespace: RED
@@ -40,7 +41,7 @@ RED.History = RED.Utils.extend({
 		this.scope = scope;
 		
 		Modernizr.load([{
-			test : "JSON" in window,
+			test : window.JSON && window.JSON.stringify,
 			nope : "media/js/libs/json2.js",
 			both : "media/js/libs/amplify.store.js"
 		}, {

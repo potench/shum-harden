@@ -12,6 +12,7 @@ Description:
 */
 
 /*global $: true, console: true, Class: true */
+/*jslint browser: true */
 
 /*
 Namespace: RED

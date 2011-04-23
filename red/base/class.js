@@ -12,6 +12,10 @@ Description:
 	Inspired by base2 and Prototype
 
 */
+
+/*global $: true, console: true, Class: true */
+/*jslint browser: true */
+
 (function () {
 	var initializing = false,
 		fnTest = (/xyz/).test(function () {
