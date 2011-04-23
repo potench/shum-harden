@@ -58,7 +58,10 @@ Description:
 		}
 
 		// The dummy class constructor
-		function Class() {
+		function Class(vars) {
+			
+			$.extend(true, this.vars, vars); // overwriteable and inheritable vars, overwrite on instantiation: new Class(vars)
+			
 			// All construction is actually done in the init method
 			if (!initializing && this.init) {
 				this.init.apply(this, arguments);
