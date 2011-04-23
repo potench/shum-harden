@@ -33,15 +33,21 @@ RED.SITE = $.extend(true, Example, RED, function() { // inherit the RED framewor
 
 	// Public
 	return {
+		models : {},
 		
 		init : function () {
 			$(document).ready(this.onReady.call(this));
 		},
 		
 		onReady : function () {
-			this.page = new (Example.Page[$("body").data("page-class")] || Example.Page)(); // creates Page() based on <div data-page-class="Home">, defaults to Example.Page();
-			console.group("page", this.page);
+			var body = $(document.body),
+			    _class = body.data("page-class");
 			
+			if (_class) {
+				this.models[_class] = new Example.Page[_class](); // creates Page() based on <div data-page-class="Foo">
+			} else {
+				this.models.Page = new Example.Page(); // defaults to Example.Page()
+			}
 		}
-	}
+	};
 }());
