@@ -26,13 +26,9 @@ Example.Page = (function() {
 	// Public vars
 	return Example.Class.extend({
 		
-		vars : { // over-writeable vars, ex: new Page({x:10});
-	 		x:1,
-	 		y:2
-	 	},
-	 	
-	 	init : function() {
-	 		// Default page level functionality
-	 	}
+		vars : {}, // over-writeable vars
+		
+		// Default page level functionality
+		init : function() {}
 	});
 }.call(Example));
