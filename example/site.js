@@ -4,14 +4,15 @@ File: site.js
 About: Version
 	1.0
 
-Project: RED-js-framework
+Project: red-js-framework
 
 Description:
 	Example Site object, controls global functionality and instantiates the Example Default Page 
-	You should replace the namespace "Example" with your own Site namespace, this is only an example
+
 */
 
 /*global $: true, console: true, Class: true */
+/*jslint browser: true */
 
 /*
 Namespace: Example // RED.SITE
