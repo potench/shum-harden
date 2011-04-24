@@ -22,7 +22,7 @@ var RED = window.RED || {};
 $.extend(true, RED, {
 	
 	Class : Class.extend({ // default class for RED framework
-				
+		
 		// Middleware delegate function. Allows for scope retention.
 		delegate : function (scope, method) {
 			return function () {
@@ -45,6 +45,7 @@ $.extend(true, RED, {
 		
 		refresh : function (location) {},
 		
+				
 		destroy : function () {}
 		
 	})

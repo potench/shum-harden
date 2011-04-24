@@ -27,7 +27,7 @@
 		<script src="/media/js/libs/modernizr-2.0b1.min.js"></script>
 	</head>
 
-	<body data-page-class="Home">
+	<body data-page-class="About">
 		<header>
 
 		</header>
@@ -43,7 +43,9 @@
 		</footer>
 		<div class="hidden scripts">
 			<script type="text/javascript">
-				Modernizr.load([{
+				Modernizr.load([
+				/*	
+				{
 					// jQuery 1.5.2
 					load : "//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js",
 					complete : function() {
@@ -51,7 +53,12 @@
 							Modernizr.load("/media/js/libs/jquery-1.5.2.min.js");
 						}
 					}
-				}, { // SITE
+				},
+				*/
+				{ // jQuery 1.5.2 local only
+					load : "/media/js/libs/jquery-1.5.2.min.js"
+				},
+				{ // SITE
 					load : [
 						// RED Utilities DEV
 						"/media/js/red/base/class.js",
@@ -62,7 +69,8 @@
 						// Example Utilities DEV
 						"/media/js/example/site.js",
 						"/media/js/example/page.js",
-						"/media/js/example/home.js"
+						"/media/js/example/home.js",
+						"/media/js/example/about.js"
 						// Example Utilties min
 						//"/media/js/example/example.min.js"
 					],

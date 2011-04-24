@@ -24,16 +24,18 @@ Description:
 	// Create a new Class that inherits from this class
 	Class.extend = function extend(prop) {
 		var sup = this.prototype,
-		    prototype, name, tmp, ret, func;
+		    prototype, name, tmp, ret, func, super;
 
 		// Instantiate a base class (but only create the instance,
 		// don't run the init constructor)
 		initializing = true;
 		prototype = new this();
 		initializing = false;
-
+		
+		//prototype.super = this.prototype; // maintain access to entire super chain (different that sup() which only access immediate super method of same name)
+		
 		// Copy the properties over onto the new prototype
-		for (name in prop) {
+		for (name in prop) {			
 			if (prop.hasOwnProperty(name)) {
 				func = prop[name];
 
@@ -56,12 +58,11 @@ Description:
 				}(name, func)) : func;
 			}
 		}
-
+		
+		$.extend(true, prototype.vars, this.prototype.vars); // inherit vars
+		
 		// The dummy class constructor
-		function Class(vars) {
-			
-			$.extend(true, this.vars, vars); // overwriteable and inheritable vars, overwrite on instantiation: new Class(vars)
-			
+		function Class() {
 			// All construction is actually done in the init method
 			if (!initializing && this.init) {
 				this.init.apply(this, arguments);
