@@ -42,7 +42,6 @@ RED.SITE = $.extend(true, Example, RED, function() { // inherit the RED framewor
 		},
 		
 		onReady : function () {
-			page_class = $("body").data("page-class");
 			this.page = new (Example.Page[page_class] || Example.Page)(); // creates Page() based on <div data-page-class="Home">, defaults to Example.Page();
 			console.group("page", page_class, this.page);
 		},
