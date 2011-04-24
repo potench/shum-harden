@@ -27,7 +27,7 @@
 		<script src="/media/js/libs/modernizr-2.0b1.min.js"></script>
 	</head>
 
-	<body class="home">
+	<body data-page-class="Home">
 		<header>
 
 		</header>
@@ -43,14 +43,6 @@
 		</footer>
 		<div class="hidden scripts">
 			<script type="text/javascript">
-				// system wide vars set by template engine
-				var SYS = {
-					DEBUG : 'True',
-					VERSION : '0.0',
-					MEDIA_URL : '{{MEDIA_URL}}',
-					SOCIAL : {} // social API keys
-				};
-
 				Modernizr.load([{
 					// jQuery 1.5.2
 					load : "//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js",
@@ -61,22 +53,24 @@
 					}
 				}, { // SITE
 					load : [
-						// RED Utilities
-						"/media/js/red/namespace.js",
-						"/media/js/red/class.js",
-						"/media/js/red/utils.js",
-
-						// Optional Utilities // history4 api has errors
-						//"/media/js/red/history.js",
-
-						// Site Specific
-						"/media/js/site/common/site.js",
-						"/media/js/site/common/page.js"
+						// RED Utilities DEV
+						"/media/js/red/base/class.js",
+						"/media/js/red/site.js",
+						// RED Utilities min
+						// "/media/js/red/red.min.js",
+						
+						// Example Utilities DEV
+						"/media/js/example/site.js",
+						"/media/js/example/page.js",
+						"/media/js/example/home.js"
+						// Example Utilties min
+						//"/media/js/example/example.min.js"
 					],
 					wait : true,
 					complete : function() {
 						// See /media/js/site/site.js
-						RED.SITE.init();
+						RED.SITE.init(); // anonyomous SITE init // same as Example.init();
+						// Example.init(); // or, for clarity, named SITE init, these are the same thing
 					}
 				}, { // Google Analytics
 					load : ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js",
