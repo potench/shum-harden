@@ -26,5 +26,6 @@ Example.Page.About = (function () {
 		init : function (vars) {
 			// About  page level functionality
 		}
+		
 	});
 }.call(Example));

@@ -26,5 +26,6 @@ Example.Page = (function () {
 		init : function () {
 			// Default page level functionality
 		}
+		
 	});
 }.call(Example));

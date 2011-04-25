@@ -11,10 +11,12 @@ Description:
 
 Requires:
 	- Modernizr <http://modernizr.com/>
+	- jQuery <http://jquery.com/>
+	- History.js <https://github.com/balupton/History.js/>
 
 Requires:
 	- <class.js>
-	- <utils.js>
+	- <site.js>
 
 */
 
@@ -31,7 +33,7 @@ var RED = window.RED || {};
 Class: RED.History
 	Creates the RED.History Class
 */
-RED.History = RED.Utils.extend({
+RED.History = RED.Class.extend({
 	
 	init : function (scope) {
 		if (!scope) {
