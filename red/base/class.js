@@ -24,15 +24,13 @@ Description:
 	// Create a new Class that inherits from this class
 	Class.extend = function extend(prop) {
 		var sup = this.prototype,
-		    prototype, name, tmp, ret, func, super;
+		    prototype, name, tmp, ret, func;
 
 		// Instantiate a base class (but only create the instance,
 		// don't run the init constructor)
 		initializing = true;
 		prototype = new this();
 		initializing = false;
-		
-		//prototype.super = this.prototype; // maintain access to entire super chain (different that sup() which only access immediate super method of same name)
 		
 		// Copy the properties over onto the new prototype
 		for (name in prop) {			
