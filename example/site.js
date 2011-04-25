@@ -55,5 +55,6 @@ RED.SITE = $.extend(true, Example, RED, function () { // inherit the RED framewo
 		setDOMReferences : function () {
 			
 		}
+		
 	};
 }());

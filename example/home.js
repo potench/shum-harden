@@ -30,5 +30,6 @@ Example.Page.Home = (function () {
 		init : function () {
 			// Home  page level functionality
 		}
+		
 	});
 }.call(Example));
