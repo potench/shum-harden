@@ -12,6 +12,7 @@ Description:
 */
 
 /*global $: true, console: true, Class: true */
+/*jslint browser: true, onevar: true */
 
 /*
 Namespace: RED
@@ -26,7 +27,7 @@ $.extend(true, RED, {
 		// Middleware delegate function. Allows for scope retention.
 		delegate : function (scope, method) {
 			return function () {
-				if (typeof scope === "undefined" || typeof method ==="undefined") {
+				if (typeof scope === "undefined" || typeof method === "undefined") {
 					return false;
 				}
 				
