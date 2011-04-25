@@ -1,10 +1,10 @@
-### Demo
+### Rosy
 
-Prototyping a classical-inheritance based javascript framework.
+An inheritable / extendable JavaScript framework based John Resig's "Simple JavaScript Inheritance" Class.js implementation.  
 
 ### Notes
 
-Change <body data-page-class=""> attribute to load a different Page JS, if the Class you specify does not exist, the Default Page will instantiate. 
+See https://github.com/ff0000/red-boilerplate to see Rosy JS included in an example site.
 
 ### License
 
