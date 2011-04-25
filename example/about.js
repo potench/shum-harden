@@ -9,15 +9,11 @@ Project: RED-js-framework
 Description:
 	Home Page class
 */
-
-/*global $: true, console: true, Class: true, Modernizr: true, History: true */
-/*jslint browser: true, onevar: true */
-
 var Example = Example || {}; // site-specifc namespace 
 Example.Page = Example.Page || {}; // page namespace
 
 	
-Example.Page.Home = (function () {
+Example.Page.About = (function () {
 	// Private vars
 	
 	// Public vars
@@ -27,8 +23,8 @@ Example.Page.Home = (function () {
 			y : 2 // results in {x:1,y:2} by inheriting from Example.Page
 		},
 		
-		init : function () {
-			// Home  page level functionality
+		init : function (vars) {
+			// About  page level functionality
 		}
 	});
 }.call(Example));

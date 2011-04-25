@@ -4,15 +4,15 @@ File: site.js
 About: Version
 	1.0
 
-Project: red-js-framework
+Project: RED-js-framework
 
 Description:
 	Example Site object, controls global functionality and instantiates the Example Default Page 
-
+	You should replace the namespace "Example" with your own Site namespace, this is only an example
 */
 
-/*global $: true, console: true, Class: true */
-/*jslint browser: true */
+/*global $: true, console: true, Class: true, Modernizr: true, History: true */
+/*jslint browser: true, onevar: true */
 
 /*
 Namespace: Example // RED.SITE
@@ -30,27 +30,24 @@ var Example = Example || {}; // site-specifc namespace
 RED.SITE = $.extend(true, Example, RED, function () { // inherit the RED framework and go from there
 	
 	// Private variables/functions
-
+	
 	// Public
 	return {
-		
-		models : {},
 		
 		init : function () {
 			$(document).ready(this.onReady.call(this));
 		},
 		
 		onReady : function () {
-			var body = $(document.body),
-			    _class = body.data("page-class");
+			var body = $("body"),
+				pageClass = (body.data("page-class") || body.attr("data-page-class")); // use attr("data-page-class") if < jquery 1.5
 			
-			if (_class) {
-				this.models[_class] = new Example.Page[_class](); // creates Page() based on <div data-page-class="Foo">
-			} else {
-				this.models.Page = new Example.Page(); // defaults to Example.Page()
-			}
-		}
+			this.page = new (Example.Page[pageClass] || Example.Page)(); // creates Page() based on <div data-page-class="Home">, defaults to Example.Page();
+			console.group("page", pageClass, this.page);
+		},
 		
+		setDOMReferences : function () {
+			
+		}
 	};
-	
 }());

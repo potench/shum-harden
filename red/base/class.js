@@ -14,7 +14,7 @@ Description:
 */
 
 /*global $: true, console: true, Class: true */
-/*jslint browser: true */
+/*jslint browser: true, onevar: true */
 
 (function () {
 	var initializing = false,
@@ -35,9 +35,9 @@ Description:
 		initializing = true;
 		prototype = new this();
 		initializing = false;
-
+		
 		// Copy the properties over onto the new prototype
-		for (name in prop) {
+		for (name in prop) {			
 			if (prop.hasOwnProperty(name)) {
 				func = prop[name];
 
@@ -60,12 +60,11 @@ Description:
 				}(name, func)) : func;
 			}
 		}
-
+		
+		$.extend(true, prototype.vars, this.prototype.vars); // inherit vars
+		
 		// The dummy class constructor
-		function Class(vars) {
-			
-			$.extend(true, this.vars, vars); // overwriteable and inheritable vars, overwrite on instantiation: new Class(vars)
-			
+		function Class() {
 			// All construction is actually done in the init method
 			if (!initializing && this.init) {
 				this.init.apply(this, arguments);

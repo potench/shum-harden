@@ -19,7 +19,7 @@ Requires:
 */
 
 /*global $: true, console: true, Class: true, Modernizr: true, History: true */
-/*jslint browser: true */
+/*jslint browser: true, onevar: true */
 
 /*
 Namespace: RED
