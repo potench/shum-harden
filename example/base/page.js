@@ -13,18 +13,18 @@ Description:
 */
 var Example = Example || {}; // site-specifc namespace 
 
-Example.Page = (function() {
+Example.Page = (function () {
 	// Private vars
 	
 	// Public vars
 	return Example.Class.extend({
 		
 		vars : { // over-writeable vars, ex: new Page({x:10});
-	 		x:1 // example for inheriting and overwriting vars
-	 	},
-	 	
-	 	init : function() {
-	 		// Default page level functionality
- 		}
+			x : 1 // example for inheriting and overwriting vars
+		},
+		
+		init : function () {
+			// Default page level functionality
+		}
 	});
 }.call(Example));

@@ -11,7 +11,8 @@ Description:
 	You should replace the namespace "Example" with your own Site namespace, this is only an example
 */
 
-/*global $: true, console: true, Class: true */
+/*global $: true, console: true, Class: true, Modernizr: true, History: true */
+/*jslint browser: true, onevar: true */
 
 /*
 Namespace: Example // RED.SITE
@@ -26,13 +27,13 @@ var Example = Example || {}; // site-specifc namespace
  * Site shell object
  * Model manager and shell manager
  */		
-RED.SITE = $.extend(true, Example, RED, function() { // inherit the RED framework and go from there
+RED.SITE = $.extend(true, Example, RED, function () { // inherit the RED framework and go from there
 	
 	// Private variables/functions
 	var win = $(window),
 		doc	= $(document),
 		body = $("body"),
-		page_class = (body.data("page-class") || body.attr("data-page-class")) ; // use attr("data-page-class") if < jquery 1.5
+		page_class = (body.data("page-class") || body.attr("data-page-class")); // use attr("data-page-class") if < jquery 1.5
 	
 	// Public
 	return {
@@ -46,8 +47,8 @@ RED.SITE = $.extend(true, Example, RED, function() { // inherit the RED framewor
 			console.group("page", page_class, this.page);
 		},
 		
-		setDOMReferences : function() {
+		setDOMReferences : function () {
 			
 		}
-	}
+	};
 }());
