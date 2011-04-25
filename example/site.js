@@ -42,7 +42,13 @@ RED.SITE = $.extend(true, Example, RED, function () { // inherit the RED framewo
 			var body = $("body"),
 				pageClass = body.data("page-class"); // use attr("data-page-class") if < jquery 1.5
 			
-			this.page = new (Example.Page[pageClass] || Example.Page)(); // creates Page() based on <div data-page-class="Home">, defaults to Example.Page();
+			// creates Page() based on <div data-page-class="Home">, defaults to Example.Page();
+			if (pageClass && typeof Example.Page[pageClass] === "function") {
+				this.page = new Example.Page[pageClass]();
+			} else {
+				this.page = new Example.Page();
+			}
+			
 			console.group("page", pageClass, this.page);
 		},
 		
