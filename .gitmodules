@@ -1,6 +1,6 @@
 [submodule "resources/compass"]
 	path = resources/compass
 	url = git@github.com:ff0000/red-compass-framework.git
-[submodule "static/media/js"]
-	path = static/media/js
+[submodule "static/js"]
+	path = static/js
 	url = git@github.com:ff0000/rosy.git
