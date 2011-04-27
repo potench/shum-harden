@@ -60,13 +60,14 @@ Description:
 				}(name, func)) : func;
 			}
 		}
-		
-		$.extend(true, prototype.vars, this.prototype.vars); // inherit vars
-		
+			
 		// The dummy class constructor
-		function Class() {
+		function Class(vars) {
+			if(sup.vars) this.vars = $.extend(true, {}, this.vars, sup.vars); // inherit this.vars object
+			
 			// All construction is actually done in the init method
 			if (!initializing && this.init) {
+				$.extend(true, this.vars,vars); // override this.vars object with passed argument
 				this.init.apply(this, arguments);
 			}
 		}
