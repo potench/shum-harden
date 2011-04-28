@@ -23,6 +23,11 @@
 
 		<!-- CSS: implied media="all" -->
 		<link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css" />
+		
+		{% if DEBUG %}
+		<!-- holmes.css - CSS Markup Detective: j.mp/holmescss -->
+		<link rel="stylesheet" href="{{ MEDIA_URL }}css/debug/holmes.css" />
+		{% endif %}
 
 		<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
 		<script src="{{ MEDIA_URL }}js/libs/modernizr-2.0b1.min.js"></script>
