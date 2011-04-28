@@ -32,7 +32,7 @@
 		<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
 		<script src="{{ MEDIA_URL }}js/libs/modernizr-2.0b1.min.js"></script>
 	</head>
-	<body class="{{ PAGE|lower }}" data-page-class="{{ PAGE }}">
+	<body class="{{ PAGE|lower }}{% if DEBUG %} holmes-debug{% endif %}" data-page-class="{{ PAGE }}">
 		<div id="container">
 			<header>
 				
