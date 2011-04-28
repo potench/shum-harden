@@ -4,7 +4,7 @@
 
     // http://jdbartlett.github.com/innershiv | WTFPL License
     var innerShiv = (function() {
-	    var div, frag,
+	    var div, frag, ie = ('\v' == 'v'),
 		    inaTable = /^<(tbody|tr|td|col|colgroup|thead|tfoot)/i,
 		    remptyTag = /(<([\w:]+)[^>]*?)\/>/g,
 		    rselfClosing = /^(?:area|br|col|embed|hr|img|input|link|meta|param)$/i,
@@ -16,7 +16,7 @@
 		    if (!div) {
 			    div = document.createElement('div');
 			    frag = document.createDocumentFragment();
-			    /*@cc_on div.style.display = 'none';@*/
+			    if (ie) div.style.display = 'none';
 		    }
 
 		    html = html.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
@@ -24,9 +24,9 @@
 		    var tabled = html.match(inaTable), myDiv = div.cloneNode(true);
 		    if (tabled) html = '<table>' + html + '</table>';
 
-		    /*@cc_on document.body.appendChild(myDiv);@*/
+		    if (ie) document.body.appendChild(myDiv);;
 		    myDiv.innerHTML = html.replace(remptyTag, fcloseTag);
-		    /*@cc_on document.body.removeChild(myDiv);@*/
+		    if (ie) document.body.removeChild(myDiv);;
 
 		    if (tabled) myDiv = myDiv.getElementsByTagName(tabled[1])[0].parentNode;
 
