@@ -63,7 +63,7 @@ Description:
 			
 		// The dummy class constructor
 		function Class(vars) {
-			if(sup.vars) this.vars = $.extend(true, {}, this.vars, sup.vars); // inherit this.vars object
+			if(sup.vars) this.vars = $.extend(true, {}, sup.vars, this.vars); // inherit this.vars object
 			
 			// All construction is actually done in the init method
 			if (!initializing && this.init) {
