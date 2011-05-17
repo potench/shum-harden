@@ -22,9 +22,13 @@
 		<link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.ico" />
 
 		<!-- CSS: implied media="all" -->
+		{% if TEMPLATE_DEBUG %}
 		<link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css" />
+		{% else %}
+		<link rel="stylesheet" href="{{ MEDIA_URL }}css/style.min.css" />
+		{% endif %}
 		
-		{% if DEBUG %}
+		{% if TEMPLATE_DEBUG %}
 		<!-- holmes.css - CSS Markup Detective: j.mp/holmescss -->
 		<link rel="stylesheet" href="{{ MEDIA_URL }}css/debug/holmes.css" />
 		{% endif %}
@@ -32,7 +36,7 @@
 		<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
 		<script src="{{ MEDIA_URL }}js/libs/modernizr-2.0b1.min.js"></script>
 	</head>
-	<body class="{{ PAGE|lower }}{% if DEBUG %} holmes-debug{% endif %}" data-page-class="{{ PAGE }}">
+	<body class="{{ PAGE|lower }}{% if TEMPLATE_DEBUG %} holmes-debug{% endif %}" data-page-class="{{ PAGE }}">
 		<div id="container">
 			<header role="banner">
 				<nav role="navigation"></nav>
@@ -59,7 +63,7 @@
 						}
 					}, { // SITE
 						load : [
-							{% if DEBUG %}
+							{% if TEMPLATE_DEBUG %}
 							// jQuery Plugins
 							"{{ MEDIA_URL }}js/libs/plugins/jquery.easing.js",
 							"{{ MEDIA_URL }}js/libs/plugins/jquery.tmpl.js",
