@@ -24,7 +24,7 @@ Example.Page.Home = (function () {
 	return Example.Page.extend({
 		
 		vars : { // over-writeable vars, ex: new Page({x:10});
-			y : 2 // results in {x:1,y:2} by inheriting from Example.Page
+			z : 3 // results in {x:1,y:2} by inheriting from Example.Page
 		},
 		
 		init : function () {
