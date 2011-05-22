@@ -4,7 +4,7 @@ File: home.js
 About: Version
 	1.0
 
-Project: RED-js-framework
+Project: Rosy Framework
 
 Description:
 	Home Page class

@@ -4,10 +4,10 @@ File: site.js
 About: Version
 	1.0
 
-Project: RED-js-framework
+Project: Rosy Framework
 
 Description:
-	The RED Default Site Object, contains reference to the RED default Class object.
+	The Rosy Default Site Object, contains reference to the Rosy default Class object.
 
 */
 
@@ -22,7 +22,7 @@ var RED = window.RED || {};
 
 $.extend(true, RED, {
 	
-	Class : Class.extend({ // default class for RED framework
+	Class : Class.extend({ // default class for the Rosy Framework
 		
 		// Middleware delegate function. Allows for scope retention.
 		delegate : function (scope, method) {

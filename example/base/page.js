@@ -4,7 +4,7 @@ File: page.js
 About: Version
 	1.0
 
-Project: RED-js-framework
+Project: Rosy Framework
 
 Description:
 	Default Page functionality for the "Example" website.  
