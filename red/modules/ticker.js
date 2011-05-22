@@ -67,7 +67,7 @@ RED.Ticker = (function () {
 			end : null
 		},
 
-		init : function (vars) {
+		init : function () {
 			this.setupTicker();
 		},
 		
@@ -153,8 +153,7 @@ RED.Ticker = (function () {
 				return;
 			}
 
-			var events = this.vars.events["on" + type],
-			    i, j;
+			var events = this.vars.events["on" + type], i, j;
 			
 			if (events.length) {
 				for (i = 0, j = events.length; i < j; i++) {
