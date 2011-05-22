@@ -21,12 +21,12 @@ Description:
 		fnTest = (/xyz/).test(function () {
 			var xyz;
 		}) ? (/\bsup\b/) : (/.*/);
-	
+
 	// The base Class implementation (does nothing)
 	this.Class = function () {};
 
 	// Create a new Class that inherits from this class
-	Class.extend = function extend(prop) {
+	Class.extend = function extend (prop) {
 		var sup = this.prototype,
 		    prototype, name, tmp, ret, func;
 
@@ -35,7 +35,7 @@ Description:
 		initializing = true;
 		prototype = new this();
 		initializing = false;
-		
+
 		// Copy the properties over onto the new prototype
 		for (name in prop) {			
 			if (prop.hasOwnProperty(name)) {
@@ -60,16 +60,16 @@ Description:
 				}(name, func)) : func;
 			}
 		}
-		
-		prototype.vars = $.extend(true,{},this.prototype.vars,prototype.vars); // inherit vars
-			
+
+		prototype.vars = $.extend(true, {}, this.prototype.vars, prototype.vars); // inherit vars
+
 		// The dummy class constructor
-		function Class(vars) {
-			
-			if(vars) {
-				$.extend(true, this.vars,vars); // override this.vars object with passed argument
+		function Class (vars) {
+
+			if (vars) {
+				$.extend(true, this.vars, vars); // override this.vars object with passed argument
 			}
-						
+			
 			// All construction is actually done in the init method
 			if (!initializing && this.init) {
 				this.init.apply(this, arguments);
