@@ -1,0 +1,43 @@
+<!DOCTYPE html>  <html> <head>   <title>site.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="class.html">                 class.js               </a>                                           <a class="source" href="page-control.html">                 page-control.js               </a>                                           <a class="source" href="module.html">                 module.js               </a>                                           <a class="source" href="ticker.html">                 ticker.js               </a>                                           <a class="source" href="history.html">                 history.js               </a>                                           <a class="source" href="site.html">                 site.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               site.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <h3>Part of the <a href="http://github.com/ff0000/rosy">Rosy Framework</a></h3>             </td>             <td class="code">               <div class="highlight"><pre><span class="cm">/* site.js */</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>Custom <a href="http://jslint.com">JSLint</a> settings.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="cm">/*global $: true, console: true, Class: true */</span>
+<span class="cm">/*jslint browser: true, onevar: true */</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h2>The RED Namespace</h2>             </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">RED</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">RED</span> <span class="o">||</span> <span class="p">{};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nx">RED</span><span class="p">,</span> <span class="p">{</span>
+	</pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <h2>RED.Class</h2>             </td>             <td class="code">               <div class="highlight"><pre>	<span class="nx">Class</span> <span class="o">:</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+		</pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>Middleware delegate function. Allows for scope retention inside loops, third party overrides, etc.</p>
+
+<pre><code>foo.bind("click", this.delegate(this, function () {
+     console.log(this);
+}))
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>		<span class="nx">delegate</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">method</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">scope</span> <span class="o">===</span> <span class="s2">&quot;undefined&quot;</span> <span class="o">||</span> <span class="k">typeof</span> <span class="nx">method</span> <span class="o">===</span> <span class="s2">&quot;undefined&quot;</span><span class="p">)</span> <span class="p">{</span>
+					<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+				<span class="p">}</span>
+				
+				<span class="k">return</span> <span class="nx">method</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+			<span class="p">};</span>
+		<span class="p">},</span>
+		</pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>Middleware preventDefault method. A shortcut to avoid delegation for a simple task.</p>
+
+<pre><code>foo.bind("click", this.preventDefault);
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>		<span class="nx">preventDefault</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+		<span class="p">},</span>
+		</pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>Middleware setTimeout method. Allows for scope retention inside timers.</p>
+
+<pre><code>this.setTimeout(function () {
+    // do stuff
+}, 1000);
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>		<span class="nx">setTimeout</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">delay</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">func</span><span class="p">),</span> <span class="nx">delay</span><span class="p">);</span>
+		<span class="p">},</span>
+		
+		<span class="nx">refresh</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">location</span><span class="p">)</span> <span class="p">{},</span>
+		
+				
+		<span class="nx">destroy</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
+		
+	<span class="p">})</span>
+<span class="p">});</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
