@@ -42,12 +42,6 @@ $.extend(true, RED, {
 		//     }, 1000);
 		setTimeout : function (func, delay) {
 			return window.setTimeout(this.delegate(this, func), delay);
-		},
-		
-		refresh : function (location) {},
-		
-				
-		destroy : function () {}
-		
+		}
 	})
 });
