@@ -31,13 +31,13 @@ RED.History = RED.Class.extend({
 			test : Modernizr.history,
 			yep : "media/js/libs/history.js",
 			nope : "media/js/libs/history.html4.js",
-			complete : this.delegate(this, this.setupEvents)
+			complete : $.proxy(this.setupEvents, this)
 		}]);
 	},
 
 	// Attach `statechange` event listener
 	setupEvents : function () {
-		History.Adapter.bind(window, "statechange", this.delegate(this, this.onStateChange));
+		History.Adapter.bind(window, "statechange", $.proxy(this.onStateChange, this));
 	},
 
 	// On `statechange`, call RED.Class.refresh

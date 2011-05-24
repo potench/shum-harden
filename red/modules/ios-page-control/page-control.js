@@ -115,7 +115,7 @@ RED.PageControl = (function () {
 				// - Reset transition duration to 350ms.
 				// - Reset transform values.
 				// - Cache as much information as possible to avoid overloading touchmove event (much more expensive)
-				touchstart : this.delegate(this, function (e) {
+				touchstart : $.proxy(function (e) {
 					if (!("ontouchstart" in window)) {
 						e.stopPropagation();
 						e.preventDefault();
@@ -150,13 +150,13 @@ RED.PageControl = (function () {
 
 					elementWidth = elementWidth || activeElement.outerWidth(true);
 					elementThreshold = elementThreshold || elementWidth / 4;
-				}),
+				}, this),
 				
 				// - Detect if user is swiping horizontally
 				// - Lock x-axis, track user swipe
 				// - Set CSS transform based on user movement
 				// - Reset CSS transition duration to 0 (don't want it to interfere with user movement)
-				touchmove : this.delegate(this, function (e) {
+				touchmove : $.proxy(function (e) {
 					if (!touch || touchEndFired || !activeElement || !activeElement.length) {
 						return;
 					}
@@ -194,13 +194,13 @@ RED.PageControl = (function () {
 					}
 					
 					touchMoveFired = true;
-				}),
+				}, this),
 				
 				// - Calculate total user movement
 				// - If movement threshold is reached, snap to prev/next sibling
 				// - Else snap to current element
 				// - Triggers touchend event
-				touchend : this.delegate(this, function () {
+				touchend : $.proxy(function () {
 					if (!activeElement || !activeElement.length) {
 						return;
 					}
@@ -220,10 +220,10 @@ RED.PageControl = (function () {
 					this.animateTo(element, control, list);
 					
 					this.trigger("touchend");
-				}),
+				}, this),
 				
 				// A safety catcher for CSS transitions. Nutshell: in some cases transitions are offset by ~1px. This listener fires at the end of a transition event and makes sure the values end on a round number.
-				webkitTransitionEnd : this.delegate(this, this.roundMatrixValues)
+				webkitTransitionEnd : $.proxy(this.roundMatrixValues, this)
 			});
 		},
 

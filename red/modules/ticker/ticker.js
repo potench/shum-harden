@@ -113,10 +113,8 @@ RED.Ticker = (function () {
 
 		// Start the necessary timers/intervals
 		startTicker : function () {
-			this.vars.ticker = window.setInterval(this.delegate(this, this.updateTicker), 1000);
-			window.setTimeout(this.delegate(this, function () {
-				this.updateTicker();
-			}), 10);
+			this.vars.ticker = window.setInterval($.proxy(this.updateTicker, this), 1000);
+			this.setTimeout(this.updateTicker, 10);
 		},
 
 		// Stop countdown timers/intervals
