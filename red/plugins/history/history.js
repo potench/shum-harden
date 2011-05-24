@@ -42,8 +42,9 @@ RED.History = RED.Class.extend({
 
 	// On `statechange`, call RED.Class.refresh
 	onStateChange : function () {
-		this.scope.refresh.call(this.scope, History.getState());
+		if (this.scope && this.scope.refresh) {
+			this.scope.refresh.call(this.scope, History.getState());
+		}
 	}
 	
 });
-
