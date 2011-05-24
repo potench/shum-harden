@@ -86,7 +86,7 @@ Sets up touch event listeners for swipe handling.</p>             </td>         
 <li>Reset transition duration to 350ms.</li>
 <li>Reset transform values.</li>
 <li>Cache as much information as possible to avoid overloading touchmove event (much more expensive)</li>
-</ul>             </td>             <td class="code">               <div class="highlight"><pre>				<span class="nx">touchstart</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</ul>             </td>             <td class="code">               <div class="highlight"><pre>				<span class="nx">touchstart</span> <span class="o">:</span> <span class="nx">$</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
 					<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s2">&quot;ontouchstart&quot;</span> <span class="k">in</span> <span class="nb">window</span><span class="p">))</span> <span class="p">{</span>
 						<span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
 						<span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
@@ -121,13 +121,13 @@ Sets up touch event listeners for swipe handling.</p>             </td>         
 
 					<span class="nx">elementWidth</span> <span class="o">=</span> <span class="nx">elementWidth</span> <span class="o">||</span> <span class="nx">activeElement</span><span class="p">.</span><span class="nx">outerWidth</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
 					<span class="nx">elementThreshold</span> <span class="o">=</span> <span class="nx">elementThreshold</span> <span class="o">||</span> <span class="nx">elementWidth</span> <span class="o">/</span> <span class="mi">4</span><span class="p">;</span>
-				<span class="p">}),</span>
+				<span class="p">},</span> <span class="k">this</span><span class="p">),</span>
 				</pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <ul>
 <li>Detect if user is swiping horizontally</li>
 <li>Lock x-axis, track user swipe</li>
 <li>Set CSS transform based on user movement</li>
 <li>Reset CSS transition duration to 0 (don't want it to interfere with user movement)</li>
-</ul>             </td>             <td class="code">               <div class="highlight"><pre>				<span class="nx">touchmove</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</ul>             </td>             <td class="code">               <div class="highlight"><pre>				<span class="nx">touchmove</span> <span class="o">:</span> <span class="nx">$</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
 					<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">touch</span> <span class="o">||</span> <span class="nx">touchEndFired</span> <span class="o">||</span> <span class="o">!</span><span class="nx">activeElement</span> <span class="o">||</span> <span class="o">!</span><span class="nx">activeElement</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
 						<span class="k">return</span><span class="p">;</span>
 					<span class="p">}</span>
@@ -165,13 +165,13 @@ Sets up touch event listeners for swipe handling.</p>             </td>         
 					<span class="p">}</span>
 					
 					<span class="nx">touchMoveFired</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-				<span class="p">}),</span>
+				<span class="p">},</span> <span class="k">this</span><span class="p">),</span>
 				</pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <ul>
 <li>Calculate total user movement</li>
 <li>If movement threshold is reached, snap to prev/next sibling</li>
 <li>Else snap to current element</li>
 <li>Triggers touchend event</li>
-</ul>             </td>             <td class="code">               <div class="highlight"><pre>				<span class="nx">touchend</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</ul>             </td>             <td class="code">               <div class="highlight"><pre>				<span class="nx">touchend</span> <span class="o">:</span> <span class="nx">$</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 					<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">activeElement</span> <span class="o">||</span> <span class="o">!</span><span class="nx">activeElement</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
 						<span class="k">return</span><span class="p">;</span>
 					<span class="p">}</span>
@@ -191,8 +191,8 @@ Sets up touch event listeners for swipe handling.</p>             </td>         
 					<span class="k">this</span><span class="p">.</span><span class="nx">animateTo</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">control</span><span class="p">,</span> <span class="nx">list</span><span class="p">);</span>
 					
 					<span class="k">this</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">&quot;touchend&quot;</span><span class="p">);</span>
-				<span class="p">}),</span>
-				</pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>A safety catcher for CSS transitions. Nutshell: in some cases transitions are offset by ~1px. This listener fires at the end of a transition event and makes sure the values end on a round number.</p>             </td>             <td class="code">               <div class="highlight"><pre>				<span class="nx">webkitTransitionEnd</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">roundMatrixValues</span><span class="p">)</span>
+				<span class="p">},</span> <span class="k">this</span><span class="p">),</span>
+				</pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <p>A safety catcher for CSS transitions. Nutshell: in some cases transitions are offset by ~1px. This listener fires at the end of a transition event and makes sure the values end on a round number.</p>             </td>             <td class="code">               <div class="highlight"><pre>				<span class="nx">webkitTransitionEnd</span> <span class="o">:</span> <span class="nx">$</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">roundMatrixValues</span><span class="p">,</span> <span class="k">this</span><span class="p">)</span>
 			<span class="p">});</span>
 		<span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <p>Returns the first touch object in touch array.
 Fallback to default event object if no touch object found.</p>             </td>             <td class="code">               <div class="highlight"><pre>		<span class="nx">getTouchObject</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
