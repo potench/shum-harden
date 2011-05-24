@@ -36,13 +36,6 @@ RED.SITE = $.extend(true, Example, RED, function () {
 			} else {
 				this.page = new Example.Page();
 			}
-			
-			console.group("page", pageClass, this.page);
-		},
-		
-		setDOMReferences : function () {
-			
 		}
-		
 	};
 }());
