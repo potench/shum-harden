@@ -57,7 +57,7 @@ RED.Ticker = (function () {
 	
 	// <this scope="RED.Ticker">
 	
-	return RED.Class.extend({
+	return RED.Module.extend({
 		
 		// now, start & end should be Date-parseable formats.
 		// See: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date
@@ -88,11 +88,11 @@ RED.Ticker = (function () {
 				this.stopTicker("complete");
 			} else if (this.vars.currentTime >= this.vars.startTime) {
 				if (!this.vars.startFired) {
-					this.fireEvent("start");
+					this.trigger("start");
 					this.vars.startFired = true;
 				}
 				
-				this.fireEvent("tick", this.vars.time);
+				this.trigger("tick", this.vars.time);
 			}
 		},
 
@@ -139,30 +139,8 @@ RED.Ticker = (function () {
 				delete this.vars.ticker;
 			}
 			
-			this.fireEvent(event);
-		},
-
-		bind : function (type, method) {
-			this.vars.events = this.vars.events || {};
-			this.vars.events["on" + type] = this.vars.events["on" + type] || [];
-			this.vars.events["on" + type].push(method);
-		},
-
-		fireEvent : function (type, args) {
-			if (!this.vars.events) {
-				return;
-			}
-
-			var events = this.vars.events["on" + type],
-			    i, j;
-			
-			if (events.length) {
-				for (i = 0, j = events.length; i < j; i++) {
-					events[i].apply(this, args || []);
-				}
-			}
+			this.trigger(event);
 		}
-
 	});
 	
 	// </this>
