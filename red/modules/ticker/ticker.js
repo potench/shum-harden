@@ -1,66 +1,41 @@
-/*
-File: ticker.js
+// ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
+/* ticker.js */
 
-About: Version
-	1.0
-
-Project: RED
-
-Description:
-	Creates a countdown ticker
-
-Usage:
-	var ticker = new RED.Ticker({
-		now : new Date(),
-		start : "Sun Jun 12 11:25:00 2011",
-		end : "Mon Jun 13 11:45:00 2011"
-	});
-
-	ticker.bind("start", function () {
-		// on start
-	});
-
-	ticker.bind("tick", function (hours, minutes, seconds) {
-		console.log(hours, minutes, seconds);
-	});
-
-	ticker.bind("complete", function () {
-		// on complete
-	});
-
-Requires:
-	- jQuery <http://jquery.com/>
-
-Requires:
-	- <class.js>
-	- <site.js>
-	- <page.js>
-
-*/
-
+// Custom [JSLint](http://jslint.com) settings.
 /*global $: true, console: true, Class: true */
+/*jslint browser: true, onevar: true */
 
-/*
-Class: RED
-	Under the RED Class
-*/
+// The RED Namespace
 var RED = RED || {};
 
-/*
-Class: RED.Ticker
-	@extends RED
-*/
+// ## RED.Ticker
+// Creates a countdown ticker.
+// 
+// Usage:
+// 
+// 	var ticker = new RED.Ticker({
+// 		now : new Date(),
+// 		start : "Sun Jun 12 11:25:00 2011",
+// 		end : "Mon Jun 13 11:45:00 2011"
+// 	});
+// 
+// 	ticker.bind("start", function () {
+// 		// on start
+// 	});
+// 
+// 	ticker.bind("tick", function (hours, minutes, seconds) {
+// 		console.log(hours, minutes, seconds);
+// 	});
+// 
+// 	ticker.bind("complete", function () {
+// 		// on complete
+// 	});
 RED.Ticker = (function () {
 	
-	// <this scope="RED">
-	// </this>
-	
-	// <this scope="RED.Ticker">
-	
+	// Extends RED.Module
 	return RED.Module.extend({
 		
-		// now, start & end should be Date-parseable formats.
-		// See: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date
+		// now, start & end should be [Date-parseable formats](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date).
 		vars : {
 			now : null,
 			start : null,
@@ -71,6 +46,7 @@ RED.Ticker = (function () {
 			this.setupTicker();
 		},
 		
+		// Parse initial dates, start the ticker
 		setupTicker : function () {
 			this.vars.currentTime = this.parseTime(this.vars.now);
 			this.vars.startTime = this.parseTime(this.vars.start);
@@ -81,6 +57,11 @@ RED.Ticker = (function () {
 			this.startTicker();
 		},
 
+		// Runs every second. Updates the ticker based on source/destination dates.
+		
+		// If time has run out, stop the ticker.
+		
+		// Else if current time is greater than or equal to start time, tick.
 		updateTicker : function () {
 			this.vars.time = this.getPrettyTime();
 			
@@ -96,10 +77,16 @@ RED.Ticker = (function () {
 			}
 		},
 
+		// Returns a new Date object based on time passed in.
 		parseTime : function (date) {
 			return new Date(date).getTime();
 		},
 
+		// Format time in a human readable array.
+		// 
+		// Ex:
+		// 
+		// 	["01", "13", "52"] // 1:13:52 remaining
 		getPrettyTime : function () {
 			var hours, minutes, seconds;
 
@@ -113,6 +100,7 @@ RED.Ticker = (function () {
 			return [hours, minutes, seconds];
 		},
 
+		// Adds a leading zero if time value is less than 10
 		leadingZero : function (time) {
 			var timeString = time;
 
@@ -123,16 +111,15 @@ RED.Ticker = (function () {
 			return timeString;
 		},
 
+		// Start the necessary timers/intervals
 		startTicker : function () {
-			// Do every second
 			this.vars.ticker = window.setInterval(this.delegate(this, this.updateTicker), 1000);
-
-			// Jump start
 			window.setTimeout(this.delegate(this, function () {
 				this.updateTicker();
 			}), 10);
 		},
 
+		// Stop countdown timers/intervals
 		stopTicker : function (event) {
 			if (this.vars.ticker) {
 				window.clearInterval(this.vars.ticker);
@@ -142,7 +129,5 @@ RED.Ticker = (function () {
 			this.trigger(event);
 		}
 	});
-	
-	// </this>
 	
 }.call(RED));
