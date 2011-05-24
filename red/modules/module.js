@@ -1,5 +1,5 @@
 /*
-File: site.js
+File: module.js
 
 About: Version
 	1.0
