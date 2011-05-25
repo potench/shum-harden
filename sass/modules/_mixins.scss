@@ -1,6 +1,7 @@
 // Default font
 @mixin typeface {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	// From: Better Helvetica Font Stack http://j.mp/9t6O6Z
+	font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 // Global transition
