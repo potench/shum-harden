@@ -1,21 +1,13 @@
-/*
-File: class.js
+// ## Simple JavaScript Inheritance
+// - By John Resig http://ejohn.org/
+// - MIT Licensed.
+/* class.js */
 
-About: Version
-	1.0
-
-Description:
-	Simple JavaScript Inheritance
-	By John Resig http://ejohn.org/
-	MIT Licensed.
-	
-	Inspired by base2 and Prototype
-
-*/
-
+// Custom [JSLint](http://jslint.com) settings.
 /*global $: true, console: true, Class: true */
 /*jslint browser: true, onevar: true */
 
+// Inspired by base2 and Prototype
 (function () {
 	var initializing = false,
 		fnTest = (/xyz/).test(function () {

@@ -1,59 +1,34 @@
-/*
-File: page-control.js
+// ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
+/* page-control.js */
 
-About: Version
-	1.0
+// Custom [JSLint](http://jslint.com) settings.
+/*global $: true, console: true, Class: true */
+/*jslint browser: true, onevar: true */
 
-Project: RED
-
-Description:
-	An iOS-style Page Control
-
-Usage:
-	var control = new RED.PageControl({
-		parent : $("#controller"),
-		list : $("#controller > ul"), // optional, assumes parent child as list
-		items : $("#controller > ul > li") // optional, assumes list children as items
-	});
-	
-	control.bind("paginate", function (e) {
-		console.log(e);
-	});
-	
-	control.bind("touchend", function (e) {
-		console.log(e);
-	});
-
-Requires:
-	- jQuery <http://jquery.com/>
-
-Requires:
-	- <page-control.css>
-	- <class.js>
-	- <site.js>
-	- <page.js>
-
-*/
-
-/*global $: true, console: true, Class: true, WebKitCSSMatrix: true */
-
-/*
-Class: RED
-	Under the RED Class
-*/
+// The RED Namespace
 var RED = RED || {};
 
-/*
-Class: RED.PageControl
-	@extends RED
-*/
+// ## RED.PageControl
+// An iOS-style Page Control.
+// 
+// Usage:
+// 
+// 	var control = new RED.PageControl({
+// 		parent : $("#controller"),
+// 		list : $("#controller > ul"), // optional, assumes parent child as list
+// 		items : $("#controller > ul > li") // optional, assumes list children as items
+// 	});
+// 	
+// 	control.bind("paginate", function (e) {
+// 		console.log(e);
+// 	});
+// 	
+// 	control.bind("touchend", function (e) {
+// 		console.log(e);
+// 	});
 RED.PageControl = (function () {
 	
-	// <this scope="RED">
-	// </this>
-	
-	// <this scope="RED.PageControl">
-	
+	// Extends RED.Module
 	return RED.Module.extend({
 		
 		vars : {
@@ -67,18 +42,12 @@ RED.PageControl = (function () {
 			this.setupPageControl();
 		},
 
-		/*
-		sub: setTransform
-			Applies a matrix value to the target element
-		*/
+		// Applies a matrix value to the target element
 		setTransform : function (el, matrix) {
 			el.css("-webkit-transform", matrix);
 		},
 
-		/*
-		sub: resetTransition
-			Resets transition duration to a specific value or zero
-		*/
+		// Resets transition duration to a specific value (or zero)
 		resetTransition : function (el, duration, timing, delay) {
 			duration += (typeof duration === "number") ? "ms" : "";
 			timing += (typeof duration === "number") ? "ms" : "";
@@ -91,10 +60,7 @@ RED.PageControl = (function () {
 			});
 		},
 
-		/*
-		sub: getMatrix
-			Returns the target element matrix
-		*/
+		// Returns the target element matrix
 		getMatrix : function (el) {
 			el = el[0] || el;
 			
@@ -104,6 +70,7 @@ RED.PageControl = (function () {
 			return matrix;
 		},
 		
+		// Setup page control functionality
 		setupPageControl : function () {
 			this.vars.list = this.vars.list || this.vars.parent.children();
 			this.vars.items = this.vars.items || this.vars.list.children();
@@ -115,19 +82,25 @@ RED.PageControl = (function () {
 			this.vars.icons = this.createPageIndicators();
 			
 			this.prepForTransforms();
-			this.setupEvents();
+			this.setupTouchEvents();
 			this.sizeToFit();
 			this.flagActiveItem();
 			this.enable();
 		},
 
+		// Hardware accelerate everything.
+		// Enables smooth animation effects while swiping
 		prepForTransforms : function () {
 			this.vars.parent.find("*").andSelf().css({
 				"-webkit-transform" : "translate3d(0, 0, 0)"
 			});
 		},
 
-		setupEvents : function () {
+		// Where the magic happens.
+		// Sets up touch event listeners for swipe handling.
+		setupTouchEvents : function () {
+			
+			// Shared variables
 			var control = this.vars.parent,
 			    list = this.vars.list,
 			    matrix, touch, startX, currX, diffX,
@@ -137,7 +110,12 @@ RED.PageControl = (function () {
 			    controlRect, listRect;
 			
 			list.bind({
-				touchstart : this.delegate(this, function (e) {
+				
+				// - Reset shared variables on touchstart.
+				// - Reset transition duration to 350ms.
+				// - Reset transform values.
+				// - Cache as much information as possible to avoid overloading touchmove event (much more expensive)
+				touchstart : $.proxy(function (e) {
 					if (!("ontouchstart" in window)) {
 						e.stopPropagation();
 						e.preventDefault();
@@ -172,9 +150,13 @@ RED.PageControl = (function () {
 
 					elementWidth = elementWidth || activeElement.outerWidth(true);
 					elementThreshold = elementThreshold || elementWidth / 4;
-				}),
+				}, this),
 				
-				touchmove : this.delegate(this, function (e) {
+				// - Detect if user is swiping horizontally
+				// - Lock x-axis, track user swipe
+				// - Set CSS transform based on user movement
+				// - Reset CSS transition duration to 0 (don't want it to interfere with user movement)
+				touchmove : $.proxy(function (e) {
 					if (!touch || touchEndFired || !activeElement || !activeElement.length) {
 						return;
 					}
@@ -212,9 +194,13 @@ RED.PageControl = (function () {
 					}
 					
 					touchMoveFired = true;
-				}),
+				}, this),
 				
-				touchend : this.delegate(this, function () {
+				// - Calculate total user movement
+				// - If movement threshold is reached, snap to prev/next sibling
+				// - Else snap to current element
+				// - Triggers touchend event
+				touchend : $.proxy(function () {
 					if (!activeElement || !activeElement.length) {
 						return;
 					}
@@ -234,17 +220,22 @@ RED.PageControl = (function () {
 					this.animateTo(element, control, list);
 					
 					this.trigger("touchend");
-				}),
+				}, this),
 				
-				webkitTransitionEnd : this.delegate(this, this.roundMatrixValues)
+				// A safety catcher for CSS transitions. Nutshell: in some cases transitions are offset by ~1px. This listener fires at the end of a transition event and makes sure the values end on a round number.
+				webkitTransitionEnd : $.proxy(this.roundMatrixValues, this)
 			});
 		},
 
+		// Returns the first touch object in touch array.
+		// Fallback to default event object if no touch object found.
 		getTouchObject : function (e) {
 			e = e.originalEvent || e;
 			return e.touches ? e.touches[0] : e;
 		},
 
+		// Bubbles up to immediate parent child node.
+		// Prevents accidental event delegation.
 		getActiveElement : function (list, target) {
 			var parent = list.get(0);
 			
@@ -254,7 +245,11 @@ RED.PageControl = (function () {
 			
 			return $(target);
 		},
-		
+
+		// - Applies clearfix to parent node
+		// - Floats child nodes
+		// - Calculates individual node width
+		// - Resizes parent node to total child node width value.
 		sizeToFit : function () {
 			var width = 0,
 			    items = this.vars.items,
@@ -275,6 +270,7 @@ RED.PageControl = (function () {
 			this.vars.list.width(width);
 		},
 
+		// Creates a page indicator for each found child node.
 		createPageIndicators : function () {
 			var control = this.vars.parent,
 			    items = this.vars.items,
@@ -298,6 +294,8 @@ RED.PageControl = (function () {
 			return controlList.children();
 		},
 		
+		// Finds prev/next available sibling element.
+		// Defaults to current element if none found.
 		findSibling : function (element, next) {
 			var sib = element;
 
@@ -310,6 +308,9 @@ RED.PageControl = (function () {
 			return sib.get(0) ? sib : element;
 		},
 
+		// - Calculates difference between current position and destination.
+		// - Resets transition duration to 350ms.
+		// - Animates to destination.
 		animateTo : function (element, control, list) {
 			element = element[0] || element;
 			
@@ -320,6 +321,9 @@ RED.PageControl = (function () {
 			this.setTransform(list, matrix.translate(-(elementOffset), 0, 0));
 		},
 
+		// Looks through target element matrix and rounds each available value.
+		// This resolves the ~1px offset issue when animating with CSS transforms.
+		// Triggers paginate event when finished.
 		roundMatrixValues : function (e) {
 			if (e.target === e.currentTarget) {
 				var el = $(e.currentTarget),
@@ -339,6 +343,8 @@ RED.PageControl = (function () {
 			}
 		},
 
+		// Flags item as active.
+		// Removes active class name from siblings.
 		flagActiveItem : function (element) {
 			element = element || this.vars.items.first();
 			
@@ -352,6 +358,8 @@ RED.PageControl = (function () {
 			}
 		},
 
+		// Sets default classes.
+		// Used in required page-control.css
 		enable : function () {
 			this.vars.list.addClass(this.vars.className + "-list");
 			this.vars.items.addClass(this.vars.className + "-items");
@@ -360,7 +368,5 @@ RED.PageControl = (function () {
 			this.vars.parent.addClass(this.vars.className + "-enabled");
 		}
 	});
-	
-	// </this>
 	
 }.call(RED));

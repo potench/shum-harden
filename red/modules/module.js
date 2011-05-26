@@ -1,38 +1,33 @@
-/*
-File: module.js
+// ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
+/* module.js */
 
-About: Version
-	1.0
-
-Project: Rosy Framework
-
-Description:
-	The RED Default Module Class. Contains helper functions shared by modules.
-
-*/
-
+// Custom [JSLint](http://jslint.com) settings.
 /*global $: true, console: true, Class: true */
 /*jslint browser: true, onevar: true */
 
-/*
-Namespace: RED
-	Scoped to the RED Global Namespace
-*/
+// ## The RED Namespace
+var RED = RED || {};
+
+// ## RED.Module
+// The Module Class. Contains helper functions shared by modules.
 RED.Module = (function () {
-	// Private vars
 	
-	// Public vars
+	// Extend RED.Class
 	return RED.Class.extend({
 		
+		// Store class-specific variables
 		vars : {
+			// Create a cache of custom events
 			events : {}
 		},
 
+		// Bind a custom event(s) to a given module
 		bind : function (type, method) {
 			this.vars.events["on" + type] = this.vars.events["on" + type] || [];
 			this.vars.events["on" + type].push(method);
 		},
 		
+		// Unbind a custom event(s) from a given module
 		unbind : function (type, method) {
 			var group = this.vars.events["on" + type],
 			    i, j;
@@ -46,6 +41,7 @@ RED.Module = (function () {
 			}
 		},
 
+		// Triggers attached custom events
 		trigger : function (type, args) {
 			if (!this.vars.events) {
 				return;
