@@ -1,31 +1,31 @@
-/*
-File: page.js
+// ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
+/* page.js */
 
-About: Version
-	1.0
+// Custom [JSLint](http://jslint.com) settings.
+/*global $: true, console: true, Class: true */
+/*jslint browser: true, onevar: true */
 
-Project: Rosy Framework
+// ## Local Namespace
 
-Description:
-	Default Page functionality for the "Example" website.  
-	New pages will try to load a specialized class ("Home" for instance), 
-	if one cannot be found, the site will instantiate this Page by default
-*/
-var Example = Example || {}; // site-specifc namespace 
+// Default Page functionality for the "Example" website.
+// New pages will try to load a specialized class ("Home" for instance),
+// if one cannot be found, the site will instantiate this Page by default
+
+// Site-specifc namespace
+var Example = Example || {};
 
 Example.Page = (function () {
-	// Private vars
 	
-	// Public vars
 	return Example.Class.extend({
 		
-		vars : { // over-writeable vars, ex: new Page({x:10});
-			x : 1 // example for inheriting and overwriting vars
+		// Over-writeable vars, ex: new Page({x:10});
+		vars : {
+			// Example for inheriting and overwriting vars
+			x : 1
 		},
 		
-		init : function () {
-			// Default page level functionality
-		}
+		// Default page level functionality
+		init : function () {}
 		
 	});
 }.call(Example));

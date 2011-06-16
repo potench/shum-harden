@@ -1,52 +1,32 @@
-/*
-File: site.js
+// ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
+/* site.js */
 
-About: Version
-	1.0
-
-Project: Rosy Framework
-
-Description:
-	The Rosy Default Site Object, contains reference to the Rosy default Class object.
-
-*/
-
+// Custom [JSLint](http://jslint.com) settings.
 /*global $: true, console: true, Class: true */
 /*jslint browser: true, onevar: true */
 
-/*
-Namespace: RED
-	Scoped to the RED Global Namespace
-*/
+// ## The RED Namespace
 var RED = window.RED || {};
 
 $.extend(true, RED, {
 	
-	Class : Class.extend({ // default class for the Rosy Framework
+	// ## RED.Class
+	Class : Class.extend({
 		
-		// Middleware delegate function. Allows for scope retention.
-		delegate : function (scope, method) {
-			return function () {
-				if (typeof scope === "undefined" || typeof method === "undefined") {
-					return false;
-				}
-				
-				return method.apply(scope, arguments);
-			};
-		},
-		
+		// Middleware preventDefault method. A shortcut to avoid delegation for a simple task.
+		//
+		//     foo.bind("click", this.preventDefault);
 		preventDefault : function (e) {
 			e.preventDefault();
 		},
 		
 		// Middleware setTimeout method. Allows for scope retention inside timers.
+		//
+		//     this.setTimeout(function () {
+		//         // do stuff
+		//     }, 1000);
 		setTimeout : function (func, delay) {
-			return window.setTimeout(this.delegate(this, func), delay);
-		},
-		
-		refresh : function (location) {},
-		
-		destroy : function () {}
-		
+			return window.setTimeout($.proxy(func, this), delay);
+		}
 	})
 });

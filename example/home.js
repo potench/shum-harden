@@ -1,35 +1,38 @@
-/*
-File: home.js
+// ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
+/* home.js */
 
-About: Version
-	1.0
-
-Project: Rosy Framework
-
-Description:
-	Home Page class
-*/
-
-/*global $: true, console: true, Class: true, Modernizr: true, History: true */
+// Custom [JSLint](http://jslint.com) settings.
+/*global $: true, console: true, Class: true */
 /*jslint browser: true, onevar: true */
 
-var Example = Example || {}; // site-specifc namespace 
-Example.Page = Example.Page || {}; // page namespace
+// ## Local Namespace
 
+// Home Page class
+
+// Site-specifc namespace
+var Example = Example || {};
+
+// Page namespace
+Example.Page = Example.Page || {};
 	
+// Home specific instance
 Example.Page.Home = (function () {
-	// Private vars
 	
-	// Public vars
+	// Extends Example.Page
 	return Example.Page.extend({
 		
-		vars : { // over-writeable vars, ex: new Page({x:10});
-			z : 3 // results in {x:1,y:2} by inheriting from Example.Page
+		// Over-writeable vars, ex:
+		// 
+		// 	var foo = new Page({
+		// 		x : 10
+		// 	});
+		vars : {
+			// Results in `{ x : 1, y : 2 }` by inheriting from `Example.Page`
+			z : 3
 		},
 		
-		init : function () {
-			// Home  page level functionality
-		}
+		// Home  page level functionality
+		init : function () {}
 		
 	});
 }.call(Example));

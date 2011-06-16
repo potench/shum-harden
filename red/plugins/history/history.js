@@ -1,40 +1,18 @@
-/*
-File: history.js
+// ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
+/* history.js */
 
-About: Version
-	1.0
-
-Project: RED
-
-Description:
-	Includes all History functionality
-
-Requires:
-	- Modernizr <http://modernizr.com/>
-	- jQuery <http://jquery.com/>
-	- History.js <https://github.com/balupton/History.js/>
-
-Requires:
-	- <class.js>
-	- <site.js>
-
-*/
-
-/*global $: true, console: true, Class: true, Modernizr: true, History: true */
+// Custom [JSLint](http://jslint.com) settings.
+/*global $: true, console: true, Class: true */
 /*jslint browser: true, onevar: true */
 
-/*
-Namespace: RED
-	Scoped to the RED Global Namespace
-*/
-var RED = window.RED || {};
+// The RED Namespace
+var RED = RED || {};
 
-/*
-Class: RED.History
-	Creates the RED.History Class
-*/
+// ## RED.History
+// A bootstrap to add [History.js](https://github.com/balupton/History.js/) functionality to the Rosy Framework.
 RED.History = RED.Class.extend({
-	
+
+	// Load the required History.js dependencies.
 	init : function (scope) {
 		if (!scope) {
 			throw "You must define a scope.";
@@ -53,18 +31,20 @@ RED.History = RED.Class.extend({
 			test : Modernizr.history,
 			yep : "media/js/libs/history.js",
 			nope : "media/js/libs/history.html4.js",
-			complete : this.delegate(this, this.setupEvents)
+			complete : $.proxy(this.setupEvents, this)
 		}]);
 	},
-	
+
+	// Attach `statechange` event listener
 	setupEvents : function () {
-		// Bind to StateChange Event
-		History.Adapter.bind(window, "statechange", this.delegate(this, this.onStateChange));
+		History.Adapter.bind(window, "statechange", $.proxy(this.onStateChange, this));
 	},
-	
-	onStateChange : function () { // Note: We are using statechange instead of popstate
-		this.scope.refresh.call(this.scope, History.getState());
+
+	// On `statechange`, call RED.Class.refresh
+	onStateChange : function () {
+		if (this.scope && this.scope.refresh) {
+			this.scope.refresh.call(this.scope, History.getState());
+		}
 	}
 	
 });
-

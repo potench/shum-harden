@@ -1,37 +1,23 @@
-/*
-File: site.js
+// ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
+/* site.js */
 
-About: Version
-	1.0
-
-Project: Rosy Framework
-
-Description:
-	Example Site object, controls global functionality and instantiates the Example Default Page 
-	You should replace the namespace "Example" with your own Site namespace, this is only an example
-*/
-
-/*global $: true, console: true, Class: true, Modernizr: true, History: true */
+// Custom [JSLint](http://jslint.com) settings.
+/*global $: true, console: true, Class: true */
 /*jslint browser: true, onevar: true */
 
-/*
-Namespace: Example // RED.SITE
-	Scoped to the Example Global Namespace
-	Scoped to the RED.SITE in RED Namespace for abstraction in index.html
-*/
-var RED = RED || {}; // Rosy Framework namespace
+// ## The RED Namespace
+var RED = RED || {};
 
-var Example = Example || {}; // site-specifc namespace 
+// ## Local Namespace
+// Example Site object, controls global functionality and instantiates the Example Default Page.
+// You should replace the namespace "Example" with your own Site namespace, this is only an example.
+var Example = Example || {};
 
-/**
- * Site shell object
- * Model manager and shell manager
- */		
-RED.SITE = $.extend(true, Example, RED, function () { // inherit the Rosy Framework and go from there
+// Site shell object
+
+// Model manager and shell manager
+RED.SITE = $.extend(true, Example, RED, function () {
 	
-	// Private variables/functions
-	
-	// Public
 	return {
 		
 		init : function () {
@@ -40,21 +26,16 @@ RED.SITE = $.extend(true, Example, RED, function () { // inherit the Rosy Framew
 		
 		onReady : function () {
 			var body = $("body"),
-				pageClass = body.data("pageClass"); // use attr("data-page-class") if < jQuery 1.6
+			    // Use `attr("data-page-class")` if < jQuery 1.6
+				pageClass = body.data("pageClass");
 			
-			// creates Page() based on <div data-page-class="Home">, defaults to Example.Page();
+			// creates `Page()` based on `<div data-page-class="Home">`
 			if (pageClass && typeof Example.Page[pageClass] === "function") {
 				this.page = new Example.Page[pageClass]();
+			// defaults to `Example.Page();`
 			} else {
 				this.page = new Example.Page();
 			}
-			
-			console.group("page", pageClass, this.page);
-		},
-		
-		setDOMReferences : function () {
-			
 		}
-		
 	};
 }());
