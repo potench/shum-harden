@@ -1,0 +1,17 @@
+{
+	"site" : {
+		"source" : [
+			"js/libs/plugins/jquery.easing.js",
+			"js/libs/plugins/jquery.tmpl.js",
+
+			"js/red/base/class.js",
+			"js/red/site.js",
+
+			"js/example/site.js",
+			"js/example/base/page.js",
+			"js/example/home.js"
+		],
+		
+		"output" : "js/example/example.min.js"
+	}
+}
