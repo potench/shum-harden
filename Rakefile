@@ -40,7 +40,11 @@ namespace :watch do
               code = String.new
 
               source.each do |file|
-                code += File.read(File.join(STATIC_DIR, file))
+                if File.exists?(File.join(STATIC_DIR, file))
+                  code += File.read(File.join(STATIC_DIR, file))
+                else
+                  puts "File does not exist! #{file}"
+                end
               end
 
               closure = Closure::Compiler.new.compile(code)
