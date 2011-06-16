@@ -13,3 +13,8 @@ output_style = :expanded
 # relative_assets = true
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 line_comments = false
+
+# Have Growl? http://growl.info
+# 1. run `gem install compass-growl`
+# 2. uncomment the following:
+# require "compass-growl"
