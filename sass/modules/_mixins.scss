@@ -14,3 +14,22 @@
 	@include inline-block;
 	zoom: 1;
 }
+
+// A new micro clearfix hack
+// http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin microfix {
+	// For modern browsers
+	&:before, &:after {
+		content:"";
+		display:table;
+	}
+
+	&:after {
+		clear:both;
+	}
+
+	@if $legacy-support-for-ie {
+		// For IE 6/7 (trigger hasLayout)
+		zoom : 1;
+	}
+}
