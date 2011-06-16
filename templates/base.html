@@ -11,7 +11,7 @@
 		<link rel="dns-prefetch" href="{{ MEDIA_URL }}" />
 
 		<!-- Target latest IE, Google Chrome Frame -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
 		<title>{% block title %}{% endblock title %}</title>
 
@@ -59,7 +59,7 @@
 			<script type="text/javascript">
 				(function () {
 					Modernizr.load([{
-						// jQuery 1.5.2
+						// jQuery
 						load : "//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js",
 						complete : function () {
 							if (!window.jQuery) {
@@ -73,7 +73,7 @@
 							"{{ MEDIA_URL }}js/libs/plugins/jquery.easing.js",
 							"{{ MEDIA_URL }}js/libs/plugins/jquery.tmpl.js",
 
-							// RED Framework
+							// Rosy Framework
 							"{{ MEDIA_URL }}js/red/base/class.js",
 							"{{ MEDIA_URL }}js/red/site.js",
 
@@ -82,13 +82,7 @@
 							"{{ MEDIA_URL }}js/example/base/page.js",
 							"{{ MEDIA_URL }}js/example/home.js"
 							{% else %}
-							// jQuery Plugins Minified
-							"{{ MEDIA_URL }}js/libs/plugins/plugins.min.js",
-
-							// RED Framework Minified
-							"{{ MEDIA_URL }}js/red/red.min.js",
-
-							// Site Specific Minified
+							// All Minified
 							"{{ MEDIA_URL }}js/example/example.min.js"
 							{% endif %}
 						],
