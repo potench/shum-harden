@@ -46,7 +46,6 @@ $.extend(true, RED, {
 		
 		refresh : function (location) {},
 		
-				
 		destroy : function () {}
 		
 	})
