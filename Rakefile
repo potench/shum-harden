@@ -47,7 +47,11 @@ namespace :watch do
                 end
               end
 
-              closure = Closure::Compiler.new.compile(code)
+              begin
+                closure = Closure::Compiler.new.compile(code)
+              rescue Closure::Error => error
+                p error
+              end
 
               File.open(File.join(STATIC_DIR, output), "w") do |f|
                 f.write(closure)
