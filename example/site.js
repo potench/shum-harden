@@ -20,7 +20,13 @@ RED.SITE = $.extend(true, Example, RED, function () {
 	
 	return {
 		
+		models : {},
+		
 		init : function () {
+			// Create the site shell
+			this.models.Shell = new Example.Shell();
+			
+			// Wait for DOMContentLoaded
 			$(document).ready(this.onReady.call(this));
 		},
 		
@@ -31,10 +37,10 @@ RED.SITE = $.extend(true, Example, RED, function () {
 			
 			// creates `Page()` based on `<div data-page-class="Home">`
 			if (pageClass && typeof Example.Page[pageClass] === "function") {
-				this.page = new Example.Page[pageClass]();
+				this.models[pageClass] = new Example.Page[pageClass]();
 			// defaults to `Example.Page();`
 			} else {
-				this.page = new Example.Page();
+				this.models.page = new Example.Page();
 			}
 		}
 	};
