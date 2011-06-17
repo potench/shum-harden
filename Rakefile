@@ -1,15 +1,8 @@
 require "rubygems"
 require "bundler/setup"
-require "fssm"
-require "json"
-require "zlib"
-require "term/ansicolor"
 
 PROJECT_ROOT = File.expand_path(File.dirname(__FILE__))
 STATIC_DIR = File.join("project", "static")
-COMPASS_DIR = File.join("resources", "compass")
-
-include Term::ANSIColor
 
 namespace :watch do
   desc "Watching for Compass changes"
@@ -17,13 +10,19 @@ namespace :watch do
     require "sass"
     require "compass"
     
+    COMPASS_DIR = File.join("resources", "compass")
     system "bundle exec compass watch #{COMPASS_DIR}"
   end
   
   desc "Watching for JS Changes"
   task :js do
+    require "fssm"
+    require "json"
+    require "zlib"
+    require "term/ansicolor"
     require "closure-compiler"
 
+    include Term::ANSIColor
     
     SETUP_JSON = File.join("resources", "fssm", "setup.json")
     @json = JSON.parse(File.read(SETUP_JSON))
