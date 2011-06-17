@@ -9,6 +9,8 @@
 
 			"js/example/site.js",
 			"js/example/base/page.js",
+			
+			"js/example/shell.js",
 			"js/example/home.js"
 		],
 		
