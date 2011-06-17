@@ -64,6 +64,9 @@ namespace :watch do
               
               size = File.size(File.join(STATIC_DIR, output))
               puts "File size: #{filesize(size)}"
+                  gzip = Zlib::Deflate.new
+                  deflate = gzip.deflate(closure)
+                  gzip.close
             end
           end
         end
