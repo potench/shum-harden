@@ -26,22 +26,27 @@ namespace :watch do
     
     FSSM.monitor do
       path PROJECT_ROOT do
-        glob "**/*.js"
+        glob "**/*.{js,json}"
 
         update do |base, relative|
-          file = relative.sub(STATIC_DIR + "/", "")
-
-          SETUP_JSON.each_pair do |key, group|
+          # More expensive, but allows for live editing of JSON file
+          files = File.join("resources", "fssm", "setup.json");
+          json = JSON.parse(File.read(files))
+          match = relative.sub(STATIC_DIR + "/", "")
+          
+          json.each_pair do |key, group|
             source = group["source"]
             output = group["output"]
             
-            if source.include?(file)
-              puts "Change detected in #{relative}"
+            if match.eql?(files) or source.include?(match)
+              puts ">>> Change detected to: #{relative}"
               code = String.new
 
               source.each do |file|
-                if File.exists?(File.join(STATIC_DIR, file))
-                  code += File.read(File.join(STATIC_DIR, file))
+                current = File.join(STATIC_DIR, file)
+                
+                if File.exists?(current)
+                  code += File.read(current)
                 else
                   puts "File does not exist! #{file}"
                 end
