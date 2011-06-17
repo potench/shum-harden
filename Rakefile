@@ -60,7 +60,8 @@ namespace :watch do
                 p "    #{red("error")} #{error}"
               end
               
-              output_file = File.join(STATIC_DIR, output);
+              output_file = File.join(STATIC_DIR, output)
+              output_file_exists = File.exists?(output_file)
               existing = File.read(output_file) if File.exists?(output_file)
               
               if (closure.eql?(existing))
@@ -73,7 +74,13 @@ namespace :watch do
                   deflate = gzip.deflate(closure)
                   gzip.close
 
-                  puts "#{yellow("overwrite")} #{output} #{yellow(">>>")} #{cyan("#{filesize(closure.size)} (#{filesize(deflate.size)} gzip)")}"
+                  output_str = " #{output} #{yellow(">>>")} #{cyan("#{filesize(closure.size)} (#{filesize(deflate.size)} gzip)")}"
+                  
+                  if (output_file_exists)
+                    puts "#{yellow("overwrite")} #{output_str}"
+                  else
+                    puts "#{green("create")} #{output_str}"
+                  end
                 end unless closure.nil?
               end
             end
