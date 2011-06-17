@@ -100,9 +100,9 @@ end
 
 def filesize(bytes, label_style = 0)
   size = bytes
-  suffix = 'Bytes'
+  suffix = 'b'
   labels = {
-      0 => ['KB', 'MB'],
+      0 => ['kb', 'mb'],
       1 => ['Kilobytes', 'Megabytes'],
       2 => ['KiB', 'MiB']
     }
@@ -120,5 +120,5 @@ def filesize(bytes, label_style = 0)
     suffix = labels[label_style][1]
   end
   
-  size.to_s + ' ' + suffix
+  size.to_s + suffix
 end
