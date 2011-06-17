@@ -24,6 +24,10 @@ namespace :watch do
   task :js do
     require "closure-compiler"
 
+    
+    SETUP_JSON = File.join("resources", "fssm", "setup.json")
+    @json = JSON.parse(File.read(SETUP_JSON))
+    
     puts ">>> Polling for JavaScript changes. Press Ctrl-C to Stop"
     
     FSSM.monitor do
@@ -31,16 +35,16 @@ namespace :watch do
         glob "**/*.{js,json}"
 
         update do |base, relative|
-          # More expensive, but allows for live editing of JSON file
-          files = File.join("resources", "fssm", "setup.json");
-          json = JSON.parse(File.read(files))
           match = relative.sub(STATIC_DIR + "/", "")
           
-          json.each_pair do |key, group|
+          # More expensive, but allows for live editing of JSON file
+          @json = JSON.parse(File.read(SETUP_JSON)) if match.eql?(SETUP_JSON)
+          
+          @json.each_pair do |key, group|
             source = group["source"]
             output = group["output"]
             
-            if match.eql?(files) or source.include?(match)
+            if match.eql?(SETUP_JSON) or source.include?(match)
               puts ">>> Change detected to: #{relative}"
               code = String.new
 
