@@ -3,11 +3,13 @@ require "bundler/setup"
 require "fssm"
 require "json"
 require "zlib"
+require "term/ansicolor"
 
 PROJECT_ROOT = File.expand_path(File.dirname(__FILE__))
 STATIC_DIR = File.join("project", "static")
 COMPASS_DIR = File.join("resources", "compass")
-SETUP_JSON = JSON.parse(File.read(File.join("resources", "fssm", "setup.json")))
+
+include Term::ANSIColor
 
 namespace :watch do
   desc "Watching for Compass changes"
@@ -48,25 +50,32 @@ namespace :watch do
                 if File.exists?(current)
                   code += File.read(current)
                 else
-                  puts "File does not exist! #{file}"
+                  puts "    #{red("missing")} #{file}"
                 end
               end
 
               begin
                 closure = Closure::Compiler.new.compile(code)
               rescue Closure::Error => error
-                p error
+                p "    #{red("error")} #{error}"
               end
-
-              File.open(File.join(STATIC_DIR, output), "w") do |f|
-                f.write(closure)
-              end unless closure.nil?
               
-              size = File.size(File.join(STATIC_DIR, output))
-              puts "File size: #{filesize(size)}"
+              output_file = File.join(STATIC_DIR, output);
+              existing = File.read(output_file) if File.exists?(output_file)
+              
+              if (closure.eql?(existing))
+                puts "#{green("identical")} #{output}"
+              else
+                File.open(output_file, "w") do |f|
+                  f.write(closure)
+
                   gzip = Zlib::Deflate.new
                   deflate = gzip.deflate(closure)
                   gzip.close
+
+                  puts "#{yellow("overwrite")} #{output} #{yellow(">>>")} #{cyan("#{filesize(closure.size)} (#{filesize(deflate.size)} gzip)")}"
+                end unless closure.nil?
+              end
             end
           end
         end
