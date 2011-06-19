@@ -76,6 +76,8 @@ def compile_js(relative = nil)
         if code.eql?(existing)
           puts "#{green("identical")} #{output}"
         else
+          File.mkpath(File.dirname(output_file)) unless File.exists?(output_file)
+          
           File.open(output_file, "w") do |f|
             f.write(code)
 
