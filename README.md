@@ -29,7 +29,7 @@ Front-end build tools
 
 ## Setup
 
-    cd legendary_comicon/trunk
+    cd path/to/trunk
     bundle install
 
 ## Rake tasks
