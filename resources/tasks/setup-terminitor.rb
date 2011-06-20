@@ -1,10 +1,10 @@
-require "rbconfig"
-require "terminitor"
-
 class Rosy::Platform::Terminitor
   include Rosy
   
   def initialize
+    require "rbconfig"
+    require "terminitor"
+    
     @file = "example.term"
     @config = File.join(CONFIG_DIR, TERMINITOR_FILE)
     @master = File.expand_path(File.join("~", ".config", "terminitor"))
