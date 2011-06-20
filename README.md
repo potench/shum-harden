@@ -37,14 +37,14 @@ Front-end build tools
 #### Create a new Rosy page
 	$ rake create:page
 
+#### Update a subversion repository over git
+	$ rake dev:gitsvn
+
 #### JSHint your JavaScript
 	$ rake dev:jshint
 
 #### Setup Terminitor Project (OS X)
 	$ rake mac:setup:terminitor
-
-#### Update a subversion repository over git
-	$ rake update:git
 
 #### Watch for JavaScript changes to compress output
 	$ rake watch:closure
