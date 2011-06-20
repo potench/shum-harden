@@ -7,7 +7,7 @@ class Rosy::Development::JSHint
     @path = File.join(CONFIG_DIR, "jshint.yml")
   end
   
-  def run
-    JSHint::Lint.new(:config_path => @path).lint
+  def lint
+    JSHint::Lint.new(:config_path => @path).run
   end
 end
