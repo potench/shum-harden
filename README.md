@@ -3,7 +3,7 @@ Red-optimized HTML5 Boilerplate [http://html5boilerplate.com](http://html5boiler
 
 ## Includes
 
-- H5BP-friendly [base.html template](project/templates/base.html)
+- H5BP-friendly [base.html template](/ff0000/red-boilerplate/project/templates/base.html)
 - [Holmes CSS Debugger](http://www.red-root.com/sandbox/holmes/)
 - Modernizr/jQuery
 - [Rosy](/ff0000/rosy)
@@ -33,6 +33,9 @@ Front-end build tools
     bundle install
 
 ## Rake tasks
+
+#### See all available tasks
+	$ rake -T
 
 #### Create a new Rosy page
 	$ rake create:page
