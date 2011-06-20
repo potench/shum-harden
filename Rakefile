@@ -1,53 +1,57 @@
 require "rubygems"
 require "bundler/setup"
 
-PROJECT_ROOT = File.expand_path(File.dirname(__FILE__))
-STATIC_DIR = File.join("project", "static")
-RESOURCE_DIR = File.join("resources")
-TASKS_DIR = File.join(RESOURCE_DIR, "tasks")
-CONFIG_DIR = File.join(TASKS_DIR, "config")
+# Master class
+module Rosy
+  PROJECT_ROOT = File.expand_path(File.dirname(__FILE__))
+  STATIC_DIR = File.join("project", "static")
+  RESOURCE_DIR = File.join("resources")
+  TASKS_DIR = File.join(RESOURCE_DIR, "tasks")
+  CONFIG_DIR = File.join(TASKS_DIR, "config")
+  
+  # Module namespaces
+  module Watch; end
+  module Development; end
+  module Create; end
+  module Platform; end
+end
+
+# Require tasks
+Dir.glob(File.join(Rosy::TASKS_DIR, "*.rb"), &method(:require))
 
 namespace :watch do
   desc "Watch for CSS changes to generate SASS"
   task :compass do
-    require "resources/tasks/compass-watcher"
-    watch_compass
+    Rosy::Watch::Compass.new.run
   end
   
   desc "Watch for JavaScript changes to compress output"
   task :closure do
-    require "resources/tasks/closure-watcher"
-    watch_closure
+    Rosy::Watch::Closure.new.run
   end
   
   desc "Watch for JavaScript changes to JSHint your files"
   task :jshint do
-    require "resources/tasks/jshint-watcher"
-    watch_jshint
+    Rosy::Watch::JSHint.new.run
   end
 end
 
 namespace :dev do
   desc "JSHint your JavaScript"
   task :jshint do
-    require "resources/tasks/jshint"
-    jshint
+    Rosy::Development::JSHint.new.lint
   end
-end
-
-namespace :update do
+  
   desc "Update a subversion repository over git"
-  task :git do
-    require "resources/tasks/update-git-svn"
-    update_git
+  task :gitsvn do
+    Rosy::Development::GitSVN.new.update
   end
 end
 
 namespace :create do
   desc "Create a new Rosy page"
   task :page do
-    require "resources/tasks/setup-page"
-    create_page
+    Rosy::Create::Page.new.create
   end
 end
 
@@ -55,8 +59,7 @@ namespace :mac do
   namespace :setup do
     desc "Setup Terminitor Project (OS X)"
     task :terminitor do
-      require "resources/tasks/setup-terminitor"
-      setup_terminitor
+      Rosy::Platform::Terminitor.new.setup
     end
   end
 end

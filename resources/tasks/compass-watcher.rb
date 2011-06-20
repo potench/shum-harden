@@ -1,8 +1,14 @@
 require "sass"
 require "compass"
 
-COMPASS_DIR = File.join(RESOURCE_DIR, "compass")
-
-def watch_compass
-  system "compass watch #{COMPASS_DIR}"
+class Rosy::Watch::Compass
+  include Rosy
+  
+  def initialize
+    @dir = File.join(RESOURCE_DIR, "compass")
+  end
+  
+  def run
+    system "compass watch #{@dir}"
+  end
 end

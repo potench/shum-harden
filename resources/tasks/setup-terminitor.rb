@@ -1,22 +1,27 @@
 require "rbconfig"
 require "terminitor"
 
-TERMINITOR_FILE = "example.term"
-CONFIG = File.join(CONFIG_DIR, TERMINITOR_FILE)
-MASTER = File.expand_path(File.join("~", ".config", "terminitor"))
-
-def setup_terminitor
-
-  if File.exists?(File.join(MASTER, TERMINITOR_FILE))
-    puts "File exists! Aborting."
-    return
-  end
+class Rosy::Platform::Terminitor
+  include Rosy
   
-  if File.exists?(CONFIG) and File.exists?(MASTER)
-    FileUtils.cp(CONFIG, MASTER)
-    puts "Done. You can start the project by running 'terminitor start example'"
-  else
-    p "No config file found" unless File.exists?(CONFIG)
-    p "No master directory" unless File.exists?(MASTER)
+  def initialize
+    @file = "example.term"
+    @config = File.join(CONFIG_DIR, TERMINITOR_FILE)
+    @master = File.expand_path(File.join("~", ".config", "terminitor"))
+  end
+
+  def setup
+    if File.exists?(File.join(@master, @file))
+      puts "File exists! Aborting."
+      return
+    end
+
+    if File.exists?(@config) and File.exists?(@config)
+      FileUtils.cp(@config, @master)
+      puts "Done. You can start the project by running 'terminitor start example'"
+    else
+      p "No config file found" unless File.exists?(@config)
+      p "No master directory" unless File.exists?(@master)
+    end
   end
 end

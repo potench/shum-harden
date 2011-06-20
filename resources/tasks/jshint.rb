@@ -1,5 +1,13 @@
 require "jshint"
 
-def jshint
-  JSHint::Lint.new(:config_path => File.join(CONFIG_DIR, "jshint.yml")).run
+class Rosy::Development::JSHint
+  include Rosy
+  
+  def initialize
+    @path = File.join(CONFIG_DIR, "jshint.yml")
+  end
+  
+  def run
+    JSHint::Lint.new(:config_path => @path).lint
+  end
 end
