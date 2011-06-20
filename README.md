@@ -35,22 +35,22 @@ Front-end build tools
 ## Rake tasks
 
 #### Create a new Rosy page
-	`$ rake create:page`
+	$ rake create:page
 
 #### JSHint your JavaScript
-	`$ rake dev:jshint`
+	$ rake dev:jshint
 
 #### Setup Terminitor Project (OS X)
-	`$ rake mac:setup:terminitor`
+	$ rake mac:setup:terminitor
 
 #### Update a subversion repository over git
-	`$ rake update:git`
+	$ rake update:git
 
 #### Watch for JavaScript changes to compress output
-	`$ rake watch:closure`
+	$ rake watch:closure
 
 #### Watch for CSS changes to generate SASS
-	`$ rake watch:compass`
+	$ rake watch:compass
 
 #### Watch for JavaScript changes to JSHint your files
-	`$ rake watch:jshint`
+	$ rake watch:jshint
