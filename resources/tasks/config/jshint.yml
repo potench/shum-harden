@@ -10,7 +10,7 @@ paths:
   - project/static/js/**/*.js
 
 exclude_paths:
-  - project/static/js/red/plugins/history/libs/**/*.js
+  - project/static/js/red/plugins/**/libs/**/*.js
   - project/static/js/libs/**/*.js
   - project/static/js/**/*.min.js
 
