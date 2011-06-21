@@ -17,11 +17,6 @@ class Rosy::Create::Boilerplate
     system("git pull -s subtree #{local} #{branch}")
   end
   
-  def setup_boilerplate
-    system("git remote add boilerplate #{@boilerplate}")
-    system("git pull boilerplate master")
-  end
-  
   def setup_rosy
     subtree_merge "Rosy", "rosy", @rosy, File.join(STATIC_DIR.gsub!(PROJECT_ROOT + "/", ""), "js"), "master"
   end
@@ -31,7 +26,6 @@ class Rosy::Create::Boilerplate
   end
   
   def create
-    setup_boilerplate
     setup_rosy
     setup_compass
   end
