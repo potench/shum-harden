@@ -25,7 +25,7 @@ Front-end build tools
 	- `gem install bundler`
 - [Java](http://www.java.com/en/download/index.jsp)
 	- OS X: Pre-installed
-	- Ubuntu: [via Software Center](apt://openjdk-6-jre)
+	- Ubuntu: `sudo apt-get install openjdk-6-jre`
 
 ## Setup
 
