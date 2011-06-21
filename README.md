@@ -11,7 +11,7 @@ Red-optimized HTML5 Boilerplate [http://html5boilerplate.com](http://html5boiler
 - Lots of development & build tools (see below)
 
 Adding the RBP to your project
-==============================
+===============================
 
 #### Note: This assumes you've checked out the project via git-svn
 
