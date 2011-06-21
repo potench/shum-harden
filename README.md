@@ -48,6 +48,9 @@ Front-end build tools
 #### See all available tasks
 	$ rake -T
 
+#### Initialize the Red Boilerplate
+	$ rake create:boilerplate
+
 #### Create a new Rosy page
 	$ rake create:page
 
