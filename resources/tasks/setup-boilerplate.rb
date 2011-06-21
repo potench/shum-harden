@@ -23,7 +23,7 @@ class Rosy::Create::Boilerplate
   end
   
   def setup_rosy
-    subtree_merge "Rosy", "rosy", @rosy, File.join(STATIC_DIR, "js"), "master"
+    subtree_merge "Rosy", "rosy", @rosy, File.join(STATIC_DIR.gsub!(PROJECT_ROOT + "/", ""), "js"), "master"
   end
   
   def setup_compass
