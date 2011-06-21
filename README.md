@@ -16,7 +16,7 @@ Adding the RBP to your project
 #### Note: This assumes you've checked out the project via git-svn
 
     cd path/to/trunk
-    git remote add -f boilerplate git://github.com/ff0000/red-boilerplate.git
+    git remote add boilerplate git://github.com/ff0000/red-boilerplate.git
     git pull boilerplate master
     bundle install
     rake create:boilerplate
