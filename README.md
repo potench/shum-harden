@@ -13,7 +13,7 @@ Red-optimized HTML5 Boilerplate [http://html5boilerplate.com](http://html5boiler
 Adding the RBP to your project
 ==============================
 
-## Note: This assumes you've checked out the project via git-svn
+#### Note: This assumes you've checked out the project via git-svn
 
     cd path/to/trunk
     git remote add -f boilerplate git://github.com/ff0000/red-boilerplate.git
