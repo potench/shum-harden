@@ -1,10 +1,6 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* page.js */
 
-// Custom [JSLint](http://jslint.com) settings.
-/*global $: true, console: true, Class: true */
-/*jslint browser: true, onevar: true */
-
 // ## Local Namespace
 
 // Default Page functionality for the "Example" website.

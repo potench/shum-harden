@@ -3,10 +3,6 @@
 // - MIT Licensed.
 /* class.js */
 
-// Custom [JSLint](http://jslint.com) settings.
-/*global $: true, console: true, Class: true */
-/*jslint browser: true, onevar: true */
-
 // Inspired by base2 and Prototype
 (function () {
 	var initializing = false,
@@ -18,14 +14,15 @@
 	this.Class = function () {};
 
 	// Create a new Class that inherits from this class
-	Class.extend = function extend (prop) {
+	Class.extend = function extend(prop) {
 		var sup = this.prototype,
+		    This = this,
 		    prototype, name, tmp, ret, func;
 
 		// Instantiate a base class (but only create the instance,
 		// don't run the init constructor)
 		initializing = true;
-		prototype = new this();
+		prototype = new This();
 		initializing = false;
 
 		// Copy the properties over onto the new prototype
@@ -56,7 +53,7 @@
 		prototype.vars = $.extend(true, {}, this.prototype.vars, prototype.vars); // inherit vars
 
 		// The dummy class constructor
-		function Class (vars) {
+		function Class(vars) {
 
 			if (vars) {
 				$.extend(true, this.vars, vars); // override this.vars object with passed argument

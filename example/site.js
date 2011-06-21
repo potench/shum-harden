@@ -1,10 +1,6 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* site.js */
 
-// Custom [JSLint](http://jslint.com) settings.
-/*global $: true, console: true, Class: true */
-/*jslint browser: true, onevar: true */
-
 // ## The RED Namespace
 var RED = RED || {};
 
@@ -16,7 +12,7 @@ var Example = Example || {};
 // Site shell object
 
 // Model manager and shell manager
-RED.SITE = $.extend(true, Example, RED, function () {
+RED.SITE = $.extend(true, Example, RED, (function () {
 	
 	return {
 		
@@ -44,4 +40,4 @@ RED.SITE = $.extend(true, Example, RED, function () {
 			}
 		}
 	};
-}());
+}()));
