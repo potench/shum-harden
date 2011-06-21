@@ -4,9 +4,9 @@ require "bundler/setup"
 # Master class
 module Rosy
   PROJECT_ROOT = File.expand_path(File.dirname(__FILE__))
-  STATIC_DIR = File.join("project", "static")
+  STATIC_DIR = File.join(PROJECT_ROOT, "project", "static")
   RESOURCE_DIR = File.join("resources")
-  TASKS_DIR = File.join(RESOURCE_DIR, "tasks")
+  TASKS_DIR = File.join(PROJECT_ROOT, "resources", "tasks")
   CONFIG_DIR = File.join(TASKS_DIR, "config")
   
   # Module namespaces
