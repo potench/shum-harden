@@ -10,6 +10,17 @@ Red-optimized HTML5 Boilerplate [http://html5boilerplate.com](http://html5boiler
 - [Compass](/ff0000/red-compass-framework)
 - Lots of development & build tools (see below)
 
+Adding the RBP to your project
+==============================
+
+## Note: This assumes you've checked out the project via git-svn
+
+    cd path/to/trunk
+    git remote add -f boilerplate git://github.com/ff0000/red-boilerplate.git
+    git pull boilerplate master
+    bundle install
+    rake create:boilerplate
+
 Front-end build tools
 =====================
 
