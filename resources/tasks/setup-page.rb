@@ -48,7 +48,7 @@ class Rosy::Create::Page
     say("\n")
     say("Don't forget to:")
     say("    1. Add your file to base.html")
-    say("    2. Add your file to #{File.join(CONFIG_DIR, "setup.json")}")
+    say("    2. Add your file to #{File.join(CONFIG_DIR.gsub!(PROJECT_ROOT + "/", ""), "setup.json")}")
     say("\n")
   end
 
