@@ -11,39 +11,60 @@ var RED = RED || {};
 // ## RED.History
 // A bootstrap to add [History.js](https://github.com/balupton/History.js/) functionality to the Rosy Framework.
 RED.History = RED.Class.extend({
-
+	vars : {},
+	
 	// Load the required History.js dependencies.
 	init : function (scope) {
-		if (!scope) {
+		if (!scope || !RED.SYS || !RED.SYS.MEDIA_URL) {
 			throw "You must define a scope.";
 		}
 		
-		this.scope = scope;
+		this.vars.scope = scope;
+		
+		var HISTORY_PATH = RED.SYS.MEDIA_URL + "js/red/plugins/history/";
 		
 		Modernizr.load([{
 			test : window.JSON && window.JSON.stringify,
-			nope : "media/js/libs/json2.js",
-			both : "media/js/libs/amplify.store.js"
+			nope : HISTORY_PATH + "libs/json2.js",
+			both : HISTORY_PATH + "libs/amplify.store.js"
 		}, {
 			test : $,
-			yep : "media/js/libs/plugins/history.adapter.jquery.js"
+			yep : HISTORY_PATH + "libs/plugins/history.adapter.jquery.js"
 		}, {
 			test : Modernizr.history,
-			yep : "media/js/libs/history.js",
-			nope : "media/js/libs/history.html4.js",
+			yep : HISTORY_PATH + "libs/history.js",
+			nope : HISTORY_PATH + "libs/history.html4.js",
 			complete : $.proxy(this.setupEvents, this)
 		}]);
 	},
 
 	// Attach `statechange` event listener
 	setupEvents : function () {
+		$(document.body).delegate("a[rel='history']", "click", function (e) {
+			var el = $(this);
+			
+			History.pushState({
+				state : el.attr("title")
+			}, el.attr("title"), el.attr("href"));
+			
+			e.preventDefault();
+		});
+		
 		History.Adapter.bind(window, "statechange", $.proxy(this.onStateChange, this));
 	},
 
 	// On `statechange`, call RED.Class.refresh
 	onStateChange : function () {
-		if (this.scope && this.scope.refresh) {
-			this.scope.refresh.call(this.scope, History.getState());
+		var key, obj;
+		
+		for (key in this.vars.scope) {
+			if (this.vars.scope.hasOwnProperty(key)) {
+				obj = this.vars.scope[key];
+
+				if (obj && obj.refresh) {
+					obj.refresh.call(obj, History.getState());
+				}
+			}
 		}
 	}
 	
