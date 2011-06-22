@@ -3,31 +3,28 @@
 // - MIT Licensed.
 /* class.js */
 
-// Custom [JSLint](http://jslint.com) settings.
-/*global $: true, console: true, Class: true */
-/*jslint browser: true, onevar: true */
-
 // Inspired by base2 and Prototype
 (function () {
 	var initializing = false,
 		fnTest = (/xyz/).test(function () {
 			var xyz;
 		}) ? (/\bsup\b/) : (/.*/);
-	
+
 	// The base Class implementation (does nothing)
 	this.Class = function () {};
 
 	// Create a new Class that inherits from this class
 	Class.extend = function extend(prop) {
 		var sup = this.prototype,
+		    This = this,
 		    prototype, name, tmp, ret, func;
 
 		// Instantiate a base class (but only create the instance,
 		// don't run the init constructor)
 		initializing = true;
-		prototype = new this();
+		prototype = new This();
 		initializing = false;
-		
+
 		// Copy the properties over onto the new prototype
 		for (name in prop) {			
 			if (prop.hasOwnProperty(name)) {
@@ -52,16 +49,16 @@
 				}(name, func)) : func;
 			}
 		}
-		
-		prototype.vars = $.extend(true,{},this.prototype.vars,prototype.vars); // inherit vars
-			
+
+		prototype.vars = $.extend(true, {}, this.prototype.vars, prototype.vars); // inherit vars
+
 		// The dummy class constructor
 		function Class(vars) {
-			
-			if(vars) {
-				$.extend(true, this.vars,vars); // override this.vars object with passed argument
+
+			if (vars) {
+				$.extend(true, this.vars, vars); // override this.vars object with passed argument
 			}
-						
+			
 			// All construction is actually done in the init method
 			if (!initializing && this.init) {
 				this.init.apply(this, arguments);

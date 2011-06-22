@@ -1,10 +1,6 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* page-control.js */
 
-// Custom [JSLint](http://jslint.com) settings.
-/*global $: true, console: true, Class: true */
-/*jslint browser: true, onevar: true */
-
 // The RED Namespace
 var RED = RED || {};
 
@@ -13,19 +9,19 @@ var RED = RED || {};
 // 
 // Usage:
 // 
-// 	var control = new RED.PageControl({
-// 		parent : $("#controller"),
-// 		list : $("#controller > ul"), // optional, assumes parent child as list
-// 		items : $("#controller > ul > li") // optional, assumes list children as items
-// 	});
-// 	
-// 	control.bind("paginate", function (e) {
-// 		console.log(e);
-// 	});
-// 	
-// 	control.bind("touchend", function (e) {
-// 		console.log(e);
-// 	});
+//  var control = new RED.PageControl({
+//      parent : $("#controller"),
+//      list : $("#controller > ul"), // optional, assumes parent child as list
+//      items : $("#controller > ul > li") // optional, assumes list children as items
+//  });
+//  
+//  control.bind("paginate", function (e) {
+//      console.log(e);
+//  });
+//  
+//  control.bind("touchend", function (e) {
+//      console.log(e);
+//  });
 RED.PageControl = (function () {
 	
 	// Extends RED.Module
@@ -65,7 +61,7 @@ RED.PageControl = (function () {
 			el = el[0] || el;
 			
 			var transform = window.getComputedStyle(el, null).webkitTransform,
-			    matrix = new WebKitCSSMatrix(transform);
+			    matrix = new window.WebKitCSSMatrix(transform);
 
 			return matrix;
 		},
@@ -222,7 +218,9 @@ RED.PageControl = (function () {
 					this.trigger("touchend");
 				}, this),
 				
-				// A safety catcher for CSS transitions. Nutshell: in some cases transitions are offset by ~1px. This listener fires at the end of a transition event and makes sure the values end on a round number.
+				// A safety catcher for CSS transitions.
+				// Nutshell: in some cases transitions are offset by ~1px.
+				// This listener fires at the end of a transition event and makes sure the values end on a round number.
 				webkitTransitionEnd : $.proxy(this.roundMatrixValues, this)
 			});
 		},

@@ -1,10 +1,6 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* ticker.js */
 
-// Custom [JSLint](http://jslint.com) settings.
-/*global $: true, console: true, Class: true */
-/*jslint browser: true, onevar: true */
-
 // The RED Namespace
 var RED = RED || {};
 
@@ -13,23 +9,23 @@ var RED = RED || {};
 // 
 // Usage:
 // 
-// 	var ticker = new RED.Ticker({
-// 		now : new Date(),
-// 		start : "Sun Jun 12 11:25:00 2011",
-// 		end : "Mon Jun 13 11:45:00 2011"
-// 	});
+//  var ticker = new RED.Ticker({
+//      now : new Date(),
+//      start : "Sun Jun 12 11:25:00 2011",
+//      end : "Mon Jun 13 11:45:00 2011"
+//  });
 // 
-// 	ticker.bind("start", function () {
-// 		// on start
-// 	});
+//  ticker.bind("start", function () {
+//      // on start
+//  });
 // 
-// 	ticker.bind("tick", function (hours, minutes, seconds) {
-// 		console.log(hours, minutes, seconds);
-// 	});
+//  ticker.bind("tick", function (hours, minutes, seconds) {
+//      console.log(hours, minutes, seconds);
+//  });
 // 
-// 	ticker.bind("complete", function () {
-// 		// on complete
-// 	});
+//  ticker.bind("complete", function () {
+//      // on complete
+//  });
 RED.Ticker = (function () {
 	
 	// Extends RED.Module
@@ -86,7 +82,7 @@ RED.Ticker = (function () {
 		// 
 		// Ex:
 		// 
-		// 	["01", "13", "52"] // 1:13:52 remaining
+		//  ["01", "13", "52"] // 1:13:52 remaining
 		getPrettyTime : function () {
 			var hours, minutes, seconds;
 

@@ -1,10 +1,6 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* module.js */
 
-// Custom [JSLint](http://jslint.com) settings.
-/*global $: true, console: true, Class: true */
-/*jslint browser: true, onevar: true */
-
 // ## The RED Namespace
 var RED = RED || {};
 
