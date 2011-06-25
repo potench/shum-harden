@@ -21,8 +21,8 @@ class Rosy::Watch::Closure
     @json = JSON.parse(File.read(@file)) if match.eql?(@file)
 
     @json.each_pair do |key, group|
-      source = group["source"]
-      output = group["output"]
+      source = group["source"].to_a
+      output = group["output"].to_s
 
       if match.eql?(@file) or source.include?(match) or relative.nil?
         puts ">>> #{(relative.nil? || match.eql?(@file)) ? "Compiling" : "Change detected to: #{relative} in"} group \"#{key}\""
