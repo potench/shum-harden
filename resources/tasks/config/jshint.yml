@@ -21,7 +21,7 @@ exclude_paths:
 # "enforce" type options (true means potentially more warnings)
 
 adsafe:   false     # true if ADsafe rules should be enforced. See http://www.ADsafe.org/
-bitwise:  true      # true if bitwise operators should not be allowed
+bitwise:  false     # true if bitwise operators should not be allowed
 newcap:   true      # true if Initial Caps must be used with constructor functions
 eqeqeq:   true      # true if === should be required (for ALL equality comparisons)
 immed:    true      # true if immediate function invocations must be wrapped in parens
