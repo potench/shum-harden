@@ -49,11 +49,6 @@ namespace :dev do
 end
 
 namespace :create do
-  desc "Initialize the Red Boilerplate"
-  task :boilerplate do
-    Rosy::Create::Boilerplate.new.create
-  end
-  
   desc "Create a new Rosy page"
   task :page do
     Rosy::Create::Page.new.create
