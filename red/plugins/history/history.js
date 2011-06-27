@@ -46,6 +46,7 @@ RED.History = RED.Class.extend({
 		});
 		
 		History.Adapter.bind(window, "statechange", $.proxy(this.onStateChange, this));
+		History.Adapter.trigger(window, "statechange");
 	},
 
 	// On `statechange`, call RED.Class.refresh
