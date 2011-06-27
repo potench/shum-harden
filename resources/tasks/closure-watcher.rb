@@ -11,11 +11,12 @@ class Rosy::Watch::Closure
   def initialize
     @file = File.join(CONFIG_DIR, "setup.json")
     @json = JSON.parse(File.read(@file))
+    @static = "#{STATIC_DIR.gsub!(PROJECT_ROOT + "/", "")}/"
     @compiled = Hash.new
   end
   
   def compile(relative = nil)
-    match = relative.sub(STATIC_DIR + "/", "") unless relative.nil?
+    match = relative.sub(@static, "") unless relative.nil?
 
     # More expensive, but allows for live editing of JSON file
     @json = JSON.parse(File.read(@file)) if match.eql?(@file)
