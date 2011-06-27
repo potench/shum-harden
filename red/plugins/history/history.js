@@ -39,7 +39,7 @@ RED.History = RED.Class.extend({
 			var el = $(this);
 			
 			History.pushState({
-				state : el.attr("title")
+				state : el.data("pageClass")
 			}, el.attr("title"), el.attr("href"));
 			
 			e.preventDefault();
