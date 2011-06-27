@@ -29,8 +29,7 @@ RED.History = RED.Class.extend({
 		}, {
 			test : Modernizr.history,
 			yep : HISTORY_PATH + "libs/history.js",
-			nope : HISTORY_PATH + "libs/history.html4.js",
-			complete : $.proxy(this.setupEvents, this)
+			callback : $.proxy(this.setupEvents, this)
 		}]);
 	},
 
