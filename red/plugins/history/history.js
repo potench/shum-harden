@@ -7,7 +7,9 @@ var RED = RED || {};
 // ## RED.History
 // A bootstrap to add [History.js](https://github.com/balupton/History.js/) functionality to the Rosy Framework.
 RED.History = RED.Class.extend({
-	vars : {},
+	vars : {
+		scope : null
+	},
 	
 	// Load the required History.js dependencies.
 	init : function (scope) {
