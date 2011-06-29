@@ -37,18 +37,22 @@ RED.History = RED.Class.extend({
 
 	// Attach `statechange` event listener
 	setupEvents : function () {
-		$(document.body).delegate("a[rel='history']", "click", function (e) {
-			var el = $(this);
+		var adapter = History.Adapter,
+		    el;
+		
+		// Hijax all <a data-history-page="foo"> changes
+		$(document.body).delegate("a[data-history-page]", "click", function (e) {
+			el = $(this);
 			
 			History.pushState({
-				state : el.data("pageClass")
-			}, el.attr("title"), el.attr("href"));
+				state : el.data("historyPage")
+			}, el.data("historyTitle"), el.attr("href"));
 			
 			e.preventDefault();
 		});
 		
-		History.Adapter.bind(window, "statechange", $.proxy(this.onStateChange, this));
-		History.Adapter.trigger(window, "statechange");
+		adapter.bind(window, "statechange", $.proxy(this.onStateChange, this));
+		adapter.trigger(window, "statechange");
 	},
 
 	// On `statechange`, call RED.Class.refresh
