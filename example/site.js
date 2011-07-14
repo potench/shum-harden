@@ -26,18 +26,28 @@ RED.SITE = $.extend(true, Example, RED, (function () {
 			$(document).ready(this.onReady.call(this));
 		},
 		
+		createModel : function (page, vars) {
+			var master = Example.Page,
+			    model = (page && typeof master[page] === "function" ? master[page] : master);
+			
+			return this.models[page || "page"] = new model(vars);
+		},
+		
+		getModel : function (page) {
+			return this.models[page];
+		},
+		
+		getModels : function () {
+			return this.models;
+		},
+		
 		onReady : function () {
 			var body = $("body"),
 			    // Use `attr("data-page-class")` if < jQuery 1.6
 				pageClass = body.data("pageClass");
 			
 			// creates `Page()` based on `<div data-page-class="Home">`
-			if (pageClass && typeof Example.Page[pageClass] === "function") {
-				this.models[pageClass] = new Example.Page[pageClass]();
-			// defaults to `Example.Page();`
-			} else {
-				this.models.page = new Example.Page();
-			}
+			this.createModel(pageClass);
 		}
 	};
 }()));
