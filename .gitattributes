@@ -6,4 +6,14 @@
 *.exe binary
 *.eot binary
 *.ttf binary
+*.otf binary
 *.pdf binary
+*.woff binary
+
+# Flash Binaries
+*.swc binary
+*.fla binary
+*.swf binary
+*.as  binary
+
+*.mp3 binary
