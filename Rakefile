@@ -34,6 +34,11 @@ namespace :watch do
   task :jshint do
     Rosy::Watch::JSHint.new.run
   end
+  
+  desc "Watch for application changes to update the application cache"
+  task :appcache do
+    Rosy::Watch::AppCache.new.run
+  end
 end
 
 namespace :dev do
