@@ -20,16 +20,16 @@
 @mixin microfix {
 	// For modern browsers
 	&:before, &:after {
-		content:"";
-		display:table;
+		content: "";
+		display: table;
 	}
 
 	&:after {
-		clear:both;
+		clear: both;
 	}
 
 	@if $legacy-support-for-ie {
 		// For IE 6/7 (trigger hasLayout)
-		zoom : 1;
+		zoom: 1;
 	}
 }
