@@ -1,0 +1,3 @@
+[submodule "red/plugins/bloom"]
+	path = red/plugins/bloom
+	url = git://github.com/ff0000/rosy-bloom.git
