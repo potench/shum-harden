@@ -2,6 +2,7 @@
 # Set this to the root of your project when deployed:
 http_path = "/"
 css_dir = "../../project/static/css"
+fonts_dir = "../../project/static/fonts"
 sass_dir = "sass"
 images_dir = "../../project/static/img"
 javascripts_dir = "../../project/static/js"
