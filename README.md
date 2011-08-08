@@ -13,7 +13,11 @@ Red-optimized HTML5 Boilerplate [http://html5boilerplate.com](http://html5boiler
 Adding the RBP to your project
 ==============================
 
-#### Note: This assumes you've checked out the project via git-svn
+#### via git
+
+    git remote add -f boilerplate git://github.com/ff0000/red-boilerplate.git && git pull boilerplate master
+
+#### via git-svn
 
     cd path/to/trunk
     git remote add -f boilerplate git://github.com/ff0000/red-boilerplate.git && git pull boilerplate master
@@ -24,17 +28,23 @@ Front-end build tools
 
 ## Requirements
 
-- [Ruby](http://www.ruby-lang.org/en/)
+- [Ruby <= 1.8.7](http://www.ruby-lang.org/en/)
 	- OS X: Pre-installed
 	- Ubuntu: `sudo apt-get install ruby`
-- [RubyGems](http://rubygems.org/)
-	- OS X: Pre-installed
+- [RubyGems <= 1.6.2](http://rubygems.org/)
+	- OS X: `sudo gem update --system`
 	- Ubuntu: `sudo apt-get install rubygems`
 - [Bundler](http://gembundler.com/)
 	- `gem install bundler`
 - [Java](http://www.java.com/en/download/index.jsp)
 	- OS X: Pre-installed
 	- Ubuntu: `sudo apt-get install openjdk-6-jre`
+
+## Optional
+
+- [RVM](http://beginrescueend.com/)
+	- RVM is a command-line tool which allows you to easily install, manage and work with multiple ruby environments, from interpreters to sets of gems.
+	- `bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)`
 
 ## Setup
 
@@ -57,6 +67,9 @@ Front-end build tools
 
 #### Setup Terminitor Project (OS X)
 	$ rake mac:setup:terminitor
+
+#### Watch for application changes to update the application cache
+	$ rake watch:appcache
 
 #### Watch for JavaScript changes to compress output
 	$ rake watch:closure
