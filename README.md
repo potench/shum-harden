@@ -59,14 +59,9 @@ Front-end build tools
 #### Create a new Rosy page
 	$ rake create:page
 
-#### Update a subversion repository over git
-	$ rake dev:gitsvn
-
 #### JSHint your JavaScript
 	$ rake dev:jshint
 
-#### Setup Terminitor Project (OS X)
-	$ rake mac:setup:terminitor
 
 #### Watch for application changes to update the application cache
 	$ rake watch:appcache
