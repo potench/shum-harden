@@ -59,12 +59,3 @@ namespace :create do
     Rosy::Create::Page.new.create
   end
 end
-
-namespace :mac do
-  namespace :setup do
-    desc "Setup Terminitor Project (OS X)"
-    task :terminitor do
-      Rosy::Platform::Terminitor.new.setup
-    end
-  end
-end
