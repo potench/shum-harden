@@ -94,16 +94,15 @@
 						complete : function () {
 							Example.init();
 						}
-					}, { // Google Analytics
-						load : "//" + ("https:" == document.location.protocol ? "ssl" : "www") + ".google-analytics.com/ga.js",
-						callback : function () {
-							var _gaq = _gaq || [];
-							_gaq.push(["_setAccount", "UA-21782465-1"]);
-							_gaq.push(["_setDomainName", "none"]);
-							_gaq.push(["_setAllowLinker", true]);
-							_gaq.push(["_trackPageview"]);
-						}
 					}]);
+
+					// Google Analytics
+					// Change UA-XXXXX-X to be your site's ID
+					window._gaq = [["_setAccount", "UAXXXXXXXX1"], ["_trackPageview"], ["_trackPageLoadTime"]];
+
+					Modernizr.load({
+						load : ("https:" == location.protocol ? "//ssl" : "//www") + ".google-analytics.com/ga.js"
+					});
 				}());
 			</script>
 		</div>
