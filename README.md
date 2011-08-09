@@ -23,6 +23,13 @@ Adding the RBP to your project
     git remote add -f boilerplate git://github.com/ff0000/red-boilerplate.git && git pull boilerplate master
     git svn rebase -s ours && git pull boilerplate master
 
+Updating the RBP
+================
+
+It is recommended you keep your boilerplate up-to-date. The RBP is actively maintained and keeps a close eye on the master HTML5 boilerlplate. Run the following command to update:
+
+    rake dev:update
+
 Front-end build tools
 =====================
 
@@ -62,6 +69,8 @@ Front-end build tools
 #### JSHint your JavaScript
 	$ rake dev:jshint
 
+#### Update the Red Boilerplate
+	$ rake dev:update
 
 #### Watch for application changes to update the application cache
 	$ rake watch:appcache
