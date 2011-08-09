@@ -42,6 +42,11 @@ namespace :watch do
 end
 
 namespace :dev do
+  desc "Update the Red Boilerplate"
+  task :update do
+    Rosy::Development::Update.new.run
+  end
+
   desc "JSHint your JavaScript"
   task :jshint do
     Rosy::Development::JSHint.new.lint
