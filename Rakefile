@@ -46,11 +46,6 @@ namespace :dev do
   task :jshint do
     Rosy::Development::JSHint.new.lint
   end
-  
-  desc "Update a subversion repository over git"
-  task :gitsvn do
-    Rosy::Development::GitSVN.new.update
-  end
 end
 
 namespace :create do
