@@ -12,7 +12,7 @@ class Rosy::Development::Update
   end
 
   def update_boilerplate
-    system("git pull boilerplate master")
+    system("git pull -s ours boilerplate master")
   end
 
   def update_compass
