@@ -3,6 +3,7 @@
 <!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
 <!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
 	<head>
 		<meta charset="utf-8" />
@@ -45,13 +46,13 @@
 	</head>
 	<body class="{{ PAGE|lower }}{% if TEMPLATE_DEBUG %} holmes-debug{% endif %}" data-page-class="{{ PAGE|capfirst }}">
 		<div id="container">
-			<header role="banner">
+			<header>
 				<nav role="navigation"></nav>
 			</header>
 			<div id="main" role="main">
 				
 			</div>
-			<footer role="contentinfo">
+			<footer>
 				
 			</footer>
 		</div> <!--! end of #container -->
@@ -98,13 +99,26 @@
 
 					// Google Analytics
 					// Change UA-XXXXX-X to be your site's ID
-					window._gaq = [["_setAccount", "UAXXXXXXXX1"], ["_trackPageview"], ["_trackPageLoadTime"]];
+					window._gaq = [["_setAccount", "UAXXXXXXXX1"], ["_trgackPageview"], ["_trackPageLoadTime"]];
 
 					Modernizr.load({
 						load : ("https:" == location.protocol ? "//ssl" : "//www") + ".google-analytics.com/ga.js"
 					});
 				}());
 			</script>
+
+			<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+				 chromium.org/developers/how-tos/chrome-frame-getting-started -->
+			<!--[if lte IE 7 ]>
+				<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+				<script>
+					window.attachEvent("onload", function () {
+						CFInstall.check({
+							mode : "overlay"
+						});
+					});
+				</script>
+			<![endif]-->
 		</div>
 	</body>
 </html>
