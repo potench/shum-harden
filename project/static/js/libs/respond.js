@@ -1,4 +1,4 @@
-/*! Respond.js: min/max-width media query polyfill. (c) Scott Jehl. MIT Lic. j.mp/respondjs  */
+/*! Respond.js: min/max-width media query polyfill. (c) Scott Jehl. MIT/GPLv2 Lic. j.mp/respondjs  */
 (function( win, mqSupported ){
 	//exposed namespace
 	win.respond		= {};
@@ -40,16 +40,19 @@
 
 				//only links plz and prevent re-parsing
 				if( !!href && isCSS && !parsedSheets[ href ] ){
-					if( !/^([a-zA-Z]+?:(\/\/)?)/.test( href ) 
-						|| href.replace( RegExp.$1, "" ).split( "/" )[0] === win.location.host ){
-						requestQueue.push( {
-							href: href,
-							media: media
-						} );
-					}
-					else{
+					// selectivizr exposes css through the rawCssText expando
+					if (sheet.styleSheet.rawCssText) {
+						translate( sheet.styleSheet.rawCssText, href, media );
 						parsedSheets[ href ] = true;
-					}	
+					} else {
+						if( !/^([a-zA-Z]+?:(\/\/)?)/.test( href )
+							|| href.replace( RegExp.$1, "" ).split( "/" )[0] === win.location.host ){
+							requestQueue.push( {
+								href: href,
+								media: media
+							} );
+						}
+					}
 				}
 			}
 			makeRequests();
@@ -211,21 +214,12 @@
 		},
 		//define ajax obj 
 		xmlHttp = (function() {
-			var xmlhttpmethod = false,
-				attempts = [
-					function(){ return new ActiveXObject("Microsoft.XMLHTTP") },
-					function(){ return new XMLHttpRequest() }		
-				],
-				al = attempts.length;
-		
-			while( al-- ){
-				try {
-					xmlhttpmethod = attempts[ al ]();
-				}
-				catch(e) {
-					continue;
-				}
-				break;
+			var xmlhttpmethod = false;	
+			try {
+				xmlhttpmethod = XMLHttpRequest();
+			}
+			catch( e ){
+				xmlhttpmethod = new ActiveXObject( "Microsoft.XMLHTTP" );
 			}
 			return function(){
 				return xmlhttpmethod;

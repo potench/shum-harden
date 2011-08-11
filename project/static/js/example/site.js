@@ -5,7 +5,7 @@
 var RED = RED || {};
 
 // ## Local Namespace
-// Example Site object, controls global functionality and instantiates the Example Default Page.
+// Site object, controls global functionality and instantiates the Default Page.
 // You should replace the namespace "Example" with your own Site namespace, this is only an example.
 var Example = Example || {};
 
@@ -20,14 +20,19 @@ RED.SITE = $.extend(true, Example, RED, (function () {
 		
 		init : function () {
 			// Create the site shell
-			this.models.Shell = new Example.Shell();
+			this.models.Shell = new this.Shell();
 			
 			// Wait for DOMContentLoaded
 			$(document).ready(this.onReady.call(this));
 		},
+
+		setMediaURL : function () {
+			RED.SYS = RED.SYS || {};
+			RED.SYS.MEDIA_URL = $("link[rel='media-url']").attr("href");
+		},
 		
 		createModel : function (page, vars) {
-			var master = Example.Page,
+			var master = this.Page,
 			    model = (page && typeof master[page] === "function" ? master[page] : master);
 			
 			return this.models[page || "page"] = new model(vars);
@@ -47,6 +52,7 @@ RED.SITE = $.extend(true, Example, RED, (function () {
 				pageClass = body.data("pageClass");
 			
 			// creates `Page()` based on `<div data-page-class="Home">`
+			this.setMediaURL();
 			this.createModel(pageClass);
 		}
 	};
