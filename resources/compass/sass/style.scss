@@ -24,6 +24,7 @@ Requires:
 
 // Import page globals
 @import "partials/header";
+@import "partials/globals";
 @import "partials/footer";
 
 // Any other partials?
@@ -31,3 +32,8 @@ Requires:
 
 // Any IE styles?
 @import "partials/ie";
+
+// You can import your individual page views here
+// Alternatively, if you'd like individual .css files for each page
+// you can move these files to the sass root and remove the "_" prefix
+@import "views/home";
