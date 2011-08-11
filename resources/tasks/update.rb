@@ -7,6 +7,7 @@ class Rosy::Development::Update
     @rosy = %x[git remote show | grep rosy]
 
     @branch = %x[git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/']
+    @branch.gsub!(/\*[\w+]?/, "").strip!
   end
 
   def update_subtree repo
