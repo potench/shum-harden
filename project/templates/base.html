@@ -28,11 +28,7 @@
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
 		<!-- CSS: implied media="all" -->
-		{% if TEMPLATE_DEBUG %}
 		<link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css" />
-		{% else %}
-		<link rel="stylesheet" href="{{ MEDIA_URL }}css/style.min.css" />
-		{% endif %}
 
 		{% if TEMPLATE_DEBUG %}
 		<!-- holmes.css - CSS Markup Detective: j.mp/holmescss -->
