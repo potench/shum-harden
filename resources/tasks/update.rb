@@ -5,22 +5,30 @@ class Rosy::Development::Update
     @boilerplate = %x[git remote show | grep boilerplate]
     @compass = %x[git remote show | grep compass]
     @rosy = %x[git remote show | grep rosy]
+
+    @branch = %x[git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/']
   end
 
   def update_subtree repo
-    system("git pull -s subtree #{repo} master")
+    system("git pull -s subtree #{repo} #{@branch}")
   end
 
   def update_boilerplate
+    p "Fetching the latest Red Boilerplate..."
+
     system("git fetch boilerplate")
     system("git merge boilerplate/master")
   end
 
   def update_compass
+    p "Updating Red Compass Framework..."
+
     self.update_subtree "compass"
   end
 
   def update_rosy
+    p "Updating Rosy..."
+    
     self.update_subtree "rosy"
   end
   
