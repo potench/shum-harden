@@ -33,9 +33,9 @@ RED.SITE = $.extend(true, Example, RED, (function () {
 		
 		createModel : function (page, vars) {
 			var master = this.Page,
-			    model = (page && typeof master[page] === "function" ? master[page] : master);
+			    Model = (page && typeof master[page] === "function" ? master[page] : master);
 			
-			return this.models[page || "page"] = new model(vars);
+			return (this.models[page || "page"] = new Model(vars));
 		},
 		
 		getModel : function (page) {
