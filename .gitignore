@@ -18,6 +18,7 @@
 .tmproj
 nbproject
 Thumbs.db
+.pydev
 
 # Dreamweaver added files
 _notes
@@ -38,3 +39,38 @@ publish
 # build script local files
 build/buildinfo.properties
 build/config/buildinfo.properties
+
+# Python
+*.py[co]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+#Translations
+*.mo
+
+#Mr Developer
+.mr.developer.cfg
+
+# Django
+*.log
+*.pot
+*.pyc
+local_settings.py
