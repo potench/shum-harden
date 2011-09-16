@@ -55,8 +55,7 @@ Front-end build tools
 
 ## Setup
 
-    cd path/to/trunk
-    bundle install
+    gem install bundler && bundle install
 
 ## Rake tasks
 
