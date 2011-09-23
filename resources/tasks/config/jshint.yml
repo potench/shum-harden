@@ -12,7 +12,8 @@ paths:
 exclude_paths:
   - project/static/js/red/plugins/**/libs/**/*.js
   - project/static/js/libs/**/*.js
-  - project/static/js/**/*.min.js
+  - project/static/js/**/views/**/*.js
+  - project/static/js/libs/**/*.js
 
 
 # ------------ jshint options ------------
