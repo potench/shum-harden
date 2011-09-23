@@ -11,7 +11,7 @@ var Example = Example || {};
 // Site shell object
 Example.Shell = (function () {
 	
-	return Example.Class.extend({
+	return Example.Page.extend({
 		vars : {},
 		
 		init : function () {
