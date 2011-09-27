@@ -45,7 +45,11 @@ RED.Module.CustomFormField = (function () {
 		},
 
 		addCustomWrapper : function () {
-			this.vars.wrap = $('<span></span>').addClass("customfield").addClass(this.vars.type);
+			this.vars.wrap = $('<span></span>').addClass("customfield");
+
+			this.vars.wrap.addClass(this.vars.field.attr("class"));
+			this.vars.wrap.addClass(this.vars.type);
+
 			this.vars.wrap.insertAfter(this.vars.field);
 			this.vars.field.appendTo(this.vars.wrap);
 
