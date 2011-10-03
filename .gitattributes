@@ -9,6 +9,8 @@
 *.otf binary
 *.pdf binary
 *.woff binary
+*.bz2 binary
+*.gz binary
 
 # Flash Binaries
 *.swc binary
