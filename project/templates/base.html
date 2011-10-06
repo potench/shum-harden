@@ -9,10 +9,10 @@
 		<meta charset="utf-8" />
 
 		<!-- Prefetch your CDN URL: http://j.mp/bplatednsfetch -->
-		<link rel="dns-prefetch" href="{{ MEDIA_URL }}" />
+		<link rel="dns-prefetch" href="{{ STATIC_URL }}" />
 
-		<!-- Set MEDIA_URL parameter -->
-		<link rel="media-url" href="{{ MEDIA_URL }}" />
+		<!-- Set STATIC_URL parameter -->
+		<link rel="media-url" href="{{ STATIC_URL }}" />
 
 		<title>{% block title %}__PROJECT_NAME__{% endblock title %}</title>
 
@@ -25,18 +25,18 @@
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
 		<!-- CSS: implied media="all" -->
-		<link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
 
 		{% if TEMPLATE_DEBUG %}
 		<!-- holmes.css - CSS Markup Detective: j.mp/holmescss -->
-		<link rel="stylesheet" href="{{ MEDIA_URL }}css/debug/holmes.css" />
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/debug/holmes.css" />
 		{% endif %}
 
 		<!-- All JavaScript at the bottom, except for Modernizr and Respond.
 		     Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
 		     For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
-		<script src="{{ MEDIA_URL }}js/libs/modernizr-2.0.js"></script>
-		<script src="{{ MEDIA_URL }}js/libs/respond.js"></script>
+		<script src="{{ STATIC_URL }}js/libs/modernizr-2.0.js"></script>
+		<script src="{{ STATIC_URL }}js/libs/respond.js"></script>
 	</head>
 	<body class="{{ PAGE|lower }}{% if TEMPLATE_DEBUG %} holmes-debug{% endif %}" data-page-class="{{ PAGE|capfirst }}">
 		<div id="container">
@@ -61,29 +61,29 @@
 						load : "//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js",
 						complete : function () {
 							if (!window.jQuery) {
-								Modernizr.load("{{ MEDIA_URL }}js/libs/jquery-1.6.2.min.js");
+								Modernizr.load("{{ STATIC_URL }}js/libs/jquery-1.6.2.min.js");
 							}
 						}
 					}, { // SITE
 						load : [
 							{% if TEMPLATE_DEBUG %}
 							// jQuery Plugins
-							"{{ MEDIA_URL }}js/libs/plugins/jquery.easing.js",
-							"{{ MEDIA_URL }}js/libs/plugins/jquery.tmpl.js",
+							"{{ STATIC_URL }}js/libs/plugins/jquery.easing.js",
+							"{{ STATIC_URL }}js/libs/plugins/jquery.tmpl.js",
 
 							// Rosy Framework
-							"{{ MEDIA_URL }}js/red/base/class.js",
-							"{{ MEDIA_URL }}js/red/site.js",
+							"{{ STATIC_URL }}js/red/base/class.js",
+							"{{ STATIC_URL }}js/red/site.js",
 
 							// Site Specific
-							"{{ MEDIA_URL }}js/example/site.js",
-							"{{ MEDIA_URL }}js/example/base/page.js",
+							"{{ STATIC_URL }}js/example/site.js",
+							"{{ STATIC_URL }}js/example/base/page.js",
 							
-							"{{ MEDIA_URL }}js/example/shell.js",
-							"{{ MEDIA_URL }}js/example/home.js"
+							"{{ STATIC_URL }}js/example/shell.js",
+							"{{ STATIC_URL }}js/example/home.js"
 							{% else %}
 							// All Minified
-							"{{ MEDIA_URL }}js/example/example.min.js"
+							"{{ STATIC_URL }}js/example/example.min.js"
 							{% endif %}
 						],
 						wait : true,
