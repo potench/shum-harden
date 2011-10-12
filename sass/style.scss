@@ -19,9 +19,6 @@ Requires:
 // See modules/_base.scss
 @import "modules/base";
 
-// HTML5 Reset
-@import "compass/reset";
-
 // Import page globals
 @import "partials/header";
 @import "partials/globals";
