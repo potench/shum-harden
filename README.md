@@ -82,3 +82,21 @@ Front-end build tools
 
 #### Watch for JavaScript changes to JSHint your files
 	$ rake watch:jshint
+
+License
+=======
+
+### Major components:
+
+* jQuery: MIT/GPL license
+* Modernizr: MIT/BSD license
+* Respond.js: MIT/GPL license
+* Normalize.css: Public Domain
+
+### Everything else:
+
+The Unlicense (aka: public domain)
+
+### RED Interactive
+
+Code modified by RED under the [MIT license](LICENSE.txt).
