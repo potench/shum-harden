@@ -17,7 +17,7 @@ class Rosy::Development::Update
   def update_boilerplate
     p "Fetching the latest Red Boilerplate..."
 
-    system("git fetch boilerplate")
+    system("git fetch --no-tags boilerplate")
     system("git merge boilerplate/master")
   end
 
