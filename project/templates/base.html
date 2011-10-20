@@ -40,7 +40,7 @@
 		<script src="{{ STATIC_URL }}js/libs/modernizr-2.0.6.js"></script>
 		<script src="{{ STATIC_URL }}js/libs/respond.js"></script>
 	</head>
-	<body class="{{ PAGE|lower }}{% if TEMPLATE_DEBUG %} holmes-debug{% endif %}" data-page-class="{{ PAGE|capfirst }}">
+	<body class="{% block page_class %}page{% endblock page_class %}{% if TEMPLATE_DEBUG %} holmes-debug{% endif %}" data-page-class="{% block page_data %}Page{% endblock page_data %}">
 		<div id="container">
 			<header>
 				<nav role="navigation"></nav>
