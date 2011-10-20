@@ -17,12 +17,6 @@ Adding the RBP to your project
 
     git remote add --fetch --no-tags --track master boilerplate git://github.com/ff0000/red-boilerplate.git && git pull boilerplate master
 
-#### via git-svn
-
-    cd path/to/trunk
-    git remote add --fetch --no-tags --track master boilerplate git://github.com/ff0000/red-boilerplate.git && git pull boilerplate master
-    git svn rebase -s ours && git pull boilerplate master
-
 Updating the RBP
 ================
 
