@@ -3,7 +3,7 @@ class Rosy::Development::Update
   
   def initialize
     @boilerplate = %x[git remote show | grep boilerplate]
-    @compass = %x[git remote show | grep compass]
+    @caboose = %x[git remote show | grep caboose]
     @rosy = %x[git remote show | grep rosy]
 
     @branch = %x[git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/']
@@ -21,10 +21,10 @@ class Rosy::Development::Update
     system("git merge boilerplate/master")
   end
 
-  def update_compass
-    p "Updating Red Compass Framework..."
+  def update_caboose
+    p "Updating Caboose..."
 
-    self.update_subtree "compass"
+    self.update_subtree "caboose"
   end
 
   def update_rosy
@@ -35,7 +35,7 @@ class Rosy::Development::Update
   
   def run
     self.update_boilerplate unless @boilerplate.empty?
-    self.update_compass unless @compass.empty?
+    self.update_caboose unless @caboose.empty?
     self.update_rosy unless @rosy.empty?
   end
 end
