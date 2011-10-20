@@ -55,7 +55,8 @@ Front-end build tools
 
 ## Setup
 
-    gem install bundler && bundle install
+    gem install bundler
+    rake dev:bundler (or bundle install --gemfile resources/tasks/config/Gemfile)
 
 ## Rake tasks
 
@@ -64,6 +65,9 @@ Front-end build tools
 
 #### Create a new Rosy page
 	$ rake create:page
+
+#### Install required gems via Bundler
+	$ rake create:bundler
 
 #### JSHint your JavaScript
 	$ rake dev:jshint
