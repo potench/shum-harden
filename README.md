@@ -61,7 +61,7 @@ Front-end build tools
 	$ rake create:page
 
 #### Install required gems via Bundler
-	$ rake create:bundler
+	$ rake dev:bundler
 
 #### JSHint your JavaScript
 	$ rake dev:jshint
