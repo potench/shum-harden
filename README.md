@@ -1,5 +1,7 @@
-Caboose: RED Interactive's internal SASS + Compass framework
-============================================================
+Caboose
+=========
+
+RED Interactive's internal SASS + Compass framework
 
 ## Includes
 
