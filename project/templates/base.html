@@ -29,7 +29,7 @@
 		<!-- CSS: implied media="all" -->
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
 
-		{% if TEMPLATE_DEBUG %}
+		{% if settings.TEMPLATE_DEBUG == True %}
 		<!-- holmes.css - CSS Markup Detective: j.mp/holmescss -->
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/debug/holmes.css" />
 		{% endif %}
@@ -40,7 +40,7 @@
 		<script src="{{ STATIC_URL }}js/libs/modernizr-2.0.6.js"></script>
 		<script src="{{ STATIC_URL }}js/libs/respond.js"></script>
 	</head>
-	<body class="{% block page_class %}page{% endblock page_class %}{% if TEMPLATE_DEBUG %} holmes-debug{% endif %}" data-page-class="{% block page_data %}Page{% endblock page_data %}">
+	<body class="{% block page_class %}page{% endblock page_class %}{% if settings.TEMPLATE_DEBUG == True %} holmes-debug{% endif %}" data-page-class="{% block page_data %}Page{% endblock page_data %}">
 		<div id="container">
 			<header>
 				<nav role="navigation"></nav>
@@ -68,7 +68,7 @@
 						}
 					}, { // SITE
 						load : [
-							{% if TEMPLATE_DEBUG %}
+							{% if settings.TEMPLATE_DEBUG == True %}
 							// jQuery Plugins
 							"{{ STATIC_URL }}js/libs/plugins/jquery.easing.js",
 							"{{ STATIC_URL }}js/libs/plugins/jquery.tmpl.js",
