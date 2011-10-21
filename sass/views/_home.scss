@@ -8,16 +8,9 @@ Description:
 	Home page styles
 
 Requires:
-	- Sass 3.1.0 <http://sass-lang.com/>
-	- Compass 0.11 <http://compass-style.org/>
-
-Requires:
-	- <modules/_base.scss>
-	- <style.scss>
+	- Sass
+	- Compass
 
 */
-
-// See modules/_base.scss
-@import "modules/base";
 
 .home {}
