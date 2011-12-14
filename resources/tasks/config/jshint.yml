@@ -14,6 +14,7 @@ exclude_paths:
   - project/static/js/libs/**/*.js
   - project/static/js/**/views/**/*.js
   - project/static/js/libs/**/*.js
+  - project/static/js/**/*.min.js
 
 
 # ------------ jshint options ------------
