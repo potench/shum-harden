@@ -26,6 +26,11 @@ namespace :watch do
   end
   
   desc "Watch for JavaScript changes to compress output"
+  task :uglify do
+    Rosy::Watch::Uglify.new.run
+  end
+  
+  desc "Watch for JavaScript changes to compress output"
   task :closure do
     Rosy::Watch::Closure.new.run
   end
@@ -72,13 +77,18 @@ namespace :dev do
     Rosy::Development::Closure.new.run
   end
 
+  desc "Uglify your JavaScript"
+  task :uglify do
+    Rosy::Development::Uglify.new.run
+  end
+
   desc "Final check to see if you've forgotten anything?"
   task :sanity do
     Rosy::Development::Sanity.new.run
   end
 
-  desc "Build CSS w/ Compass, Run the Closure Compiler, Run JSHint"
-  task :build => [:smush, :compass, :jshint, :sanity, :closure] do
+  desc "Build CSS w/ Compass, Run JSHint, Uglify your JavaScript"
+  task :build => [:compass, :jshint, :sanity, :uglify] do
     puts "All done building static files!"
   end
 end

@@ -12,6 +12,7 @@ gem "term-ansicolor", ">= 1.0.7"
 gem "highline", "~> 1.6.8"
 gem "httpclient", ">= 2.2.4"
 gem "smusher", ">= 0.4.9"
+gem "uglifier", ">= 1.1.0"
 
 if OS == "darwin"
   gem "rb-fsevent", ">= 0.4.3.1"
