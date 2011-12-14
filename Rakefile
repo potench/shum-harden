@@ -52,6 +52,11 @@ namespace :dev do
     Rosy::Development::Update.new.run
   end
 
+  desc "Build CSS w/ Compass"
+  task :compass do
+    Rosy::Development::Compass.new.run
+  end
+
   desc "JSHint your JavaScript"
   task :jshint do
     Rosy::Development::JSHint.new.lint
