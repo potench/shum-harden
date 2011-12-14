@@ -60,11 +60,23 @@ Front-end build tools
 #### Create a new Rosy page
 	$ rake create:page
 
+#### Build CSS w/ Compass, Run the Closure Compiler, Run JSHint
+	$ rake dev:build
+
 #### Install required gems via Bundler
 	$ rake dev:bundler
 
+#### Closure Compile your JavaScript
+	$ rake dev:closure
+
+#### Build CSS w/ Compass
+	$ rake dev:compass
+
 #### JSHint your JavaScript
 	$ rake dev:jshint
+
+#### Final check to see if you've forgotten anything?
+	$ rake dev:sanity
 
 #### Update the Red Boilerplate
 	$ rake dev:update
