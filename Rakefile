@@ -66,6 +66,11 @@ namespace :dev do
   task :closure do
     Rosy::Development::Closure.new.run
   end
+
+  desc "Final check to see if you've forgotten anything?"
+  task :sanity do
+    Rosy::Development::Sanity.new.run
+  end
 end
 
 namespace :create do

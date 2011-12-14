@@ -1,4 +1,11 @@
 {
+	"exclude" : {
+		"source" : [
+			"js/red/modules/ios-page-control/page-control.js",
+			"js/red/modules/ticker/ticker.js"
+		]
+	},
+
 	"plugins" : {
 		"source" : [
 			"js/libs/plugins/jquery.easing.js",
