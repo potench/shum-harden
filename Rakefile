@@ -61,6 +61,11 @@ namespace :dev do
   task :jshint do
     Rosy::Development::JSHint.new.lint
   end
+
+  desc "Closure Compile your JavaScript"
+  task :closure do
+    Rosy::Development::Closure.new.run
+  end
 end
 
 namespace :create do
