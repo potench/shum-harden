@@ -52,6 +52,11 @@ namespace :dev do
     Rosy::Development::Update.new.run
   end
 
+  desc "Optimize Images"
+  task :smush do
+    Rosy::Development::Smush.new.run
+  end
+
   desc "Build CSS w/ Compass"
   task :compass do
     Rosy::Development::Compass.new.run
@@ -73,7 +78,7 @@ namespace :dev do
   end
 
   desc "Build CSS w/ Compass, Run the Closure Compiler, Run JSHint"
-  task :build => [:compass, :jshint, :sanity, :closure] do
+  task :build => [:smush, :compass, :jshint, :sanity, :closure] do
     puts "All done building static files!"
   end
 end
