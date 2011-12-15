@@ -13,27 +13,6 @@ class Rosy::Development::Uglify
     @json = JSON.parse(File.read(@file))
     @static = "#{STATIC_DIR.gsub!(PROJECT_ROOT + "/", "")}/"
     @compiled = Hash.new
-    @options = {
-      :mangle => true, # Mangle variables names
-      :toplevel => false, # Mangle top-level variable names
-      :except => [], # Variable names to be excluded from mangling
-      :max_line_length => 32 * 1024, # Maximum line length
-      :squeeze => true, # Squeeze code resulting in smaller, but less-readable code
-      :seqs => true, # Reduce consecutive statements in blocks into single statement
-      :dead_code => true, # Remove dead code (e.g. after return)
-      :lift_vars => false, # Lift all var declarations at the start of the scope
-      :unsafe => false, # Optimizations known to be unsafe in some situations
-      :copyright => false, # Show copyright message
-      :ascii_only => false, # Encode non-ASCII characters as Unicode code points
-      :inline_script => false, # Escape </script
-      :quote_keys => false, # Quote keys in object literals
-      :beautify => false, # Ouput indented code
-      :beautify_options => {
-        :indent_level => 4,
-        :indent_start => 0,
-        :space_colon => false
-      }
-    }
   end
 
   def build(key, group, relative = nil, match = nil)
@@ -54,9 +33,10 @@ class Rosy::Development::Uglify
           if File.exists?(current)
             if file.eql?(match) or @compiled[file].nil?
               puts "    #{cyan("compile")} #{file}"
-              @compiled[file] = Uglifier.new(@options).compile(File.read(current))
+              @compiled[file] = `uglifyjs -nc --unsafe #{current}`
             end
 
+            raise Uglifier::Error.new("Uglifier caught something...") if @compiled[file].empty?
             code << @compiled[file]
           else
             puts "    #{red("missing")} #{file}"

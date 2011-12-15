@@ -87,8 +87,13 @@ namespace :dev do
     Rosy::Development::Sanity.new.run
   end
 
+  desc "Build CSS w/ Compass, Run JSHint, Closure Compile your JavaScript"
+  task :build => [:compass, :jshint, :sanity, :compile] do
+    puts "All done building static files!"
+  end
+  
   desc "Build CSS w/ Compass, Run JSHint, Uglify your JavaScript"
-  task :build => [:compass, :jshint, :sanity, :uglify] do
+  task :buildugly => [:compass, :jshint, :sanity, :uglify] do
     puts "All done building static files!"
   end
 end
