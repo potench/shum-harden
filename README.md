@@ -50,7 +50,7 @@ Front-end build tools
 ## Setup
 
     gem install bundler
-    rake dev:bundler (or bundle install --gemfile resources/tasks/config/Gemfile)
+    bundle install --gemfile resources/tasks/config/Gemfile
 
 ## Rake tasks
 
@@ -62,9 +62,6 @@ Front-end build tools
 
 #### Build CSS w/ Compass, Run the Closure Compiler, Run JSHint
 	$ rake dev:build
-
-#### Install required gems via Bundler
-	$ rake dev:bundler
 
 #### Closure Compile your JavaScript
 	$ rake dev:closure
