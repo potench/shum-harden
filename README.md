@@ -45,7 +45,7 @@ Front-end build tools
 
 - [RVM](http://beginrescueend.com/)
 	- RVM is a command-line tool which allows you to easily install, manage and work with multiple ruby environments, from interpreters to sets of gems.
-	- `bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)`
+	- `bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)`
 
 ## Setup
 
