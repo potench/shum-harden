@@ -54,41 +54,23 @@ Front-end build tools
 
 ## Rake tasks
 
-#### See all available tasks
-	$ rake -T
+Use `rake --tasks` for a list of available rake tasks
 
-#### Create a new Rosy page
-	$ rake create:page
-
-#### Build CSS w/ Compass, Run the Closure Compiler, Run JSHint
-	$ rake dev:build
-
-#### Closure Compile your JavaScript
-	$ rake dev:closure
-
-#### Build CSS w/ Compass
-	$ rake dev:compass
-
-#### JSHint your JavaScript
-	$ rake dev:jshint
-
-#### Final check to see if you've forgotten anything?
-	$ rake dev:sanity
-
-#### Update the Red Boilerplate
-	$ rake dev:update
-
-#### Watch for application changes to update the application cache
-	$ rake watch:appcache
-
-#### Watch for JavaScript changes to compress output
-	$ rake watch:closure
-
-#### Watch for CSS changes to generate SASS
-	$ rake watch:compass
-
-#### Watch for JavaScript changes to JSHint your files
-	$ rake watch:jshint
+	rake create:page     # Create a new Rosy page
+	rake dev:build       # Build CSS w/ Compass, Run JSHint, Closure Compile your JavaScript
+	rake dev:buildugly   # Build CSS w/ Compass, Run JSHint, Uglify your JavaScript
+	rake dev:closure     # Closure Compile your JavaScript
+	rake dev:compass     # Build CSS w/ Compass
+	rake dev:jshint      # JSHint your JavaScript
+	rake dev:sanity      # Final check to see if you've forgotten anything?
+	rake dev:smush       # Optimize Images
+	rake dev:uglify      # Uglify your JavaScript
+	rake dev:update      # Update the Red Boilerplate
+	rake watch:appcache  # Watch for application changes to update the application cache
+	rake watch:closure   # Watch for JavaScript changes to compress output
+	rake watch:compass   # Watch for CSS changes to generate SASS
+	rake watch:jshint    # Watch for JavaScript changes to JSHint your files
+	rake watch:uglify    # Watch for JavaScript changes to compress output
 
 License
 =======
