@@ -29,10 +29,10 @@ Front-end build tools
 
 ## Requirements
 
-- [Ruby <= 1.8.7](http://www.ruby-lang.org/en/)
+- [Ruby >= 1.8.7](http://www.ruby-lang.org/en/)
 	- OS X: Pre-installed
 	- Ubuntu: `sudo apt-get install ruby`
-- [RubyGems <= 1.6.2](http://rubygems.org/)
+- [RubyGems >= 1.6.2](http://rubygems.org/)
 	- OS X: `sudo gem update --system`
 	- Ubuntu: `sudo apt-get install rubygems`
 - [Bundler](http://gembundler.com/)
