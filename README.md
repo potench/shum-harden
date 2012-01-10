@@ -29,10 +29,10 @@ Front-end build tools
 
 ## Requirements
 
-- [Ruby <= 1.8.7](http://www.ruby-lang.org/en/)
+- [Ruby >= 1.8.7](http://www.ruby-lang.org/en/) (recommend 1.9.2)
 	- OS X: Pre-installed
 	- Ubuntu: `sudo apt-get install ruby`
-- [RubyGems <= 1.6.2](http://rubygems.org/)
+- [RubyGems >= 1.6.2](http://rubygems.org/)
 	- OS X: `sudo gem update --system`
 	- Ubuntu: `sudo apt-get install rubygems`
 - [Bundler](http://gembundler.com/)
@@ -45,7 +45,10 @@ Front-end build tools
 
 - [RVM](http://beginrescueend.com/)
 	- RVM is a command-line tool which allows you to easily install, manage and work with multiple ruby environments, from interpreters to sets of gems.
-	- `bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)`
+	- `bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)`
+        - `rvm install 1.9.2`
+        - `rvm use 1.9.2 --default`
+        - `rvm rubygems latest`
 
 ## Setup
 
