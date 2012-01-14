@@ -88,7 +88,7 @@ namespace :dev do
   end
 
   desc "Build CSS w/ Compass, Run JSHint, Closure Compile your JavaScript"
-  task :build => [:compass, :jshint, :sanity, :compile] do
+  task :build => [:compass, :jshint, :sanity, :closure] do
     puts "All done building static files!"
   end
   
