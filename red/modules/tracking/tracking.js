@@ -27,14 +27,9 @@ RED.module = RED.module || {};
  */
 (function () {
 	
-	var NAME = "Tracking";
+	RED.module.Tracking = (function () {
 
-	RED.module[NAME] = (function () {
-
-		var pakage = this, // "package" is reserved so using "pakage"
-			EVENT = {		// static event strings
-				TRACK : "track" // $.trigger(Example.module.Tracking.EVENT.TRACK); or $.trigger("track")
-			};
+		var pakage = this; // "package" is reserved so using "pakage"
 		
 		return RED.Module.extend({
 			
@@ -44,8 +39,6 @@ RED.module = RED.module || {};
 				var i,
 					className,
 					Model;
-
-				pakage[NAME].EVENT = EVENT; // event constants
 
 				for (i = trackers.length - 1; i >= 0; i--) {
 					className = (typeof trackers[i] === "string") ? trackers[i]  : trackers[i].className;
@@ -58,7 +51,7 @@ RED.module = RED.module || {};
 					}
 				}
 
-				$(document).bind(EVENT.TRACK, $.proxy(this.track, this));
+				$(document).bind("track", $.proxy(this.track, this));
 			},
 
 			track : function (e, data) {
