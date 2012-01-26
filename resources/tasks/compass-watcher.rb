@@ -7,6 +7,10 @@ class Rosy::Watch::Compass
   def initialize
     @dir = File.join(RESOURCE_DIR, "compass")
   end
+
+  def compile(relative = nil)
+    system "compass compile #{@dir}"
+  end
   
   def run
     system "compass watch #{@dir}"

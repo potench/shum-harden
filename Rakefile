@@ -20,6 +20,11 @@ end
 Dir.glob(File.join(Rosy::TASKS_DIR, "*.rb"), &method(:require))
 
 namespace :watch do
+  desc "All-in-one Uglify/Closure/JSHint/Compass watcher"
+  task :all do
+    Rosy::Watch::All.new.run ENV["nohint"]
+  end
+  
   desc "Watch for CSS changes to generate SASS"
   task :compass do
     Rosy::Watch::Compass.new.run
