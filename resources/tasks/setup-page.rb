@@ -29,18 +29,14 @@ class Rosy::Create::Page
     @name = ask("Class name?")
 
     new_file = File.join(directory, "#{@name.downcase}.js")
-    FileUtils.cp(@template, new_file)
 
-    File.open(new_file, "r+") do |f|
-      lines = f.readlines
-      lines.each do |line|
-        line.gsub!(/__PAGE__/, @name);
-        line.gsub!(/__PAGENAME__/, @name.downcase);
-        line.gsub!(/__NAMESPACE__/, @space);
-      end
-      f.pos = 0
-      f.print lines
-      f.truncate(f.pos)
+    tmpl = File.read(@template)
+    tmpl.gsub!(/__PAGE__/, @name)
+    tmpl.gsub!(/__PAGENAME__/, @name.downcase)
+    tmpl.gsub!(/__NAMESPACE__/, @space)
+
+    File.open(new_file, "w") do |file|
+      file.puts tmpl
     end
 
     say("\n")
