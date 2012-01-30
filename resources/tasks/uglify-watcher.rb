@@ -153,7 +153,7 @@ class Rosy::Watch::Uglify
 
     FSSM.monitor do
       path PROJECT_ROOT do
-        glob "**/*.{js,json}"
+        glob "**/*[^\.min].{js,json}"
 
         update do |base, relative|
           block.compile relative
