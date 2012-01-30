@@ -5,6 +5,12 @@ class Rosy::Watch::All
   include Rosy
   include Term::ANSIColor
 
+  def initialize
+    @jshinter = Rosy::Watch::JSHint.new
+    @compass = Rosy::Watch::Compass.new
+    @compiler = nil
+  end
+
   # Cross-platform way of finding an executable in the $PATH.
   #
   #   which('ruby') #=> /usr/bin/ruby
@@ -23,15 +29,15 @@ class Rosy::Watch::All
     ext = File.extname(relative)
 
     if ext.eql?(".js") or ext.eql?(".json")
-      Rosy::Watch::JSHint.new.hint relative if @nohint.nil?
+      @jshinter.hint relative if @nohint.nil?
 
-      if which("uglifyjs")
-        Rosy::Watch::Uglify.new.compile relative
-      else
-        Rosy::Watch::Closure.new.compile relative
+      if @compiler.nil?
+        @compiler = which("uglifyjs") ? Rosy::Watch::Uglify.new : Rosy::Watch::Closure.new
       end
+
+      @compiler.compile relative
     elsif ext.eql?(".scss")
-      Rosy::Watch::Compass.new.compile relative
+      @compass.compile relative
     end
   end
   
@@ -43,7 +49,7 @@ class Rosy::Watch::All
 
     FSSM.monitor do
       path PROJECT_ROOT do
-        glob "**/*.{js,json,scss}"
+        glob "**/*[^\.min].{js,json,scss}"
 
         update do |base, relative|
           block.compile relative
