@@ -52,11 +52,6 @@ namespace :watch do
 end
 
 namespace :dev do
-  desc "Install required gems via Bundler"
-  task :bundler do
-    Rosy::Development::Bundler.new.run
-  end
-
   desc "Update the Red Boilerplate"
   task :update do
     Rosy::Development::Update.new.run
