@@ -21,7 +21,7 @@ class Rosy::Development::Update
     p "Fetching the latest Red Boilerplate..."
 
     system("git fetch --no-tags boilerplate")
-    system("git merge boilerplate/master")
+    system("git merge -X ours boilerplate/#{@branch}")
   end
 
   def update_caboose
