@@ -5,9 +5,12 @@ class Rosy::Development::Update
     @boilerplate = %x[git remote show | grep boilerplate]
     @caboose = %x[git remote show | grep caboose]
     @rosy = %x[git remote show | grep rosy]
+    @branch = "master"
+  end
 
-    @branch = %x[git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/']
-    @branch.gsub!(/\*[\w+]?/, "").strip!
+  def add_boilerplate
+    system("git remote add --fetch --no-tags --track #{@branch} boilerplate git://github.com/ff0000/red-boilerplate.git")
+    system("git pull -X ours boilerplate #{@branch}")
   end
 
   def update_subtree repo
@@ -18,7 +21,7 @@ class Rosy::Development::Update
     p "Fetching the latest Red Boilerplate..."
 
     system("git fetch --no-tags boilerplate")
-    system("git merge boilerplate/master")
+    system("git merge -X ours boilerplate/#{@branch}")
   end
 
   def update_caboose
@@ -34,7 +37,7 @@ class Rosy::Development::Update
   end
   
   def run
-    self.update_boilerplate unless @boilerplate.empty?
+    @boilerplate.empty? ? self.add_boilerplate : self.update_boilerplate
     self.update_caboose unless @caboose.empty?
     self.update_rosy unless @rosy.empty?
   end
