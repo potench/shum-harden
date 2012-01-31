@@ -50,6 +50,12 @@ Front-end build tools
         - `rvm use 1.9.2 --default`
         - `rvm rubygems latest`
 
+- [Statix](https://github.com/gigafied/statix)
+
+Statix will generate a completely static website into the "deploy" directory upon running `statix build` (once Statix is intalled through npm)
+Add pages, change vars, etc. all through the `statix.js` file
+
+
 ## Setup
 
     gem install bundler
