@@ -5,9 +5,9 @@ class Rosy::Development::Update
     @boilerplate = %x[git remote show | grep boilerplate]
     @caboose = %x[git remote show | grep caboose]
     @rosy = %x[git remote show | grep rosy]
+    @branch = "master"
+  end
 
-    @branch = %x[git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/']
-    @branch.gsub!(/\*[\w+]?/, "").strip!
   def add_boilerplate
     system("git remote add --fetch --no-tags --track #{@branch} boilerplate git://github.com/ff0000/red-boilerplate.git")
     system("git pull -X ours boilerplate #{@branch}")
