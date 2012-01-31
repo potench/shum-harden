@@ -81,11 +81,6 @@ module.exports = {
 		
 	},
 
-	// Misc. things to pass to express for the local web server, currently the only value used is port.
-	express : {
-		port: "8000"
-	},
-
 	/*
 		If you need to process some things before you're ready to generate the pages (either through the web server or compilation),
 		you can use this `ready` method. Common use case, you need to grab a bunch of data from a database, and are using asynch i/o
