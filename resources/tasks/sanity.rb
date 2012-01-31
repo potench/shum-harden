@@ -9,7 +9,7 @@ class Rosy::Development::Sanity
   include Term::ANSIColor
   
   def initialize
-    @file = File.join(CONFIG_DIR, "setup.json")
+    @file = File.join(CONFIG_DIR, "js-compile.json")
     @json = JSON.parse(File.read(@file))
     @static = "#{STATIC_DIR.gsub!(PROJECT_ROOT + "/", "")}/"
   end
@@ -37,7 +37,7 @@ class Rosy::Development::Sanity
     end
 
     if unmatched.length
-      puts ">>> The following files were not found in setup.json. Did you forget to add them for compilation?"
+      puts ">>> The following files were not found in js-compile.json. Did you forget to add them for compilation?"
       unmatched.each do |file|
         puts "    #{yellow("missing")} #{file}"
       end

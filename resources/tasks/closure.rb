@@ -9,7 +9,7 @@ class Rosy::Development::Closure
   include Term::ANSIColor
   
   def initialize
-    @file = File.join(CONFIG_DIR, "setup.json")
+    @file = File.join(CONFIG_DIR, "js-compile.json")
     @json = JSON.parse(File.read(@file))
     @static = "#{STATIC_DIR.gsub!(PROJECT_ROOT + "/", "")}/"
     @compiled = Hash.new
