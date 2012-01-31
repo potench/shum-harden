@@ -1,4 +1,5 @@
 var fs = require("fs");
+var path = require("path");
 
 module.exports = {
 	
@@ -113,34 +114,30 @@ module.exports = {
 
 		function moveFiles(from, to) {
 
-			file = (file[0] == "/") ? file : process.cwd() + "/" + file;
+			from = (from[0] == "/") ? from : process.cwd() + "/" + from;
+			to = (to[0] == "/") ? to : process.cwd() + "/" + to;
+			
+			var fromStats = fs.statSync(from);
+			var fromName = from.substr(from.lastIndexOf("/"));
 
-			var fileStats = fs.statSync(file);
-			var fileName = file.substr(file.lastIndexOf("/"));
+			if(fromStats.isDirectory()){
 
-			if(fileStats.isDirectory()){
+				if(!path.existsSync(to)){
+					console.log(to);
+					fs.mkdirSync(to);
+				}
 
-				fs.mkDirSync(to + "/" + fileName);
-
-				var files = fs.readdirSync(file);
+				var files = fs.readdirSync(from);
 				for(var i = 0; i < files.length; i ++){
-					moveFiles(file + "/" + files[i], to + "/" + fileName);
+					moveFiles(from + "/" + files[i], to + "/" + files[i]);
 				}
 
 				fs.rmdirSync(from);
 			}
 
 			else{
-				if(!fileStats.isDirectory()){
-					
-					console.log(file, fileName);
-
-					//fs.renameSync(file, this.output_dir + "/" + fileName);
-				}
-				else{
-					fs.writeFileSync(this.output_dir + "/" + fileName, fs.readFileSync(from, 'utf-8'));
-					fs.unlinkSync(from);
-				}
+				fs.writeFileSync(to, fs.readFileSync(from, 'utf-8'));
+				fs.unlinkSync(from);
 			}
 		}
 
