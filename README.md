@@ -52,12 +52,12 @@ Front-end build tools
 
 - [Statix](https://github.com/gigafied/statix)
 
-	- Statix will generate a completely static website into the "deploy" directory upon running `statix build` (once Statix is intalled through npm) 
+	- Statix will generate a completely static website into the `deploy` directory upon running `statix build` (once Statix is installed through npm) 
 	Add pages, change vars, etc. all through the `statix.js` file
 	   - Install [node.js](http://nodejs.org/)
 	   - After node is installed run `npm install statix -g`
 	   - From the root of the project run `statix build`
-	   - To run a local webserver of the project run `statix server`
+	   - To run a local webserver of the project run `statix server -p 8000`
 
 ## Setup
 
