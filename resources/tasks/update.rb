@@ -10,7 +10,8 @@ class Rosy::Development::Update
 
   def add_boilerplate
     system("git remote add --fetch --no-tags --track #{@branch} boilerplate git://github.com/ff0000/red-boilerplate.git")
-    system("git pull -X ours boilerplate #{@branch}")
+    system("git pull -X ours --squash boilerplate #{@branch}")
+    system("git commit -m 'Importing the RED Boilerplate http://github.com/ff0000/red-boilerplate'")
   end
 
   def update_subtree repo
