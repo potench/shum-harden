@@ -47,6 +47,12 @@ RED.Module = (function () {
 				i, j, event;
 			
 			if (events && events.length) {
+				if (Object.prototype.toString.call(args) !== "[object Array]") {
+					args = [args];
+				}
+
+				args[0].type = args[0].type || type;
+
 				for (i = 0, j = events.length; i < j; i++) {
 					event = events[i];
 					
