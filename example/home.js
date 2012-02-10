@@ -6,16 +6,16 @@
 // Home Page class
 
 // Site-specifc namespace
-var Example = Example || {};
+var example = example || {};
 
 // Page namespace
-Example.Page = Example.Page || {};
+example.page = example.page || {};
 	
 // Home specific instance
-Example.Page.Home = (function () {
+example.page.Home = (function () {
 	
-	// Extends Example.Page
-	return Example.Page.extend({
+	// Extends example.Page
+	return example.Page.extend({
 		
 		// Over-writeable vars, ex:
 		// 
@@ -23,7 +23,7 @@ Example.Page.Home = (function () {
 		//      x : 10
 		//  });
 		vars : {
-			// Results in `{ x : 1, y : 2 }` by inheriting from `Example.Page`
+			// Results in `{ x : 1, y : 2 }` by inheriting from `example.Page`
 			z : 3
 		},
 		
@@ -31,4 +31,4 @@ Example.Page.Home = (function () {
 		init : function () {}
 		
 	});
-}.call(Example));
+}.call(example));

@@ -1,15 +1,18 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* ticker.js */
 
-// The RED Namespace
-var RED = RED || {};
+// The red Namespace
+var red = red || {};
 
-// ## RED.Ticker
+// Module namespace
+red.module = red.module || {};
+
+// ## red.module.Ticker
 // Creates a countdown ticker.
 // 
 // Usage:
 // 
-//  var ticker = new RED.Ticker({
+//  var ticker = new red.module.Ticker({
 //      now : new Date(),
 //      start : "Sun Jun 12 11:25:00 2011",
 //      end : "Mon Jun 13 11:45:00 2011"
@@ -26,10 +29,10 @@ var RED = RED || {};
 //  ticker.bind("complete", function () {
 //      // on complete
 //  });
-RED.Ticker = (function () {
+red.module.Ticker = (function () {
 	
-	// Extends RED.Module
-	return RED.Module.extend({
+	// Extends red.Module
+	return red.Module.extend({
 		
 		// now, start & end should be [Date-parseable formats](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date).
 		vars : {
@@ -124,4 +127,4 @@ RED.Ticker = (function () {
 		}
 	});
 	
-}.call(RED));
+}.call(red));

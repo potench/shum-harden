@@ -1,18 +1,18 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* site.js */
 
-// ## The RED Namespace
-var RED = RED || {};
+// ## The red Namespace
+var red = red || {};
 
 // ## Local Namespace
 // Site object, controls global functionality and instantiates the Default Page.
-// You should replace the namespace "Example" with your own Site namespace, this is only an example.
-var Example = Example || {};
+// You should replace the namespace "example" with your own Site namespace, this is only an example.
+var example = example || {};
 
 // Site shell object
 
 // Model manager and shell manager
-RED.SITE = $.extend(true, Example, RED, (function () {
+red.Site = $.extend(true, example, red, (function () {
 	
 	return {
 		
@@ -27,13 +27,13 @@ RED.SITE = $.extend(true, Example, RED, (function () {
 		},
 
 		setMediaURL : function () {
-			RED.SYS = RED.SYS || {};
-			RED.SYS.MEDIA_URL = $("link[rel='media-url']").attr("href");
+			red.SYS = red.SYS || {};
+			red.SYS.MEDIA_URL = $("link[rel='media-url']").attr("href");
 		},
 		
 		createModel : function (page, vars) {
 			var master = this.Page,
-			    Model = (page && typeof master[page] === "function" ? master[page] : master);
+				Model = (page && typeof master[page] === "function" ? master[page] : master);
 			
 			return (this.models[page || "page"] = new Model(vars));
 		},
@@ -48,7 +48,7 @@ RED.SITE = $.extend(true, Example, RED, (function () {
 		
 		onReady : function () {
 			var body = $("body"),
-			    // Use `attr("data-page-class")` if < jQuery 1.6
+				// Use `attr("data-page-class")` if < jQuery 1.6
 				pageClass = body.data("pageClass");
 			
 			// creates `Page()` based on `<div data-page-class="Home">`
