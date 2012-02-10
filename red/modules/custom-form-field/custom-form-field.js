@@ -6,16 +6,16 @@
 // Home Page class
 
 // Site-specifc namespace
-var RED = RED || {};
+var red = red || {};
 
 // Module namespace
-RED.module = RED.module || {};
+red.module = red.module || {};
 	
 // Home specific instance
-RED.module.CustomFormField = (function () {
+red.module.CustomFormField = (function () {
 	
-	// Extends RED.Page
-	return RED.Module.extend({
+	// Extends red.Page
+	return red.Module.extend({
 		
 		vars : {
 			namespace : "customfield",
@@ -258,4 +258,4 @@ RED.module.CustomFormField = (function () {
 			}
 		}
 	});
-}.call(RED));
+}.call(red));

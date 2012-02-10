@@ -3,11 +3,11 @@
 
 // ## Local Namespace
 
-var RED = RED || {};
+var red = red || {};
 
-RED.module = RED.module || {};
+red.module = red.module || {};
 
-RED.module.social = RED.module.social || {};
+red.module.social = red.module.social || {};
 
 
 /**
@@ -36,14 +36,14 @@ RED.module.social = RED.module.social || {};
 
 	var NAME = "Twitter";
 
-	RED.module.social[NAME] = (function () {
+	red.module.social[NAME] = (function () {
 
 		var pakage = this,
 			EVENT = {
 				POST : "custom-twitter-post"
 			};
 		
-		return RED.Module.extend({
+		return red.Module.extend({
 
 			_twitter_url : "https://twitter.com/share?",
 
@@ -112,5 +112,5 @@ RED.module.social = RED.module.social || {};
 			}
 		});
 		
-	}.call(RED.module.social));
+	}.call(red.module.social));
 }());

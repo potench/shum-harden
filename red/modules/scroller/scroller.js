@@ -3,18 +3,18 @@
 
 /*global opera, Scroller */
 
-// The RED Namespace
-var RED = RED || {};
+// The red Namespace
+var red = red || {};
 
 // Module namespace
-RED.module = RED.module || {};
+red.module = red.module || {};
 
-// ## RED.Scroller
+// ## red.Scroller
 // Creates a countdown scroller.
 // 
 // Usage:
 // 
-//  var scroller = new RED.module.Scroller({
+//  var scroller = new red.module.Scroller({
 //      target : $('#scrollable')
 //  });
 // 
@@ -33,10 +33,10 @@ RED.module = RED.module || {};
 //  scroller.bind("touchinertia", function () {
 //      // on touch inertia
 //  });
-RED.module.Scroller = (function () {
+red.module.Scroller = (function () {
 	
-	// Extends RED.Module
-	return RED.Module.extend({
+	// Extends red.Module
+	return red.Module.extend({
 		
 		vars : {},
 
@@ -231,4 +231,4 @@ RED.module.Scroller = (function () {
 		}
 	});
 	
-}.call(RED));
+}.call(red));

@@ -1,8 +1,8 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* shell.js */
 
-// ## The RED Namespace
-var RED = RED || {};
+// ## The red Namespace
+var red = red || {};
 
 // ## Local Namespace
 // You should replace the namespace "Example" with your own Site namespace, this is only an example.
@@ -27,4 +27,4 @@ Example.Shell = (function () {
 
 	});
 	
-}.call(RED));
+}.call(red));

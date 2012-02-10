@@ -1,12 +1,12 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* site.js */
 
-// ## The RED Namespace
-var RED = window.RED || {};
+// ## The red Namespace
+var red = window.red || {};
 
-$.extend(true, RED, {
+$.extend(true, red, {
 	
-	// ## RED.Class
+	// ## red.Class
 	Class : Class.extend({
 		
 		// Middleware preventDefault method. A shortcut to avoid delegation for a simple task.

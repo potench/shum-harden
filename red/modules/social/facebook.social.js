@@ -2,11 +2,11 @@
 /* facebook.social.js */
 
 // ## Local Namespace
-var RED = RED || {};
+var red = red || {};
 
-RED.module = RED.module || {}; // note the use of lower case for package names now
+red.module = red.module || {}; // note the use of lower case for package names now
 
-RED.module.social = RED.module.social || {};
+red.module.social = red.module.social || {};
 
 
 /**
@@ -23,7 +23,7 @@ RED.module.social = RED.module.social || {};
 	
 	var NAME = "Facebook";
 
-	RED.module.social[NAME] = (function () {
+	red.module.social[NAME] = (function () {
 
 		var pakage = this,
 			EVENT = {
@@ -31,7 +31,7 @@ RED.module.social = RED.module.social || {};
 			};
 
 
-		return RED.Module.extend({
+		return red.Module.extend({
 
 			vars : {},
 			
@@ -197,5 +197,5 @@ RED.module.social = RED.module.social || {};
 
 		});
 		
-	}.call(RED.module.social));
+	}.call(red.module.social));
 }());

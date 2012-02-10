@@ -1,8 +1,8 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* site.js */
 
-// ## The RED Namespace
-var RED = RED || {};
+// ## The red Namespace
+var red = red || {};
 
 // ## Local Namespace
 // Site object, controls global functionality and instantiates the Default Page.
@@ -12,7 +12,7 @@ var Example = Example || {};
 // Site shell object
 
 // Model manager and shell manager
-RED.SITE = $.extend(true, Example, RED, (function () {
+red.SITE = $.extend(true, Example, red, (function () {
 	
 	return {
 		
@@ -27,8 +27,8 @@ RED.SITE = $.extend(true, Example, RED, (function () {
 		},
 
 		setMediaURL : function () {
-			RED.SYS = RED.SYS || {};
-			RED.SYS.MEDIA_URL = $("link[rel='media-url']").attr("href");
+			red.SYS = red.SYS || {};
+			red.SYS.MEDIA_URL = $("link[rel='media-url']").attr("href");
 		},
 		
 		createModel : function (page, vars) {
