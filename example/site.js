@@ -6,13 +6,13 @@ var red = red || {};
 
 // ## Local Namespace
 // Site object, controls global functionality and instantiates the Default Page.
-// You should replace the namespace "Example" with your own Site namespace, this is only an example.
-var Example = Example || {};
+// You should replace the namespace "example" with your own Site namespace, this is only an example.
+var example = example || {};
 
 // Site shell object
 
 // Model manager and shell manager
-red.SITE = $.extend(true, Example, red, (function () {
+red.SITE = $.extend(true, example, red, (function () {
 	
 	return {
 		

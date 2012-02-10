@@ -5,13 +5,13 @@
 var red = red || {};
 
 // ## Local Namespace
-// You should replace the namespace "Example" with your own Site namespace, this is only an example.
-var Example = Example || {};
+// You should replace the namespace "example" with your own Site namespace, this is only an example.
+var example = example || {};
 
 // Site shell object
-Example.Shell = (function () {
+example.Shell = (function () {
 	
-	return Example.Page.extend({
+	return example.Page.extend({
 		vars : {},
 		
 		init : function () {
