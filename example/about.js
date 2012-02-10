@@ -9,10 +9,10 @@
 var example = example || {};
 
 // Page namespace
-example.Page = example.Page || {};
+example.page = example.page || {};
 	
 // About specific instance
-example.Page.About = (function () {
+example.page.About = (function () {
 	
 	return example.Page.extend({
 		
