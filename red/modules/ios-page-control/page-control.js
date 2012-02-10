@@ -64,7 +64,7 @@ red.module.PageControl = (function () {
 			el = el[0] || el;
 			
 			var transform = window.getComputedStyle(el, null).webkitTransform,
-			    matrix = new window.WebKitCSSMatrix(transform);
+				matrix = new window.WebKitCSSMatrix(transform);
 
 			return matrix;
 		},
@@ -101,12 +101,12 @@ red.module.PageControl = (function () {
 			
 			// Shared variables
 			var control = this.vars.parent,
-			    list = this.vars.list,
-			    matrix, touch, startX, currX, diffX,
-			    startY, currY, diffY, touches,
-			    directionX, oldX, touchMoveFired, touchEndFired, activeElement,
-			    elementWidth, elementThreshold, lockHorizontal,
-			    controlRect, listRect;
+				list = this.vars.list,
+				matrix, touch, startX, currX, diffX,
+				startY, currY, diffY, touches,
+				directionX, oldX, touchMoveFired, touchEndFired, activeElement,
+				elementWidth, elementThreshold, lockHorizontal,
+				controlRect, listRect;
 			
 			list.bind({
 				
@@ -208,8 +208,8 @@ red.module.PageControl = (function () {
 					touchMoveFired = false;
 
 					var element = activeElement,
-					    difference = Math.abs(diffX),
-					    getSibling = (difference > elementThreshold);
+						difference = Math.abs(diffX),
+						getSibling = (difference > elementThreshold);
 
 					if (getSibling) {
 						element = this.findSibling(activeElement, diffX < 0);
@@ -253,8 +253,8 @@ red.module.PageControl = (function () {
 		// - Resizes parent node to total child node width value.
 		sizeToFit : function () {
 			var width = 0,
-			    items = this.vars.items,
-			    i, j, el, itemWidth;
+				items = this.vars.items,
+				i, j, el, itemWidth;
 			
 			this.vars.parent.css("overflow", "hidden");
 			
@@ -274,10 +274,10 @@ red.module.PageControl = (function () {
 		// Creates a page indicator for each found child node.
 		createPageIndicators : function () {
 			var control = this.vars.parent,
-			    items = this.vars.items,
-			    controller = $('<div class="page-indicators"></div>'),
-			    controlList = $('<ul></ul>'),
-			    i, j, icon;
+				items = this.vars.items,
+				controller = $('<div class="page-indicators"></div>'),
+				controlList = $('<ul></ul>'),
+				i, j, icon;
 
 			for (i = 0, j = items.length; i < j; i++) {
 				icon = $('<li></li>');
@@ -316,7 +316,7 @@ red.module.PageControl = (function () {
 			element = element[0] || element;
 			
 			var matrix = this.getMatrix(list),
-			    elementOffset = element.getBoundingClientRect().left - control.offset().left;
+				elementOffset = element.getBoundingClientRect().left - control.offset().left;
 
 			this.resetTransition(list, 350);
 			this.setTransform(list, matrix.translate(-(elementOffset), 0, 0));
@@ -328,8 +328,8 @@ red.module.PageControl = (function () {
 		roundMatrixValues : function (e) {
 			if (e.target === e.currentTarget) {
 				var el = $(e.currentTarget),
-				    matrix = this.getMatrix(el),
-				    key;
+					matrix = this.getMatrix(el),
+					key;
 			
 				for (key in matrix) {
 					if (typeof matrix[key] === "number") {
@@ -350,8 +350,8 @@ red.module.PageControl = (function () {
 			element = element || this.vars.items.first();
 			
 			var items = this.vars.items,
-			     icons = this.vars.icons,
-			     index = items.index(element);
+				icons = this.vars.icons,
+				index = items.index(element);
 			
 			if (icons.get(index)) {
 				icons.removeClass(this.vars.className + "-active");

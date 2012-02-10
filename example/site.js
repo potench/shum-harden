@@ -33,7 +33,7 @@ red.SITE = $.extend(true, example, red, (function () {
 		
 		createModel : function (page, vars) {
 			var master = this.Page,
-			    Model = (page && typeof master[page] === "function" ? master[page] : master);
+				Model = (page && typeof master[page] === "function" ? master[page] : master);
 			
 			return (this.models[page || "page"] = new Model(vars));
 		},
@@ -48,7 +48,7 @@ red.SITE = $.extend(true, example, red, (function () {
 		
 		onReady : function () {
 			var body = $("body"),
-			    // Use `attr("data-page-class")` if < jQuery 1.6
+				// Use `attr("data-page-class")` if < jQuery 1.6
 				pageClass = body.data("pageClass");
 			
 			// creates `Page()` based on `<div data-page-class="Home">`

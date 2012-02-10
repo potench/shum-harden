@@ -16,8 +16,8 @@
 	// Create a new Class that inherits from this class
 	Class.extend = function extend(prop) {
 		var sup = this.prototype,
-		    This = this,
-		    prototype, name, tmp, ret, func;
+			This = this,
+			prototype, name, tmp, ret, func;
 
 		// Instantiate a base class (but only create the instance,
 		// don't run the init constructor)
