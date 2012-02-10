@@ -12,7 +12,7 @@ var example = example || {};
 // Site shell object
 
 // Model manager and shell manager
-red.SITE = $.extend(true, example, red, (function () {
+red.Site = $.extend(true, example, red, (function () {
 	
 	return {
 		
