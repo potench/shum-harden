@@ -26,7 +26,7 @@ RED.Module = (function () {
 		// Unbind a custom event(s) from a given module
 		unbind : function (type, method) {
 			var group = this.vars.events["on" + type],
-			    i, j;
+				i, j;
 			
 			if (group) {
 				for (i = 0, j = group.length; i < j; i++) {
@@ -44,9 +44,15 @@ RED.Module = (function () {
 			}
 			
 			var events = this.vars.events["on" + type],
-			    i, j, event;
+				i, j, event;
 			
 			if (events && events.length) {
+				if (Object.prototype.toString.call(args) !== "[object Array]") {
+					args = [args];
+				}
+
+				args[0].type = args[0].type || type;
+
 				for (i = 0, j = events.length; i < j; i++) {
 					event = events[i];
 					
