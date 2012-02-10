@@ -4,12 +4,15 @@
 // The RED Namespace
 var RED = RED || {};
 
+// Module namespace
+RED.module = RED.module || {};
+
 // ## RED.PageControl
 // An iOS-style Page Control.
 // 
 // Usage:
 // 
-//  var control = new RED.PageControl({
+//  var control = new RED.module.PageControl({
 //      parent : $("#controller"),
 //      list : $("#controller > ul"), // optional, assumes parent child as list
 //      items : $("#controller > ul > li") // optional, assumes list children as items
@@ -22,7 +25,7 @@ var RED = RED || {};
 //  control.bind("touchend", function (e) {
 //      console.log(e);
 //  });
-RED.PageControl = (function () {
+RED.module.PageControl = (function () {
 	
 	// Extends RED.Module
 	return RED.Module.extend({

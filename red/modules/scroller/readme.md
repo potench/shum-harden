@@ -1,4 +1,4 @@
-### RED.Module.Scroller
+### RED.module.Scroller
 
 A module that enables inertial scrolling on iOS. Ported, scoped and modularized from [https://github.com/zynga/scroller](https://github.com/zynga/scroller)
 
@@ -6,7 +6,7 @@ A module that enables inertial scrolling on iOS. Ported, scoped and modularized 
 
 	var scrollable = $(".scroller");
 
-	var scroller = new RED.Module.Scroller({
+	var scroller = new RED.module.Scroller({
 		target: scrollable,
 
 		// All options below are optional

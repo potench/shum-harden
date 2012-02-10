@@ -4,6 +4,9 @@
 // ## The RED Namespace
 var RED = RED || {};
 
+// ## A static namespace for modules
+RED.module = RED.module || {};
+
 // ## RED.Module
 // The Module Class. Contains helper functions shared by modules.
 RED.Module = (function () {

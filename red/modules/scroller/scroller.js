@@ -6,12 +6,15 @@
 // The RED Namespace
 var RED = RED || {};
 
+// Module namespace
+RED.module = RED.module || {};
+
 // ## RED.Scroller
 // Creates a countdown scroller.
 // 
 // Usage:
 // 
-//  var scroller = new RED.Module.Scroller({
+//  var scroller = new RED.module.Scroller({
 //      target : $('#scrollable')
 //  });
 // 
@@ -30,7 +33,7 @@ var RED = RED || {};
 //  scroller.bind("touchinertia", function () {
 //      // on touch inertia
 //  });
-RED.Module.Scroller = (function () {
+RED.module.Scroller = (function () {
 	
 	// Extends RED.Module
 	return RED.Module.extend({

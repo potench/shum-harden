@@ -4,12 +4,15 @@
 // The RED Namespace
 var RED = RED || {};
 
-// ## RED.Ticker
+// Module namespace
+RED.module = RED.module || {};
+
+// ## RED.module.Ticker
 // Creates a countdown ticker.
 // 
 // Usage:
 // 
-//  var ticker = new RED.Ticker({
+//  var ticker = new RED.module.Ticker({
 //      now : new Date(),
 //      start : "Sun Jun 12 11:25:00 2011",
 //      end : "Mon Jun 13 11:45:00 2011"
@@ -26,7 +29,7 @@ var RED = RED || {};
 //  ticker.bind("complete", function () {
 //      // on complete
 //  });
-RED.Ticker = (function () {
+RED.module.Ticker = (function () {
 	
 	// Extends RED.Module
 	return RED.Module.extend({

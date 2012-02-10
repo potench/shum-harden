@@ -8,11 +8,11 @@
 // Site-specifc namespace
 var RED = RED || {};
 
-// Page namespace
-RED.Module = RED.Module || {};
+// Module namespace
+RED.module = RED.module || {};
 	
 // Home specific instance
-RED.Module.CustomFormField = (function () {
+RED.module.CustomFormField = (function () {
 	
 	// Extends RED.Page
 	return RED.Module.extend({
