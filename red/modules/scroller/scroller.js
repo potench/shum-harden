@@ -119,7 +119,7 @@ RED.Module.Scroller = (function () {
 		
 		setupScroller : function () {
 			var container = this.vars.target,
-				content = container.getElementsByTagName("div")[0],
+				content = container.getElementsByTagName("*")[0],
 				scroller, rect, key,
 				self = this;
 
