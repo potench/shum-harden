@@ -3,11 +3,11 @@
 /* ga.tracking.js */ 
 
 // ## Local Namespace
-var RED = RED || {};
+var red = red || {};
 
-RED.module = RED.module || {};
+red.module = red.module || {};
 
-RED.module.tracking = RED.module.tracking || {};
+red.module.tracking = red.module.tracking || {};
 
 var _gaq = _gaq || [];
 
@@ -16,9 +16,9 @@ var _gaq = _gaq || [];
  */
 (function () {
 	
-	RED.module.tracking.GA = (function () {
+	red.module.tracking.GA = (function () {
 
-		return RED.Module.extend({
+		return red.Module.extend({
 
 			vars : {
 				property_id : "", // init({property_id: "XXXXX"}) OR (preferably) <meta property="ga:property_id" content="XXXXX"/>
@@ -77,6 +77,6 @@ var _gaq = _gaq || [];
 			}
 
 		});
-	}.call(RED.module.tracking));
+	}.call(red.module.tracking));
 
 }());
