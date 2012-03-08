@@ -6,7 +6,7 @@ class Rosy::Watch::All
   include Term::ANSIColor
 
   def initialize
-    @jshinter = Rosy::Watch::JSHint.new
+    # @jshinter = Rosy::Watch::JSHint.new
     @compass = Rosy::Watch::Compass.new
     @compiler = nil
   end
@@ -23,13 +23,13 @@ class Rosy::Watch::All
       }
     end
     return nil
-  end  
+  end
 
   def compile(relative = nil)
     ext = File.extname(relative)
 
     if ext.eql?(".js") or ext.eql?(".json")
-      @jshinter.hint relative if @nohint.nil?
+      # @jshinter.hint relative if @nohint.nil?
 
       if @compiler.nil?
         @compiler = which("uglifyjs") ? Rosy::Watch::Uglify.new : Rosy::Watch::Closure.new
@@ -40,7 +40,7 @@ class Rosy::Watch::All
       @compass.compile relative
     end
   end
-  
+
   def run(nohint = nil)
     puts ">>> Polling for JavaScript & SASS changes. Press Ctrl-C to Stop"
 
