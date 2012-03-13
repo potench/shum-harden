@@ -52,19 +52,19 @@ A module that enables inertial scrolling on iOS. Ported, scoped and modularized 
 
 - Zoom to a specific level. Origin defines the pixel position where zooming should centering to. Defaults to center of scroller.
 
-	`scroller.zoomTo(level, animate, originLeft, originTop);`
+	`scroller.zoomTo(level, duration ? false, originLeft, originTop);`
 
 - Zoom by a given amount. Same as `zoomTo` but by a relative value.
 
-	`scroller.zoomBy(factor, animate, originLeft, originTop);`
+	`scroller.zoomBy(factor, duration ? false, originLeft, originTop);`
 
 - Scroll to a specific position.
 
-	`scroller.scrollTo(left, top, animate ? false);`
+	`scroller.scrollTo(left, top, duration ? false);`
 
 - Scroll by the given amount.
 
-	`scroller.scrollBy(leftOffset, topOffset, animate ? false);`
+	`scroller.scrollBy(leftOffset, topOffset, duration ? false);`
 
 - Update scroller option
 
