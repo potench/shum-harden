@@ -1045,7 +1045,7 @@ var Scroller;
 				};
 				
 				// When continuing based on previous animation we choose an ease-out animation instead of ease-in-out
-				self.__isAnimating = Scroller.effect.Animate.start(step, verify, completed, 250, wasAnimating ? easeOutCubic : easeInOutCubic);
+				self.__isAnimating = Scroller.effect.Animate.start(step, verify, completed, animate, wasAnimating ? easeOutCubic : easeInOutCubic);
 
 			} else {
 
