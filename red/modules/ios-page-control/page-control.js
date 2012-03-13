@@ -1,15 +1,18 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* page-control.js */
 
-// The RED Namespace
-var RED = RED || {};
+// The red Namespace
+var red = red || {};
 
-// ## RED.PageControl
+// Module namespace
+red.module = red.module || {};
+
+// ## red.module.PageControl
 // An iOS-style Page Control.
 // 
 // Usage:
 // 
-//  var control = new RED.PageControl({
+//  var control = new red.module.PageControl({
 //      parent : $("#controller"),
 //      list : $("#controller > ul"), // optional, assumes parent child as list
 //      items : $("#controller > ul > li") // optional, assumes list children as items
@@ -22,10 +25,10 @@ var RED = RED || {};
 //  control.bind("touchend", function (e) {
 //      console.log(e);
 //  });
-RED.PageControl = (function () {
+red.module.PageControl = (function () {
 	
-	// Extends RED.Module
-	return RED.Module.extend({
+	// Extends red.Module
+	return red.Module.extend({
 		
 		vars : {
 			className : "page-control",
@@ -61,7 +64,7 @@ RED.PageControl = (function () {
 			el = el[0] || el;
 			
 			var transform = window.getComputedStyle(el, null).webkitTransform,
-			    matrix = new window.WebKitCSSMatrix(transform);
+				matrix = new window.WebKitCSSMatrix(transform);
 
 			return matrix;
 		},
@@ -98,12 +101,12 @@ RED.PageControl = (function () {
 			
 			// Shared variables
 			var control = this.vars.parent,
-			    list = this.vars.list,
-			    matrix, touch, startX, currX, diffX,
-			    startY, currY, diffY, touches,
-			    directionX, oldX, touchMoveFired, touchEndFired, activeElement,
-			    elementWidth, elementThreshold, lockHorizontal,
-			    controlRect, listRect;
+				list = this.vars.list,
+				matrix, touch, startX, currX, diffX,
+				startY, currY, diffY, touches,
+				directionX, oldX, touchMoveFired, touchEndFired, activeElement,
+				elementWidth, elementThreshold, lockHorizontal,
+				controlRect, listRect;
 			
 			list.bind({
 				
@@ -205,8 +208,8 @@ RED.PageControl = (function () {
 					touchMoveFired = false;
 
 					var element = activeElement,
-					    difference = Math.abs(diffX),
-					    getSibling = (difference > elementThreshold);
+						difference = Math.abs(diffX),
+						getSibling = (difference > elementThreshold);
 
 					if (getSibling) {
 						element = this.findSibling(activeElement, diffX < 0);
@@ -250,8 +253,8 @@ RED.PageControl = (function () {
 		// - Resizes parent node to total child node width value.
 		sizeToFit : function () {
 			var width = 0,
-			    items = this.vars.items,
-			    i, j, el, itemWidth;
+				items = this.vars.items,
+				i, j, el, itemWidth;
 			
 			this.vars.parent.css("overflow", "hidden");
 			
@@ -271,10 +274,10 @@ RED.PageControl = (function () {
 		// Creates a page indicator for each found child node.
 		createPageIndicators : function () {
 			var control = this.vars.parent,
-			    items = this.vars.items,
-			    controller = $('<div class="page-indicators"></div>'),
-			    controlList = $('<ul></ul>'),
-			    i, j, icon;
+				items = this.vars.items,
+				controller = $('<div class="page-indicators"></div>'),
+				controlList = $('<ul></ul>'),
+				i, j, icon;
 
 			for (i = 0, j = items.length; i < j; i++) {
 				icon = $('<li></li>');
@@ -313,7 +316,7 @@ RED.PageControl = (function () {
 			element = element[0] || element;
 			
 			var matrix = this.getMatrix(list),
-			    elementOffset = element.getBoundingClientRect().left - control.offset().left;
+				elementOffset = element.getBoundingClientRect().left - control.offset().left;
 
 			this.resetTransition(list, 350);
 			this.setTransform(list, matrix.translate(-(elementOffset), 0, 0));
@@ -325,8 +328,8 @@ RED.PageControl = (function () {
 		roundMatrixValues : function (e) {
 			if (e.target === e.currentTarget) {
 				var el = $(e.currentTarget),
-				    matrix = this.getMatrix(el),
-				    key;
+					matrix = this.getMatrix(el),
+					key;
 			
 				for (key in matrix) {
 					if (typeof matrix[key] === "number") {
@@ -347,8 +350,8 @@ RED.PageControl = (function () {
 			element = element || this.vars.items.first();
 			
 			var items = this.vars.items,
-			     icons = this.vars.icons,
-			     index = items.index(element);
+				icons = this.vars.icons,
+				index = items.index(element);
 			
 			if (icons.get(index)) {
 				icons.removeClass(this.vars.className + "-active");
@@ -367,4 +370,4 @@ RED.PageControl = (function () {
 		}
 	});
 	
-}.call(RED));
+}.call(red));
