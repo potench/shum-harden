@@ -177,7 +177,7 @@ red.module.Scroller = (function () {
 				}, false);
 
 				document.addEventListener("touchmove", function (e) {
-					scroller.doTouchMove(e.touches, e.timeStamp);
+					scroller.doTouchMove(e.touches, e.timeStamp, e.scale);
 					self.trigger(e.type, e);
 				}, false);
 
