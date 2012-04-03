@@ -2,11 +2,11 @@
 /* omniture.tracking.js */
 
 // ## Local Namespace
-var RED = RED || {};
+var red = red || {};
 
-RED.module = RED.module || {};
+red.module = red.module || {};
 
-RED.module.tracking = RED.module.tracking || {};
+red.module.tracking = red.module.tracking || {};
 
 
 /**
@@ -14,9 +14,9 @@ RED.module.tracking = RED.module.tracking || {};
  */
 (function () {
 	
-	RED.module.tracking.Omniture = (function () {
+	red.module.tracking.Omniture = (function () {
 
-		return RED.Module.extend({
+		return red.Module.extend({
 			
 
 			_tracker : null,
@@ -66,6 +66,6 @@ RED.module.tracking = RED.module.tracking || {};
 			}
 
 		});
-	}.call(RED.module.tracking));
+	}.call(red.module.tracking));
 
 }());

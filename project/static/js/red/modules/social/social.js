@@ -2,9 +2,9 @@
 /* social.js */
 
 // ## Local Namespace
-var RED = RED || {};
+var red = red || {};
 
-RED.module = RED.module || {};
+red.module = red.module || {};
 
 
 /**
@@ -14,9 +14,9 @@ RED.module = RED.module || {};
  *		<div id="fb-root">
  * Refer to http://yoast.com/social-buttons/ for more information on social-tracking-events
  */
-RED.module.Social = (function () {
+red.module.Social = (function () {
 	
-	return RED.Module.extend({
+	return red.Module.extend({
 		
 		models : {},
 
@@ -24,8 +24,8 @@ RED.module.Social = (function () {
 			var i;
 
 			for (i = networks.length - 1; i >= 0; i--) {
-				if (RED.module.social[networks[i]]) {
-					this.models[networks[i]] = new RED.module.social[networks[i]]();
+				if (red.module.social[networks[i]]) {
+					this.models[networks[i]] = new red.module.social[networks[i]]();
 				} else {
 					throw ("no social module named " + networks[i]);
 				}
@@ -33,4 +33,4 @@ RED.module.Social = (function () {
 		}
 	});
 	
-}.call(RED));
+}.call(red));

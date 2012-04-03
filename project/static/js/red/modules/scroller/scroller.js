@@ -3,15 +3,18 @@
 
 /*global opera, Scroller */
 
-// The RED Namespace
-var RED = RED || {};
+// The red Namespace
+var red = red || {};
 
-// ## RED.Scroller
+// Module namespace
+red.module = red.module || {};
+
+// ## red.Scroller
 // Creates a countdown scroller.
 // 
 // Usage:
 // 
-//  var scroller = new RED.Module.Scroller({
+//  var scroller = new red.module.Scroller({
 //      target : $('#scrollable')
 //  });
 // 
@@ -30,10 +33,10 @@ var RED = RED || {};
 //  scroller.bind("touchinertia", function () {
 //      // on touch inertia
 //  });
-RED.Module.Scroller = (function () {
+red.module.Scroller = (function () {
 	
-	// Extends RED.Module
-	return RED.Module.extend({
+	// Extends red.Module
+	return red.Module.extend({
 		
 		vars : {},
 
@@ -119,7 +122,7 @@ RED.Module.Scroller = (function () {
 		
 		setupScroller : function () {
 			var container = this.vars.target,
-				content = container.getElementsByTagName("div")[0],
+				content = container.getElementsByTagName("*")[0],
 				scroller, rect, key,
 				self = this;
 
@@ -174,7 +177,7 @@ RED.Module.Scroller = (function () {
 				}, false);
 
 				document.addEventListener("touchmove", function (e) {
-					scroller.doTouchMove(e.touches, e.timeStamp);
+					scroller.doTouchMove(e.touches, e.timeStamp, e.scale);
 					self.trigger(e.type, e);
 				}, false);
 
@@ -228,4 +231,4 @@ RED.Module.Scroller = (function () {
 		}
 	});
 	
-}.call(RED));
+}.call(red));

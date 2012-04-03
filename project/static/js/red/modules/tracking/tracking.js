@@ -2,16 +2,16 @@
 /* tracking.js */
 
 // ## Local Namespace
-var RED = RED || {};
+var red = red || {};
 
-RED.module = RED.module || {};
+red.module = red.module || {};
 
 
 /**
  * Omniture and GA tracking event wrappers
  *
  * EXAMPLE:
-	var MyTracking = new RED.module.Tracking([
+	var MyTracking = new red.module.Tracking([
 		{	
 			className:"Omniture",  // configure to use omniture
 			config : [
@@ -27,11 +27,11 @@ RED.module = RED.module || {};
  */
 (function () {
 	
-	RED.module.Tracking = (function () {
+	red.module.Tracking = (function () {
 
 		var pakage = this; // "package" is reserved so using "pakage"
 		
-		return RED.Module.extend({
+		return red.Module.extend({
 			
 			models : {},
 
@@ -63,6 +63,6 @@ RED.module = RED.module || {};
 				}
 			}
 		});
-	}.call(RED.module));
+	}.call(red.module));
 
-}(RED.module));
+}(red.module));

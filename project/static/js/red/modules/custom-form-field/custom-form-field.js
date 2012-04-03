@@ -1,21 +1,16 @@
 // ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
 /* custom-form-field.js */
 
-// ## Local Namespace
+// The red namespace
+var red = red || {};
 
-// Home Page class
-
-// Site-specifc namespace
-var RED = RED || {};
-
-// Page namespace
-RED.Module = RED.Module || {};
+// Module namespace
+red.module = red.module || {};
 	
-// Home specific instance
-RED.Module.CustomFormField = (function () {
+red.module.CustomFormField = (function () {
 	
-	// Extends RED.Page
-	return RED.Module.extend({
+	// Extends red.Module
+	return red.Module.extend({
 		
 		vars : {
 			namespace : "customfield",
@@ -258,4 +253,4 @@ RED.Module.CustomFormField = (function () {
 			}
 		}
 	});
-}.call(RED));
+}.call(red));
