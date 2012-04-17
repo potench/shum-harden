@@ -1,0 +1,36 @@
+/*
+File: style.scss
+Outputs: style.css
+
+Project: RED
+
+Description:
+	Global styles
+
+Requires:
+	- Sass <http://sass-lang.com/>
+	- Compass <http://compass-style.org/>
+
+Requires:
+	- <modules/_base.scss>
+
+*/
+
+// See modules/_base.scss
+@import "modules/base";
+
+// Import page globals
+@import "partials/header";
+@import "partials/globals";
+@import "partials/footer";
+
+// Any other partials?
+// @import "partials/feature"
+
+// Any IE styles?
+@import "partials/ie";
+
+// You can import your individual page views here
+// Alternatively, if you'd like individual .css files for each page
+// you can move these files to the sass root and remove the "_" prefix
+@import "views/home";

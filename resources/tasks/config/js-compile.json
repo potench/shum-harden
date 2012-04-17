@@ -1,0 +1,38 @@
+{
+	"exclude" : {
+		"source" : [
+			"js/red/modules/ios-page-control/page-control.js",
+			"js/red/modules/ticker/ticker.js"
+		]
+	},
+
+	"plugins" : {
+		"source" : [
+			"js/libs/plugins/jquery.easing.js",
+			"js/libs/plugins/jquery.tmpl.js"
+		],
+		
+		"output" : "js/libs/plugins/plugins.min.js"
+	},
+	
+	"red" : {
+		"source" : [
+			"js/red/base/class.js",
+			"js/red/site.js"
+		],
+		
+		"output" : "js/red/red.min.js"
+	},
+	
+	"site" : {
+		"source" : [
+			"js/example/site.js",
+			"js/example/base/page.js",
+			
+			"js/example/shell.js",
+			"js/example/home.js"
+		],
+		
+		"output" : "js/example/example.min.js"
+	}
+}

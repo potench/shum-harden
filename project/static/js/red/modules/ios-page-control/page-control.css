@@ -1,0 +1,62 @@
+/*
+File: page-control.css
+
+About: Version
+	1.0
+
+Project: red
+
+Description:
+	An iOS-style Page Control
+
+Requires:
+	- jQuery <http://jquery.com/>
+
+Requires:
+	- <page-control.js>
+	- <class.js>
+	- <site.js>
+	- <page.js>
+
+*/
+.page-control {
+	overflow: hidden;
+	position: relative;
+}
+
+.page-control > .page-control-list {
+	text-align: center;
+	overflow: hidden;
+	width: 100%;
+}
+
+.page-control > .page-control-list > .page-control-items {
+	float: left;
+	width: 100%;
+	
+	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+}
+
+.page-control > .page-indicators {
+	bottom: 20px;
+	position: absolute;
+	z-index: 90;
+	width: 100%;
+	text-align: center;
+}
+
+.page-control > .page-indicators li {
+	margin: 0 3px;
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	background: #fff;
+	opacity: 0.6;
+	border-radius: 3px;
+	-webkit-transition: opacity 150ms ease-in-out;
+}
+
+.page-control > .page-indicators li.page-control-active {
+	opacity: 1;
+}
