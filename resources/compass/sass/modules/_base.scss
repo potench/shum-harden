@@ -1,6 +1,9 @@
 // Core imports
 @import "compass";
 
+// Fonts
+@import "fonts";
+
 // Default project config options
 @import "defaults";
 
@@ -8,7 +11,7 @@
 @import "mixins";
 
 // Default project easings
-@import "easings";
+@import "easings"; 
 
-// Normalize HTML5 elements
-@import "normalize";
+// Twitter Bootstrap
+@import "bootstrap/bootstrap";

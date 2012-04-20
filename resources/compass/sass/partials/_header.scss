@@ -1,1 +1,35 @@
-header {}
+
+
+header {
+	position:relative;
+	width:100%;
+	top:0;
+	overflow:hidden;
+	z-index:2;
+	height:$offset;
+
+	.backing {
+		background:#f9f7fc;
+		bottom: 60px;
+		height: 100%;
+	}
+
+	nav {
+		width:110%;
+		left:-5%;
+		position:relative;
+		margin:auto;
+		top: -2px;
+		position: relative;
+
+		.logo {
+			background:image-url("shell/logo.png");
+			width:274px;
+			height:110px;
+			margin-left: 200px;
+			display: block;
+			content: "";
+			text-indent: -100%;
+		}
+	}
+}

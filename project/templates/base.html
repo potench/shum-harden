@@ -16,13 +16,28 @@
 		<!-- Set STATIC_URL parameter -->
 		<link rel="media-url" href="{{ STATIC_URL }}" />
 
-		<title>{% block title %}__PROJECT_NAME__{% endblock title %}</title>
+		<title>{% block title %}Shum-Harden Wedding Website{% endblock title %}</title>
 
 		<meta name="description" content="" />
-		<meta name="author" content="" />
+		<meta name="author" content="Christian Harden" />
 
+		
 		<!-- Mobile viewport optimized: j.mp/bplateviewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta property="ga:property_id" content="UA-30937664-1"/>
+		<meta property="ga:domain" content="none"/>
+
+		<!-- Facebook sharing -->
+		<meta property="og:app_id" content="123096721155602" />
+		<meta property="og:title" content="Shum-Harden Wedding Website" />
+		<meta property="og:image" content="" />
+		<meta property="og:site_name" content="" />
+		<meta property="og:description" content="" />
+		<meta property="og:url" content="" />
+		<meta property="og:locale" content="en_us" />
+		<meta property="og:type" content="blog" />
+
 
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
@@ -30,8 +45,9 @@
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
 
 		{% if settings.TEMPLATE_DEBUG %}
-		<!-- holmes.css - CSS Markup Detective: j.mp/holmescss -->
+		<!-- holmes.css - CSS Markup Detective: j.mp/holmescss
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/debug/holmes.css" />
+		 -->
 		{% endif %}
 
 		<!-- All JavaScript at the bottom, except for Modernizr and Respond.
@@ -43,12 +59,25 @@
 	<body class="{% block page_class %}page{% endblock page_class %}{% if settings.TEMPLATE_DEBUG %} holmes-debug{% endif %}" data-page-class="{% block page_data %}Page{% endblock page_data %}">
 		<div id="container">
 			<header>
-				<nav role="navigation"></nav>
+				<div class="backing gutter tilt-right"></div>
+				<nav role="navigation">
+					<a class="logo" title="Home">Shum-Harden Wedding Website</a>
+					<!-- <ul class="nav nav-pills">
+						<li><a title="Welcome">Welcome</a></li>
+						<li><a title="">About Us</a></li>
+						<li><a title="">The Wedding</a></li>
+						<li><a title="">The Wedding Party</a></li>
+						<li><a title="">Guest Information</a></li>
+						<li><a title="">Photos</a></li>
+					</ul> -->
+				</nav>
 			</header>
 			<div id="main" role="main">
 				{% block content %}
+				
 				{% endblock content %}
 			</div>
+
 			<footer>
 				
 			</footer>
@@ -69,53 +98,39 @@
 					}, { // SITE
 						load : [
 							{% if settings.TEMPLATE_DEBUG %}
-							// jQuery Plugins
-							"{{ STATIC_URL }}js/libs/plugins/jquery.easing.js",
-							"{{ STATIC_URL }}js/libs/plugins/jquery.tmpl.js",
+								"{{ STATIC_URL }}js/libs/plugins/mustache.js",
+								"{{ STATIC_URL }}js/libs/plugins/jquery.pubsub.js",
+								"{{ STATIC_URL }}js/libs/plugins/jquery.cube.js",
+								"{{ STATIC_URL }}js/libs/plugins/jquery.imagesloaded.min.js",
+								"{{ STATIC_URL }}js/libs/plugins/modernizr.custom-tests.js",
+								"{{ STATIC_URL }}js/libs/plugins/jquery.cube.js",
 
-							// Rosy Framework
-							"{{ STATIC_URL }}js/red/base/class.js",
-							"{{ STATIC_URL }}js/red/site.js",
+								// Rosy Framework
+								"{{ STATIC_URL }}js/red/base/class.js",
+								"{{ STATIC_URL }}js/red/site.js",
+								"{{ STATIC_URL }}js/red/modules/module.js",
+								"{{ STATIC_URL }}js/red/modules/social/facebook.social.js",
+								"{{ STATIC_URL }}js/red/modules/social/twitter.social.js",
+								"{{ STATIC_URL }}js/red/modules/tracking/ga.tracking.js",
 
-							// Site Specific
-							"{{ STATIC_URL }}js/example/site.js",
-							"{{ STATIC_URL }}js/example/base/page.js",
-							
-							"{{ STATIC_URL }}js/example/shell.js",
-							"{{ STATIC_URL }}js/example/home.js"
+								// wedding framework
+								"{{ STATIC_URL }}js/wedding/site.js",
+								"{{ STATIC_URL }}js/wedding/module/module.js",
+								"{{ STATIC_URL }}js/wedding/module/module.shell.js",
+								"{{ STATIC_URL }}js/wedding/module/module.unity.js",
+								"{{ STATIC_URL }}js/wedding/page/page.js"
 							{% else %}
 							// All Minified
-							"{{ STATIC_URL }}js/example/example.min.js"
+								"{{ STATIC_URL }}js/wedding.site.min.js", 
 							{% endif %}
 						],
 						wait : true,
 						complete : function () {
-							Example.init();
+							wedding.init();
 						}
 					}]);
-
-					// Google Analytics
-					// Change UA-XXXXX-X to be your site's ID
-					window._gaq = [["_setAccount", "UAXXXXXXXX1"], ["_trackPageview"], ["_trackPageLoadTime"]];
-
-					Modernizr.load({
-						load : ("https:" == location.protocol ? "//ssl" : "//www") + ".google-analytics.com/ga.js"
-					});
 				}());
 			</script>
-
-			<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
-				 chromium.org/developers/how-tos/chrome-frame-getting-started -->
-			<!--[if lte IE 7 ]>
-				<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-				<script>
-					window.attachEvent("onload", function () {
-						CFInstall.check({
-							mode : "overlay"
-						});
-					});
-				</script>
-			<![endif]-->
 		</div>
 	</body>
 </html>

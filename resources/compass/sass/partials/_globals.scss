@@ -1,1 +1,90 @@
-body {}
+/* $icons-sprite-dimensions: true;
+$icons-spacing: 50px;
+@import "icons/*.png";
+@include all-icons-sprites;
+ */
+ 
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+html {
+	width: 100%;
+	overflow-y: scroll;
+	color:$text-color;
+}
+
+#container {
+	width:100%;
+	height:100%;
+}
+
+#main {
+	position:absolute;
+	top:-$offset;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:1;
+}
+
+.backing + * {
+	position:relative;
+	z-index:2;
+}
+
+.backing {
+	$w : 110%;
+	$tilt : 3deg;
+
+	position:absolute;
+	width:$w;
+	height:100%;
+	left:50%;
+	margin-left:-$w/2;
+
+	display:block;
+	content:"";
+	z-index:1;
+
+	&.tilt-left {
+		@include transform(rotateZ(-$tilt));
+
+		&.gutter:after,
+		&.gutter:before {
+			@include transform(rotateZ($tilt));
+		}
+	}
+
+	&.tilt-right {
+		@include transform(rotateZ($tilt));
+
+		&.gutter:after,
+		&.gutter:before {
+			@include transform(rotateZ(-$tilt));
+		}
+	}
+
+	&.gutter {
+		$width : 50px;
+		$spacing : 150px;
+
+		&:before,
+		&:after  {
+			@include backing();
+			width: $width;
+			height: 100%;
+			bottom: 0;
+			left: $spacing;
+			z-index:2;
+			@include background-image(linear-gradient(left, rgba(#000,0) 0%, rgba(#000,.05) 50%, rgba(#000,.4)));
+		}
+		&:after {
+			@extend .shadow;
+			right:$spacing;
+			left:auto;
+			@include background-image(linear-gradient(right, rgba(#000,0) 0%, rgba(#000,.05) 50%, rgba(#000,.4)));
+		}
+	}
+}

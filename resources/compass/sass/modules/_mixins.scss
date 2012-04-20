@@ -38,3 +38,33 @@
 	background-color: mix($top, $btm);
 	@include background-image(linear-gradient($top, $btm));
 }
+
+@mixin backing() {
+	display:block;
+	content: "";
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+}
+
+@mixin gutter() {
+	&:before,
+	&:after  {
+		@include backing();
+		width: 50px;
+		height: 100%;
+		bottom: 0;
+		left: 91px;
+		z-index:2;
+		@include transform(rotateZ(-2deg));
+		@include background-image(linear-gradient(left, rgba(#000,0) 0%, rgba(#000,.05) 50%, rgba(#000,.1)));
+	}
+	&:after {
+		@extend .shadow;
+		right:91px;
+		left:auto;
+		@include background-image(linear-gradient(right, rgba(#000,0) 0%, rgba(#000,.05) 50%, rgba(#000,.1)));
+	}
+}
