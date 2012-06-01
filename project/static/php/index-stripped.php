@@ -3,14 +3,11 @@
     session_start();
 
     $CODE = "StopTryingToBeClever";
-    $CODE = "081012";
 
     $vals = $_POST;
     $result = array();
 
-     $_SESSION['attempts'] = 0;
-     
-    if (isset($_GET['reset'])) {
+    if (isset($_GET['youllneverknow'])) {
       $_SESSION['attempts'] = 0;  
     }
     
@@ -32,10 +29,7 @@
 
       // set credentials for ClientLogin authentication
       $user = "Man....IseeYouTryingToHackMe";
-      $pass = "YouWantAJob? Email me at christian.harden@ff0000.com";
-
-      $user = "christian@potench.com";
-      $pass = "theTrunk2";
+      $pass = "YOURPASSWORD";
 
       try {
         // connect to API
@@ -44,9 +38,7 @@
         $service = new Zend_Gdata_Spreadsheets($client);
 
         // set target spreadsheet and worksheet
-        $ssKey = 'EatShitAndDie!';
-
-        $ssKey = '0AvRvEYGIf7ESdGUtTzkzcGZ0ZlRkaTNXM2pWVjJraEE';
+        $ssKey = 'EatMahShit';
         $wsKey = '1';
 
         // create row content

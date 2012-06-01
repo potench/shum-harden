@@ -1,3 +1,6 @@
+# Project Specific 
+*index.php
+
 # Numerous always-ignore extensions
 *.diff
 *.err
