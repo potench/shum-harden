@@ -458,7 +458,7 @@ header nav li {
   position: relative;
   height: 60px;
 }
-header nav li:first-child:after, header nav li:last-child:after {
+header nav li:last-child:after {
   display: none;
 }
 header nav li:after {
