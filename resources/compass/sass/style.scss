@@ -17,10 +17,12 @@ Requires:
 */
 
 // See modules/_base.scss
+
 @import "modules/base";
 
 // Import page globals
 @import "partials/header";
+
 @import "partials/globals";
 @import "partials/footer";
 
@@ -33,4 +35,15 @@ Requires:
 // You can import your individual page views here
 // Alternatively, if you'd like individual .css files for each page
 // you can move these files to the sass root and remove the "_" prefix
+// @import "views/modules/photo";
+
+@import "views/modules/backing";
+@import "views/modules/stat";
+
 @import "views/welcome";
+@import "views/story";
+@import "views/wedding";
+@import "views/party";
+@import "views/guests";
+
+@import "views/rsvp";

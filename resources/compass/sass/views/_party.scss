@@ -1,0 +1,247 @@
+
+#party {
+	position:relative;
+	margin-top:-190px;
+	position:relative;
+	font-family:$fonts-h1;
+
+	.background {
+		overflow:hidden;
+	}
+
+	.backing {
+		background:#6f6775;
+		top:100px; 
+		width:120%;
+		left:-10%;
+	}
+
+	.content {
+		padding-bottom:190px;
+		@include microfix();
+
+		.lines {
+			position:relative;
+			z-index:1;
+
+			img {
+				position:absolute;
+			}
+
+			[data-line="1"] {
+				top: 370px;
+				left: 380px;
+			}
+
+			[data-line="2"] {
+				top: 390px;
+				left: 30px;
+			}
+
+			[data-line="3"] {
+				top: 720px;
+				left: 370px;
+			}
+
+			[data-line="4"] {
+				top: 1290px;
+				left: -100px;
+			}
+
+			[data-line="5"] {
+				top: 1320px;
+				left: 340px;
+			}
+
+			[data-line="6"] {
+				top: 1230px;
+				left: 570px;
+			}
+
+			[data-line="7"] {
+				top: 860px;
+				left: 860px;
+			}
+		}
+		.info {
+			margin-left:65px;
+			position:relative;
+			z-index:2;
+		}
+
+		.headline {
+			font-size:115px;
+			color:#d1b5e7;
+			text-transform:none;
+			text-shadow:2px -2px 1px rgba(0, 0, 0, 0.1);
+			line-height:1em;
+
+			&:after {
+				color:#e9d9f5;
+			}
+		}
+
+		h3.headline {
+			text-transform: none;
+			color: $text-color-2;
+			text-shadow: 0px -1px 1px rgba(#000, .4);
+			font-size: 80px;
+			z-index:2;
+			margin-bottom:20px;
+			margin-top:40px;
+
+			&:after {
+				color:#f8f2fe;
+			}
+		}
+
+		article {
+			position:relative;
+		}
+
+		.stat {
+			height: 150px;
+			position: relative;
+			top: -10px;
+			z-index: 1;
+			display:block;
+
+			small {
+				color:#d6bee9;
+				width: 200px;
+				line-height: 1.1em;
+				text-shadow:0 -1px 1px rgba(#000, .5);
+			}
+
+			strong {
+				color:#fff;
+				position: relative;
+				left: -4px;
+				top: -7px;
+			}
+
+			figure > div {
+				width: 110px;
+				content: "";
+				display: block;
+				height: 70px;
+				position: relative;
+
+				img {
+					position: absolute;
+					top: 0;
+					left: -130px;
+				}
+			}
+
+			figcaption {
+				top: 20px;
+				left: 2px;
+			}
+		}
+
+		article.player {
+			width: 350px;
+			text-align: center;
+			display:inline-block;
+			vertical-align:top;
+			margin-bottom:40px;
+			z-index:2;
+
+			&.left {
+				margin-right:120px;
+				margin-left:60px;
+
+				&:after {
+					position: absolute;
+					content: "";
+					right: -70px;
+					height: 50px;
+					width: 2px;
+					background: $text-color-2;
+					display: block;
+					top: 320px;
+				}
+			}
+
+			> div {
+				width: 200px;
+				height: 200px;
+				border-radius: 120px;
+				border: 10px solid #D78DCD;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+
+			h1 {
+				display: inline-block;
+				color: #fff;
+				margin: auto;
+				text-align: left;
+				margin-top: 10px;
+				font-size: 25px;
+				line-height: 1em;
+				font-weight:normal;
+
+				span {
+					color:#d6bee9;
+				}
+			}
+
+			p {
+				color:#d6bee9;
+				text-align:justify;
+				font-size:15px;
+			}
+
+			b {
+				position:absolute;
+				left:20px;
+				font-family:$fonts-h1;
+				color:$text-color-2;
+				font-size: 60px;
+				top: 70px;
+			}
+		}
+
+		.flower-girls,
+		.others,
+		.parents {
+			margin-left:60px;
+
+			h3 {
+				font-size:50px;
+				margin-top:0px;
+			}
+
+			article.player {
+				width: auto;
+				margin-right: 60px;
+
+				h1 {
+					text-align:center;
+				}
+			}
+
+		}
+
+		.groomsmen {
+			article.player {
+				margin-right:20px;
+				width:300px;
+
+				&.right {
+					margin-right:0;
+				}
+
+				b {
+					left:-10px;
+				}
+				p {
+
+				}
+			}
+		}
+	}
+	
+}

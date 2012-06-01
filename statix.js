@@ -36,9 +36,9 @@ module.exports = {
 	pages : [
 		{
 			output : "index.html",
-			source : "templates/home.html",
+			source : "templates/pages/home.html",
 			data : {}
-		},		
+		},
 
 		{
 			output : "404.html",

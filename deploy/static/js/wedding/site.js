@@ -13,18 +13,12 @@ var wedding = wedding || {};
 
 // Model manager and shell manager
 red.Site = $.extend(true, wedding, red, (function () {
-	
-	var defaultPage = "Page";
 
 	return {
-		
+
 		models : {},
-		
+
 		init : function () {
-			// Create the site shell
-			this.models.Shell = new this.module.Shell();
-			this.models.GATracking = new this.module.tracking.GA();
-			
 			// Wait for DOMContentLoaded
 			$(document).ready(this.onReady.call(this));
 		},
@@ -33,30 +27,40 @@ red.Site = $.extend(true, wedding, red, (function () {
 			red.SYS = red.SYS || {};
 			red.SYS.MEDIA_URL = $("link[rel='media-url']").attr("href");
 		},
-		
+
 		createModel : function (page, vars) {
 			var master = this.page,
-				Model = (page && typeof master[page] === "function" ? master[page] : master[defaultPage]);
-			
+				Model = (page && typeof master[page] === "function" ? master[page] : master);
 			return (this.models[page || "page"] = new Model(vars));
 		},
-		
+
 		getModel : function (page) {
 			return this.models[page];
 		},
-		
+
 		getModels : function () {
 			return this.models;
 		},
-		
+
 		onReady : function () {
 			var body = $("body"),
 				// Use `attr("data-page-class")` if < jQuery 1.6
 				pageClass = body.data("pageClass");
-			
+
 			// creates `Page()` based on `<div data-page-class="Home">`
 			this.setMediaURL();
-			this.createModel(pageClass);
+
+			// this.createModel(pageClass);
+
+			this.models.GATracking = new this.module.tracking.GA();
+
+			// Create the site shell
+			this.models.Shell = new this.module.Shell();
+			
+			this.models.Home = new this.page.Home();
+			this.models.Story = new this.page.Story();
+			this.models.Guests = new this.page.Guests();
+			this.models.RSVP = new this.page.RSVP();
 		}
 	};
 }()));

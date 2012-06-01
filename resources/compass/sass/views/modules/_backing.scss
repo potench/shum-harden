@@ -1,0 +1,143 @@
+.background {
+	width:100%;
+	height:100%;
+	position:absolute;
+	overflow:hidden;
+	top:0;
+	left:0;
+	z-index:1;
+	pointer-events: none;
+}
+
+.background + * {
+	position:relative;
+	z-index:2;
+}
+
+.backing {
+	$tilt : 3deg;
+
+	position:absolute;
+	width:$overwidth;
+
+	height:100%;
+	left:(100 - $overwidth)/2;
+	top:100px;
+	
+
+	display:block;
+	content:"";
+	z-index:1;
+
+	&.tilt-left {
+		@include transform(rotateZ(-$tilt));
+
+		&.gutter:after,
+		&.gutter:before,
+		.custom-shadow {
+			@include transform(rotateZ($tilt));
+		}
+	}
+
+	&.tilt-right {
+		@include transform(rotateZ($tilt));
+
+		&.gutter:after,
+		&.gutter:before,
+		.custom-shadow {
+			@include transform(rotateZ(-$tilt));
+		}
+	}
+
+	/*
+	&.gutter {
+		$width : 50px;
+		$spacing : 30px;
+
+		&:before,
+		&:after  {
+			@include backing();
+			height:auto;
+			width: $width;
+			top:0px;
+			bottom: 0px;
+			left: 29px;
+			z-index:2;
+			@include background-image(linear-gradient(left, rgba(#000,0) 0%, rgba(#000,.05) 50%, rgba(#000,.4)));
+		}
+		&:after {
+			@extend .shadow;
+			right:159px;
+			left:auto;
+			@include background-image(linear-gradient(right, rgba(#000,0) 0%, rgba(#000,.05) 50%, rgba(#000,.4)));
+		}
+
+		&.gutter-custom > div {
+			&:before,
+			&:after {
+				background:image-url("shell/shadow-l-alt.png") no-repeat;
+				background-size:cover;
+				left:100px;
+				bottom:0px;
+			}
+
+			&:after {
+				@include transform(rotate($tilt) scaleX(-1));
+				right:100px;
+				left:auto;
+			}
+		}
+	}
+
+	*/
+
+	/*
+	.shadow {
+		position:absolute;
+		width:100%;
+		display:block;
+		content:"";
+		z-index:10;
+		top:0;
+		opacity:.6;
+
+		&:before,
+		&:after {
+			display:block;
+			position:absolute;
+			content:"";
+			background:image-url("shell/shadow-l.png") no-repeat;
+			background-size:cover;
+			width:72px;
+			left:$margin - 57;
+			height:500px;
+		}
+
+		&:before {
+			right:$margin - 57;
+			left:auto;
+			@include fliph();
+		}
+
+		&.alt {
+			opacity:1;
+
+			&:after,
+			&:before {
+				height:561px;
+				width:16px;
+				left:$margin;
+				background:image-url("shell/shadow-l-alt.png") no-repeat;
+				background-size:contain;
+			}
+
+			&:before {
+				right:$margin;
+				left:auto;
+			}
+		}
+	}
+	*/
+}
+
+

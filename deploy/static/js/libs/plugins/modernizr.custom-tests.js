@@ -1,9 +1,19 @@
-
+/**
+ * Some common tests / additions for Modernizr - (notably the h264 test)
+ * You're encourage to edit / alter this file for your needs
+ */
 
 (function () {
+	
+	if (Modernizr && typeof Modernizr.prefixed === "function") {
 
-	if(Modernizr) {
+		////////////////////////////////////////////////
+		// You can consider "disabling" 3d on Firefox
+		/*if (navigator.userAgent.indexOf("Firefox")!=-1) {
+			Modernizr.csstransforms3d = false;
+		}*/
 
+		////////////////////////////////////////////////
 		Modernizr.transitionEnd = (function() {
 			
 			if(Modernizr.csstransitions) {
@@ -21,13 +31,7 @@
 
 		})();
 
-		Modernizr.addTest('grayscale', function() {
-			if ((typeof document.body.style.filter === "undefined") && (typeof document.body.style.webkitFilter === "undefined")) {
-				return false;
-			}
-			return true;
-		});
-
+		////////////////////////////////////////////////
 		Modernizr.addTest('h264', function(){
 			if(!!document.createElement('video').canPlayType){	
 				var v = document.createElement("video");
@@ -37,9 +41,20 @@
 		});
 
 
+		////////////////////////////////////////////////
+		Modernizr.addTest('grayscale', function() {
+			if ((typeof document.body.style.filter === "undefined") && (typeof document.body.style.webkitFilter === "undefined")) {
+				return false;
+			}
+			return true;
+		});
+
+		Modernizr.addTest('cssmask', Modernizr.testAllProps('mask-repeat'));
+
+		////////////////////////////////////////////////
 		// selectorSupported lovingly lifted from the mad italian genius, diego perini
 		// http://javascript.nwbox.com/CSSSupport/
-		function selectorSupported(selector){
+		function selectorSupported (selector) {
 		  
 		  var support, link, sheet, doc = document,
 		      root = doc.documentElement,
@@ -81,12 +96,11 @@
 
 		};
 
-
 		Modernizr.addTest('nthchild',function(){
 		  return selectorSupported(':nth-child(1)');
 		});
 
 	}else {
-		throw "Load custom Modernizr.js with 'prefixed' features in <head> of document."
+		throw "Load custom Modernizr.js with 'prefixed' feature in <head> of document."
 	}
 }());

@@ -1,159 +1,163 @@
-/*
-File: home.scss
-Outputs: home.css
-
-Project: RED
-
-Description:
-	Home page styles
-
-Requires:
-	- Sass
-	- Compass
-
-*/
-
-.page {
-	position:relative;
-	width:100%;
-	height:100%;
-	display:table;
+#welcome {	
+	height:900px;
+	margin-top:0;
 	overflow:hidden;
-
-	.content {
-		display:table-cell;
-		vertical-align:middle;
-		text-align:center;
-	}
-}
-
-.gutter-shadows {
-	position:absolute;
-	width:110%;
-	border:1px solid red;
-	background:#000;
-	height:20px;
-	display:block;
-	content:"";
-	z-index:10;
-
-	span:first-child {
-		left:100px;
-		right:auto;
-		content:"";
-	}
-
-	span {
-		height:561px;
-		width:16px;
-		display:block;
-		position:absolute;
-		right:100px;
-		content:"";
-	}
-}
-
-#welcome {
-	z-index:3;
-
-	.backing {
-		top:-7%;
-		background:#543a55;
-
-		> div {	
-			@include backing();
-			width:100%;
-			height:100%;
-			background:image-url("shell/black_filtre.png") top center repeat;
-			@include transform(rotateZ(3deg));
-			z-index:1;
-		}
-
-	}
-
-	.content {
-		padding:80px;
-		z-index:2;
-	}
-
-	.glow {
-		$w : 100%;
-
-		border-radius:100px;
-		width:$w;
-		height:$w;
-		content:"";
-		position:absolute;
-		left:50%;
-		top:50%;
-		margin-left:-$w/2;
-		margin-top:-$w/2;
-		z-index:1;
-
-		//@include box-shadow(0px 0px 10px 10px #000);
-		// @include background-image(radial-gradient(#000, #fff));
-		background:image-url("shell/black_glare.png") center 200px no-repeat;
-
-	}
-
-	h1 {
-		font-family:$fonts-h2;
-		font-size:4.0em;
-		color:#fff;
-		position:absolute;
-		top:400px;
-		margin-left:40px;
-
-		span {
-			font-family:$fonts-h2;
-			font-size:.4em;
-			position:relative;
-
-		}
-	}
-
-	h2 {
-		padding:100px;
-		font-family:$fonts-p2;
-		color:rgba(#000, .5);
-		font-size:6em;
-		line-height:1em;
-		z-index:2;
-
-		span {
-			position:relative;
-			font-family:$fonts-h1;
-			font-size:1.5em;
-			top:-10px;
-			color:#f9ceff;
-			text-transform: capitalize;
-			z-index:1;
-		}
-
-	}
-}
-
-#slideshow {
-	height:86%;
-	z-index:2;
-	top:-$offset;
+	z-index:1;
 
 	.backing {
 		top:0px;
-		bottom:90px;
-		height:auto;
-		background:#f3eff7;
+		background:#ededed image-url("welcome/texture.jpg") top center repeat;
+	}
+
+
+	article {
+		position:relative;
 	}
 
 	.content {
-		
+		font-family:$fonts-h1;
+		text-align:center;
+		padding-top:0;
+
+		.logo {
+			position:absolute;
+			top: 60px;
+			left: -120px;
+		}
+
+		.hey {
+			color:#fff;
+			font-size: 305px;
+			text-transform: uppercase;
+			left: 50px;
+			line-height: 1em;
+			position: absolute;
+			top: 20px;
+		}
+
+		.hero {
+			position:absolute;
+			left: -90px;
+			top: 52px;
+
+			img.shadow {
+				position:absolute;
+			}
+
+			img.mask {
+				position:absolute;
+				width:1px;
+				height:1px;
+			}
+
+			img.us {
+				position:relative;
+				-webkit-mask-image:image-url("welcome/mask.png");
+				-moz-mask-image:image-url("welcome/mask.png");
+				-o-mask-image:image-url("welcome/mask.png");
+				-ms-mask-image:image-url("welcome/mask.png");
+				mask-image:image-url("welcome/mask.png");
+			}
+
+			canvas {
+				@include transform(translateZ(0));
+			}
+
+			canvas ~ img {
+				display:none;
+			}
+		}
+
+		.title {
+			position:absolute;
+			left: 60px;
+			top: 375px;
+			font-weight:normal;
+
+			span {
+				font-family:$fonts-h1;
+				color:#fff;
+				font-size:20px;
+				float:left;
+				clear:both;
+				text-transform:uppercase;
+				text-align:top;
+				letter-spacing:1px;
+			}
+
+			span:nth-child(1) {
+				text-transform:none;
+				font-size:30px;
+				line-height:50px;
+			}
+
+			span:nth-child(2) {
+				font-size: 90px;
+				line-height: 80px;
+			}
+
+			span:nth-child(3) {
+				font-size: 90px;
+				line-height: 80px;
+			}
+
+			strong {
+				float:left;
+				clear:both;
+			}
+
+			
+		}
+
+		.intro {
+			
+			width:335px;
+			font-family:$fonts-p1;
+			color:#7a7482;
+			position:absolute;
+			top: 150px;
+			right: 0px;
+			text-align: left;
+
+			p {
+				@include header();
+			}
+
+			.hi {
+				font-size: 17px;
+				font-weight: bold;
+				letter-spacing: 0px;
+				line-height: 1.2em;
+				font-family:$fonts-p1;
+			}
+
+			.when {
+				font-family: $fonts-h1;
+				font-size: 25px;
+				line-height: 1em;
+				letter-spacing: 0px;
+				margin-top: 15px;
+			}
+
+			.where {
+				font-size: 18px;
+				font-family: $fonts-h1;
+				font-weight: normal;
+				letter-spacing: 1px;
+				margin-top:-5px;
+			}
+
+			.how {
+				color:#c03868;
+				font-family: $fonts-h1;
+				border-bottom:1px solid #c03868;
+				font-size: 40px;
+				line-height: 1em;
+				margin-top: 10px;
+				letter-spacing:1px;
+				cursor:pointer;
+			}
+		}
 	}
-
-}
-
-#about {
-	width:100%;
-	height:100%;
-	background:#000 image-url("shell/black_filtre.png") top center repeat;
-	display:none;
+	
 }

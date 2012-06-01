@@ -1,0 +1,275 @@
+
+#story {
+	position:relative;
+	margin-top:-190px;
+	position:relative;
+	font-family:$fonts-h1;
+
+	.background {
+		overflow:hidden;
+	}
+
+	.backing {
+		background:#d1b6e8;
+		top:100px; 
+	}
+
+	> .content {
+		padding-bottom:190px;
+		@include microfix();
+
+		.doves {
+			content:"";
+			position:absolute;
+			pointer-events:none;
+			z-index:1;
+			right:0;
+			top:0;
+			left: 770px;
+			top: 150px;
+			width:500px;
+			height:490px;
+			background:image-url("about/doves.jpg") no-repeat 0 0;
+		}
+
+		.intro {
+			margin-left: 65px;
+			position: relative;
+			z-index: 2;
+		}
+	
+
+		h1 {
+			text-transform: none;
+			color: $text-color-2;
+			text-shadow: 0px -1px 1px rgba(#000, .4);
+			font-size: 130px;
+
+			&:after {
+				color:#f8f2fe;
+			}
+		}
+
+		.stat.work {
+			border-top:2px solid $text-color;
+		}
+
+		.stat.kiss {
+			border:0;
+			margin-top:30px;
+			margin-left:100px;
+
+			figure {
+				.heart {
+					left: -2px;
+					top: 0px;
+					opacity: .8;
+					z-index:1;
+				}
+
+				img {
+					position:absolute;
+					top:40px;
+					z-index:3;
+				}
+
+				.man {
+					left:5px;
+				}
+
+				.woman {
+					z-index:2;
+					left:40px;
+				}
+
+				figcaption {
+					width:300px;
+					margin-left:100px;
+				}
+
+				strong {
+					vertical-align:top;
+					display:inline-block;
+				}
+
+				small {
+					font-size: 16px;
+					width: 280px;
+					line-height: 17px;
+					margin-top: 5px;
+				}
+			}
+		}
+
+		.stat.engagement {
+			padding-top: 60px;
+			margin-top: 40px;
+			border-top:2px solid $text-color;
+
+			figure {
+
+				figcaption {
+					width:260px;
+					margin-left: 15px;
+					margin-top: -15px;
+
+					strong {
+						font-size: 37px;
+						line-height: 1em;
+					}
+
+					small {
+						font-size: 18px;
+						line-height: 1em;
+						text-align: justify;
+						width: 245px;
+					}
+				}
+			}
+		}
+
+		.gallery {
+			border:0px;
+			padding-top:0px;
+			margin-left: 100px;
+
+			figure {
+				margin-bottom:10px;
+
+				img {
+					position:absolute;
+				}
+
+				img:nth-child(1) {
+					left:-5px;
+					top:-2px;
+				}
+
+				img:nth-child(2) {
+					left:16px;
+					top:1px;
+				}
+
+				img:nth-child(3) {
+					left:10px;
+					top:-4px;
+				}
+
+				> div {
+					width:50px;
+					height:40px;
+					margin-top: 12px;
+					margin-left:30px;
+					position:relative;
+					display:inline-block;
+					float:none;
+				}
+
+				figcaption {
+					margin-left:20px;
+
+					strong {
+						font-size: 60px;
+						line-height:60px;
+					}
+
+					small {
+						margin-left: 10px;
+						line-height: 18px;
+						font-size: 17px;
+						width: 100px;
+						margin-top: 10px;
+					}
+				}
+			}
+
+			.shadow {
+				position:absolute;
+				top: 72px;
+				left: 15px;
+				z-index:1;
+
+				div {
+					position:absolute;
+					z-index:1;
+					width:582px;
+					height:58px;
+					top: 310px;
+					left: -105px;
+					background:image-url("about/img-shadow.png");
+					content:"";
+				}
+
+				div + div {
+					width: 260px;
+					height: 270px;
+					opacity: .2;
+					top: 30px;
+					left: 20px;
+					background:transparent;
+					box-shadow: 0px 0px 40px 20px black, 0px 0px 10px 30px black inset;
+					@include rotate(-6deg);
+				}
+			}
+			
+			article {
+				position:relative;
+				z-index:2;
+
+				.photo {
+					img {
+						z-index:2;
+						position:relative;
+						-webkit-box-reflect: below 4px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(255,255,255,0.2)));
+					}
+
+					canvas {
+						z-index:1;
+						opacity:.5;
+						position:absolute;
+						top:100%;
+						left:0;
+					}
+				}
+
+				.content {
+					width: 70%;
+					margin: auto;
+
+					p {
+						color:$text-color-2;
+						font-family:$fonts-h1;
+						font-size:18px;
+						line-height:1em;
+						text-shadow: 0px -1px 1px rgba(#000, .4);
+					}
+				}
+			}
+
+			nav {
+				position:absolute;
+				top:0;
+				left:0;
+				right:0;
+				z-index:3;
+
+				.arrow {
+					position: absolute;
+					top: 210px;
+					cursor:pointer;
+				}
+
+				.arrow.prev {
+					left: -10px;
+					@include arrow(left, 30px, #fff);
+				}
+
+				.arrow.next {
+					right: -10px;
+					@include arrow(right, 30px, #fff);
+				}
+			}
+		}
+	}
+	
+}

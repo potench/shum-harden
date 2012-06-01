@@ -54,28 +54,58 @@ red.module.social.Twitter = (function () {
 			$.subscribe(EVENTS.RENDER, $.proxy(this.render, this));
 		},
 
+		onTwitterInit : function () {
+			if (window.twttr) {
+				window.twttr.events.bind('tweet',   $.proxy(this.onTweet, this));
+				window.twttr.events.bind('follow', $.proxy(this.onFollow, this));	
+			}
+		},
+
+		querystring : function (url) { // parses query-string
+			var a = /\+/g,  // Regex for replacing addition symbol with a space
+				r = /([^&=]+)=?([^&]*)/g,
+				d = function (s) {
+						return decodeURIComponent(s.replace(a, " ")); 
+					},
+				q = url || window.location.search.substring(1),
+				qs = {},
+				e = r.exec(q);
+
+			while (e) {
+				qs[d(e[1])] = d(e[2]);
+				e = r.exec(q);
+			}
+
+			return qs;
+		},
+
 		// override this for tracking and such
 		// fires from custom tweet AND from @anywhere plugins
 		onTweet: function (e, eData) {
-			var el = $(e.currentTarget),
-				data = eData || el.data();
+			var el = (e.currentTarget) ? $(e.currentTarget) : $(e.target),
+				data = eData || el.data() || {},
+				tweeturl = eData.url || this.querystring(el.attr("src")).url;
+			$.publish("track", [{type : "event", category: "twitter", action : "on-tweet", label : tweeturl || window.location.href }]);
+
 			return data;
 		},
 
 		onFollow: function (e, eData) {
 			var el = $(e.currentTarget),
 				data = eData || el.data();
+
+			$.publish("track", [{type : "event", category: "twitter", action : "on-follow", label : data.url}]);
 			return data;
 		},
 
 		customTweet : function (e, eData) {
-
-			var el = $(e.currentTarget),
+			// needs URL and text
+			var el = (e) ? $(e.currentTarget) : null,
 				data = eData || el.data(),
 				url = this._twitter_url,
 				i;
-			
-			data.url = data.url || window.location.href;
+
+			data.url = data.url;
 			data.text = data.text || document.title;
 
 			for (i in data) {
@@ -108,10 +138,7 @@ red.module.social.Twitter = (function () {
 			document.getElementsByTagName('head')[0].appendChild(e);
 
 			$(e).load($.proxy(function () {
-				if (window.twttr) {
-					window.twttr.events.bind('tweet',   $.proxy(this.onTweet, this));
-					window.twttr.events.bind('follow', $.proxy(this.onFollow, this));	
-				}
+				this.onTwitterInit();
 			}, this));
 		},
 

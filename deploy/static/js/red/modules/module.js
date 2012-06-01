@@ -10,10 +10,10 @@ red.module = red.module || {};
 // ## red.Module
 // The Module Class. Contains helper functions shared by modules.
 red.Module = (function () {
-	
+
 	// Extend red.Class
 	return red.Class.extend({
-		
+
 		// Store class-specific variables
 		vars : {
 			// Create a cache of custom events
@@ -25,12 +25,12 @@ red.Module = (function () {
 			this.vars.events["on" + type] = this.vars.events["on" + type] || [];
 			this.vars.events["on" + type].push(method);
 		},
-		
+
 		// Unbind a custom event(s) from a given module
 		unbind : function (type, method) {
 			var group = this.vars.events["on" + type],
 				i, j;
-			
+
 			if (group) {
 				for (i = 0, j = group.length; i < j; i++) {
 					if (!method || group[i] === method) {
@@ -45,10 +45,10 @@ red.Module = (function () {
 			if (!this.vars.events) {
 				return;
 			}
-			
+
 			var events = this.vars.events["on" + type],
 				i, j, event;
-			
+
 			if (events && events.length) {
 				if (Object.prototype.toString.call(args) !== "[object Array]") {
 					args = [args];
@@ -58,7 +58,7 @@ red.Module = (function () {
 
 				for (i = 0, j = events.length; i < j; i++) {
 					event = events[i];
-					
+
 					if (event) {
 						event.apply(this, args || [{
 							type : type
@@ -67,6 +67,6 @@ red.Module = (function () {
 				}
 			}
 		}
-		
+
 	});
 }.call(red));

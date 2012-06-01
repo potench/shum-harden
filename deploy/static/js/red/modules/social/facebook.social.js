@@ -24,7 +24,7 @@ red.module.social = red.module.social || {};
 red.module.social.Facebook = (function () {
 
 	var EVENTS = {
-			POST : "custom-facebook-post",
+			POST : "social/facebook/post",
 			RENDER : "social/render"
 		};
 
@@ -43,39 +43,33 @@ red.module.social.Facebook = (function () {
 		},
 
 		onShare : function (e) {
-			console.log("fb-onShare", e);
+
 		},
 
 		onAddComment : function (e) {
-			console.log("fb-onAddComment", e);
+
 		},
 
 		onSesionChange : function (e) {
-			console.log("fb-onSesionChange", e);	
+
 		},
 
 		onStatusChange : function (e) {
-			// console.log("fb-onStatusChange", e);	
+
 		},
 
 		onLogin : function (e) {
-			console.log("fb-onLogin", e);	
+
 		},
 
 		// parse the URL to run like-specific callbacks
 		onLike : function (URL) {
-			// the following is SPECIFC to toyota sharathon - no time to abstract further sorry!
-			if (URL.indexOf("seed") > 0) { // from profile page
-				// tracking
-				console.log("fb-onLike", "profile");
-			} else { // bottom of page
-				// tracking
-				console.log("fb-onLike", "other");
-			}
+			// tracls as facebook-like-profile or facebook-like-other (for custom page liking)
+			var action = "on-like-" + ((URL.indexOf("seed") > 0) ? "profile" : "other");
+			$.publish("track", [{type : "event", category: "facebook", action : action, label : URL}]);
 		},
 
 		onRender : function () {
-			// console.log("fb-onRender");	
 			//FB.Event.unsubscribe('xfbml.render',this.onRender); // unregister
 		},
 
@@ -110,6 +104,8 @@ red.module.social.Facebook = (function () {
 
 			FB.ui(publishObj);
 
+			$.publish("track", [{type : "event", category : "facebook", action : "on-post", label : data.origin}]);
+
 			return data;
 		},
 
@@ -129,9 +125,13 @@ red.module.social.Facebook = (function () {
 				},
 				action_links : [{
 					text : data.attachmentActionText || "Click Here",
-					href : data.attachmentActionText || $('meta[property="og:url"]').attr("content")
+					href : data.attachmentActionHref || $('meta[property="og:url"]').attr("content")
 				}]
 			});
+		},
+
+		onFBInit : function () {
+			FB.Event.unsubscribe('xfbml.render', this.onFBInit); // unregister
 		},
 
 		fbAsyncInit : function () {
@@ -142,6 +142,7 @@ red.module.social.Facebook = (function () {
 			FB.Event.subscribe('auth.login', $.proxy(this.onLogin, this));
 			FB.Event.subscribe('edge.create', $.proxy(this.onLike, this));
 			FB.Event.subscribe('xfbml.render', $.proxy(this.onRender, this));
+			FB.Event.subscribe('xfbml.render', $.proxy(this.onFBInit, this));
 
 			FB.init({
 				appId      : this._app_id, // App ID

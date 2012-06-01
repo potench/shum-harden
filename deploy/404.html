@@ -1,35 +1,28 @@
 <!doctype html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
 	<head>
 		<meta charset="utf-8" />
-
-		<!-- Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/b/378 -->
   		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-		<!-- Prefetch your CDN URL: http://j.mp/bplatednsfetch -->
 		<link rel="dns-prefetch" href="static/" />
-
-		<!-- Set STATIC_URL parameter -->
 		<link rel="media-url" href="static/" />
 
-		<title>__PROJECT_NAME__</title>
+		<title>Shum-Harden Wedding Website</title>
 
 		<meta name="description" content="" />
-		<meta name="author" content="" />
+		<meta name="author" content="Christian Harden" />
 
 		<!-- Mobile viewport optimized: j.mp/bplateviewport -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<meta property="ga:property_id" content=""/>
+		<meta property="ga:property_id" content="UA-30937664-1"/>
 		<meta property="ga:domain" content="none"/>
 
 		<!-- Facebook sharing -->
 		<meta property="og:app_id" content="123096721155602" />
-		<meta property="og:title" content="" />
+		<meta property="og:title" content="Shum-Harden Wedding Website" />
 		<meta property="og:image" content="" />
 		<meta property="og:site_name" content="" />
 		<meta property="og:description" content="" />
@@ -37,32 +30,46 @@
 		<meta property="og:locale" content="en_us" />
 		<meta property="og:type" content="blog" />
 
-
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
-		<!-- CSS: implied media="all" -->
 		<link rel="stylesheet" href="static/css/style.css" />
-
-		
-
-		<!-- All JavaScript at the bottom, except for Modernizr and Respond.
-		     Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
-		     For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
-		<script src="static/js/libs/modernizr-2.0.6.js"></script>
+		<script src="static/js/libs/modernizr-2.5.3.min.js"></script>
 		<script src="static/js/libs/respond.js"></script>
 	</head>
 	<body class="page" data-page-class="Page">
 		<div id="container">
 			<header>
-				<nav role="navigation"></nav>
+				<nav role="navigation">
+					<ul>
+						<li class="selected"><a href="#welcome" data-section="welcome" title="Welcome">Welcome</a></li>
+						<li class=""><a href="#story" data-section="story" title="A Love Story">A Love Story</a></li>
+						<li><a href="#wedding" data-section="wedding" title="The Wedding">The Wedding</a></li>
+						<li><a href="#party" data-section="party" title="Wedding Party">Wedding Party</a></li>
+						<li><a href="#guests" data-section="guests" title="Guest Services">Guest Services</a></li>
+						<li class="rsvp"><a href="#rsvp" title="RSVP" data-section="rsvp">RSVP <small>Now</small></a></li>
+					</ul>
+				</nav>
 			</header>
 			<div id="main" role="main">
 				
 This page is a placemark for the Error 404 page.
 
 			</div>
+
+			
+
 			<footer>
-				
+				<div class="background">
+					<div class="backing tilt-right"><div></div></div>
+				</div>
+				<div class="content">
+					<nav>
+						<ul>
+							<li>© 2012 Potench, LLC. All rights reserved.</li>
+							<li>shum-harden wedding 2012</li>
+						</ul>
+					</nav>
+				</div>
 			</footer>
 		</div> <!--! end of #container -->
 
@@ -72,17 +79,12 @@ This page is a placemark for the Error 404 page.
 				(function () {
 					Modernizr.load([{
 						// jQuery
-						load : "//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js",
-						complete : function () {
-							if (!window.jQuery) {
-								Modernizr.load("static/js/libs/jquery-1.6.4.min.js");
-							}
-						}
+						load : "static/js/libs/jquery-1.7.2.min.js"
 					}, { // SITE
 						load : [
 							
 							// All Minified
-								"static/js/wedding.site.min.js", 
+								"static/js/wedding.min.js", 
 							
 						],
 						wait : true,

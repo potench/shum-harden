@@ -1,0 +1,176 @@
+
+#wedding {
+	position:relative;
+	margin-top:-190px;
+	position:relative;
+	font-family:$fonts-h1;
+
+	.background {
+		overflow:hidden;
+	}
+
+	.backing {
+		//background:#fff image-url("wedding/texture.jpg");
+		background:#fdebfe;
+		top:100px; 
+	}
+
+	.content {
+		padding-bottom:190px;
+		@include microfix();
+
+		h1 {
+			text-transform:none;
+		}
+
+		.info {
+			margin-left:65px;
+			position:relative;
+			z-index:2;
+		}
+
+		.location {
+			padding-bottom:30px;
+			
+			a {
+				padding-left: 55px;
+				line-height: 1em;
+				display: inline-block;
+				vertical-align: bottom;
+				padding-top: 28px;
+				font-size: 20px;
+				margin-right:40px;
+				float:left;
+			}
+
+			a.directions {
+				background:image-url("wedding/directions.png") bottom left no-repeat;
+			}
+
+			a.website {
+				padding-left:40px;
+				background:image-url("wedding/website.png") bottom left no-repeat;
+			}
+		}
+
+		.drinks {
+			content:"";
+			position:absolute;
+			pointer-events:none;
+			z-index:1;
+			left: 630px;
+			top: 310px;
+			width: 500px;
+			height: 700px;
+			background:image-url("wedding/drinks.jpg") no-repeat 0 0;
+		}
+
+		.drinks-top {
+			content:"";
+			position:absolute;
+			width:62px;
+			height:96px;
+			left: 937px;
+			top: 310px;
+			z-index:3;
+			background:image-url("wedding/champaigne-top.png") no-repeat 0 0;
+		}
+
+		.stat {
+			padding-top:0px;
+
+			small {
+				text-shadow: 0 0px 1px #fff;
+			}
+		}
+
+		.stat.weddings {
+
+			figure {
+
+				figcaption {
+
+					small {
+						font-size: 22px;
+						line-height: 1em;
+						width: 231px;
+						display: inline-block;
+						vertical-align: bottom;
+						color:$text-color;
+					}
+
+					strong {
+						font-size: 80px;
+						margin-left: 5px;
+						margin-top: 10px;
+						display: inline-block;
+						vertical-align: top;
+						line-height: 50px;
+					}
+				}
+			}
+		}
+
+		.stat.location {
+			display: block;
+			margin-top: 0;
+			width: 550px;
+			padding-top:10px;
+
+			figcaption {
+				width:450px;
+				margin-left: 15px;
+			}
+
+			strong {
+				font-size:30px;
+				line-height: 30px;
+				margin-top: 15px;
+				margin-bottom: 5px;
+				display: inline-block;
+			}
+
+			small {
+				display: block;
+				float: left;
+				color:$text-color;
+				width: 400px;
+				line-height: 24px;
+			}
+
+			p {
+				width:80%;
+				margin-top:40px;
+			}
+		}
+
+		.schedule {
+			
+			h2 {
+				font-size: 35px;
+			}
+
+			ul {
+				list-style:none;
+				margin-top: 20px;
+				padding: 0;
+			}
+
+			li {
+				padding: 0;
+				margin: 5px 0;
+				font-size: 18px;
+				line-height: 18px;
+				font-family:$fonts-p1;
+
+				b {
+					font-size: 18px;
+					font-weight:normal;
+					font-family:$fonts-h1;
+				}
+			}
+		}
+
+	}
+	
+}

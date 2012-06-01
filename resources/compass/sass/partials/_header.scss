@@ -1,35 +1,131 @@
 
-
 header {
-	position:relative;
-	width:100%;
-	top:0;
-	overflow:hidden;
+	position:fixed;
+	left:0;
+	right:0;
+	min-width:$min-width;
 	z-index:2;
-	height:$offset;
-
-	.backing {
-		background:#f9f7fc;
-		bottom: 60px;
-		height: 100%;
-	}
+	@include grad(#87808e, #6d6674);
+	@include box-shadow(0 -3px 20px rgba(0, 0, 0, 0.8));
 
 	nav {
-		width:110%;
-		left:-5%;
-		position:relative;
-		margin:auto;
-		top: -2px;
-		position: relative;
+		@include microfix();
 
-		.logo {
-			background:image-url("shell/logo.png");
-			width:274px;
-			height:110px;
-			margin-left: 200px;
-			display: block;
-			content: "";
-			text-indent: -100%;
+		ul,
+		li {
+			margin:0;
+			padding:0;
+			text-align:center;
+			vertical-align:top;
+		}
+
+		li {
+			display:inline-block;
+			position:relative;
+			height:60px;
+
+			&:first-child,
+			&:last-child {
+				&:after {
+					display:none;
+				}
+			}
+
+			&:after {
+				content: "";
+				margin: 29px 10px 0;
+				height: 10px;
+				background: white;
+				width: 4px;
+				display: inline-block;
+				vertical-align: top;
+				@include border-radius(5px);
+				@include box-shadow(0 -1px 2px rgba(#000,.5));
+			}
+
+			&.selected {
+				&:before {
+					position:absolute;
+					bottom:-10px;
+					content:"";
+					width: 0;
+					height: 0;
+					border-left: 10px solid transparent;
+					border-right: 10px solid transparent;
+					border-top: 10px solid #6d6674;
+					left:50%;
+					margin-left:-20px;
+				}
+
+				a {
+					text-decoration:underline;
+					color:#fff;
+				}
+			}
+			
+		}
+
+		a:visited,
+		a:active {
+			color:#efefef;
+		}
+
+		a:hover {
+			color:#fff;
+		}
+
+		a {
+			cursor:pointer;
+			@include single-transition(all, 330ms, ease-in-out-quad);
+			padding:20px 5px;
+			font-size:18px;
+			color:#efefef;
+			font-family: $fonts-p1;
+			font-weight:bold;
+			text-decoration:none;
+			display:inline-block;
+			position:relative;
+			letter-spacing:1px;
+			text-shadow:0 -1px 2px rgba(#000,.5);
+		}
+
+		.rsvp {
+			@include grad(#e6e6e6, #fdfdfd);
+			@include single-transition(all, 300ms, ease-in-out-quad);
+
+			&:hover,
+			&.selected {
+				@include grad(#fdfdfd, #e6e6e6);
+
+				a,
+				a:hover {
+					color:#857d8c;
+				}
+
+				&:before {
+					border-top: 10px solid #E6E6E6;
+				}
+
+			}
+
+
+			a {
+				font-size:34px;
+				text-shadow:0 -1px 2px rgba(#fdfdfd,1);
+				color:#857d8c;
+				@include header();
+				padding: 2px 40px 0;
+			}
+
+			small {
+				display:block;
+				text-transform:lowercase;
+				font-size:18px;
+				position:absolute;
+				width: 100%;
+				left: 0;
+				margin-top:-7px;
+			}
 		}
 	}
 }

@@ -10,17 +10,15 @@ $legacy-support-for-ie6: false;
 
 // Defaults
 $background-color: #fff !default;
-$text-color: #fff !default;
-$link-color: #f9ceff !default;
+$text-color: #7d7484 !default;
+$text-color-2: #fff !default;
+$link-color: #ef5789 !default; // f85d90
 
 
 $fonts-p1 : "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$fonts-p2 : "ComfortaaRegular", Helvetica, "Helvetica Neue", Arial, sans-serif !default;
+$fonts-h1 : "ChunkFiveTK", "ChunkFiveRomanTK", Helvetica, "Helvetica Neue", Arial, sans-serif !default;
 
-$fonts-h1 : "LavanderiaRegular", Georgia, Times, "Times New Roman", serif !default;
-$fonts-h2: "Averia Serif Libre", serif !default;
-$fonts-h3 : "CharlemagneStdBold", sans-serif !default;
-
-$max-width : 80%;
-
-$offset : 200px; // offset created by the header and angles
+$min-width: 1024px;
+$overwidth : 110%;
+$offset : 155px; // offset created by the header and angles
+$margin : 80px;

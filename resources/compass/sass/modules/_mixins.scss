@@ -68,3 +68,44 @@
 		@include background-image(linear-gradient(right, rgba(#000,0) 0%, rgba(#000,.05) 50%, rgba(#000,.1)));
 	}
 }
+
+@mixin fliph() {
+	@include transform(scaleX(-1));
+	-ms-filter: fliph; /*IE*/
+	filter: fliph; /*IE*/
+}
+
+@mixin flipv() {
+	@include transform(scaleY(-1));
+	-ms-filter: flipv; /*IE*/
+	filter: flipv; /*IE*/
+}
+
+@mixin header() {
+	font-family: $fonts-h1;
+	font-weight:normal;
+	letter-spacing:1px;
+}
+
+/**
+ * $direction - top, bottom, left, right
+ * $size - INT size in pixels
+ * $color
+ */
+@mixin arrow($direction, $size, $color) {
+	width: 0;
+	height: 0;
+	border: $size solid transparent;
+
+	border-#{$direction}:0px;
+
+	@if($direction == "right") {
+		border-left: $size solid $color;
+	} @elseif($direction == "left") {
+		border-right: $size solid $color;
+	} @elseif($direction == "top") {
+		border-bottom: $size solid $color;
+	} @elseif($direction == "bottom") {
+		border-top: $size solid $color;
+	}	
+}

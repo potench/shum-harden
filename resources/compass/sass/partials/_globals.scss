@@ -4,87 +4,122 @@ $icons-spacing: 50px;
 @include all-icons-sprites;
  */
  
+.hidden {
+	display:none !important;
+}
+
 html, body {
 	width: 100%;
 	height: 100%;
+	min-width:$min-width;
 }
 
 html {
 	width: 100%;
 	overflow-y: scroll;
 	color:$text-color;
+	font-family:$fonts-p1;
 }
+
+body {
+	// background:image-url("guide.jpg") top center;
+}
+
+h1,
+h2,
+h3 {
+	margin:0;
+}
+p {
+	font-family:$fonts-p1;
+}
+
+input,textarea,button {
+	border:0;
+}
+
+fieldset {
+	margin:0;
+	border:0;
+}
+
+a:active,
+a:hover,
+a:visited {
+	text-decoration:none;
+	color:inherit;
+}
+
+a.linkout {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=) center right no-repeat;
+	
+}
+
+.page {
+	position:relative;
+	margin-top:-190px;
+	width:100%;
+	overflow:hidden;
+
+	> .content {
+		padding-top: 190px;
+	}
+}
+
+nav ul {
+	margin:0;
+	padding:0;
+
+	li { 
+		margin:0;
+		padding:0;
+		display:inline-block;
+	}
+}
+
+.headline {
+	font-family:$fonts-h1;
+	text-transform:uppercase;
+	font-weight:normal;
+	vertical-align:top;
+	position:relative;
+	color:#982d53;
+	font-size: 140px;
+	line-height: 140px;
+	letter-spacing:1px;
+	text-shadow:5px -5px 10px rgba(0, 0, 0, 0.1);
+
+		&:after {
+			content:attr(data-copy);
+			pointer-events:none;
+			position:absolute;
+			left:0;
+			top:0;
+			//color:#ff0000;
+			color:#f85d90;
+			-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,.1)));
+			-moz-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+			-o-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+			-ms-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+			mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+
+		}
+}
+
 
 #container {
 	width:100%;
-	height:100%;
 }
 
 #main {
-	position:absolute;
-	top:-$offset;
-	bottom:0;
-	left:0;
-	right:0;
-	z-index:1;
-}
-
-.backing + * {
 	position:relative;
-	z-index:2;
-}
-
-.backing {
-	$w : 110%;
-	$tilt : 3deg;
-
-	position:absolute;
-	width:$w;
-	height:100%;
-	left:50%;
-	margin-left:-$w/2;
-
-	display:block;
-	content:"";
 	z-index:1;
+	padding-top:60px;
 
-	&.tilt-left {
-		@include transform(rotateZ(-$tilt));
-
-		&.gutter:after,
-		&.gutter:before {
-			@include transform(rotateZ($tilt));
-		}
-	}
-
-	&.tilt-right {
-		@include transform(rotateZ($tilt));
-
-		&.gutter:after,
-		&.gutter:before {
-			@include transform(rotateZ(-$tilt));
-		}
-	}
-
-	&.gutter {
-		$width : 50px;
-		$spacing : 150px;
-
-		&:before,
-		&:after  {
-			@include backing();
-			width: $width;
-			height: 100%;
-			bottom: 0;
-			left: $spacing;
-			z-index:2;
-			@include background-image(linear-gradient(left, rgba(#000,0) 0%, rgba(#000,.05) 50%, rgba(#000,.4)));
-		}
-		&:after {
-			@extend .shadow;
-			right:$spacing;
-			left:auto;
-			@include background-image(linear-gradient(right, rgba(#000,0) 0%, rgba(#000,.05) 50%, rgba(#000,.4)));
-		}
+	section > .content {
+		width:1024px;
+		//height:800px;
+		//border:2px solid red;
+		margin:auto;
 	}
 }

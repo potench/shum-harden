@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{# Sets the current body class #}
+{# This variable *must* be lowercase #}
+{% block page_class %}home{% endblock page_class %}
+
+{# Sets the current Rosy class #}
+{# This variable *must* be capcase #}
+{% block page_data %}Home{% endblock page_data %}
+
+{% block content %}
+
+	<section id="welcome" class="page">
+		<div class="background">
+			<div class="backing"><div></div></div>
+		</div>
+		<div class="content">
+			<article>
+				<a class="logo"><img src="{{ STATIC_URL }}img/logo.png"/></a>
+				<span class="hey">Hey</span>
+				<div class="hero">
+					<img class="shadow" src="{{ STATIC_URL }}img/welcome/shadow.png"/>
+					<img class="mask" src="{{ STATIC_URL }}img/welcome/mask.png" />
+					<img class="us" src="{{ STATIC_URL }}img/welcome/hey.jpg"/>
+				</div>
+				<h1 class="title">
+					<span>That's Right!</span> <span>We're</span> <span>getting</span> <strong class="headline" data-copy="married!">married!</strong>
+				</h1>
+				<div class="intro">
+					<p class="hi">We can't wait to get tie-the-knot in front of all our friends and family on August 10th, 2012, so we thought we'd start the festivities early with a fun website to commemorate our big wedding day!</p>
+					<p class="when">4:30 PM August 10th, 2012</p>
+					<p class="where">Calamigos Ranch, Malibu CA.</p>
+					<a class="how" data-section="rsvp" title="RSVP">RSVP</a>
+				</div>
+
+			</article>
+		</div>
+	</section>
+
+	{% include "pages/story.html" %}
+
+	{% include "pages/wedding.html" %}
+
+	{% include "pages/party.html" %}
+
+	{% include "pages/guests.html" %}
+
+	{% include "pages/rsvp.html" %}
+
+	
+{% endblock content %}

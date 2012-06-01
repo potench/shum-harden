@@ -1,38 +1,37 @@
 {
-	"exclude" : {
-		"source" : [
-			"js/red/modules/ios-page-control/page-control.js",
-			"js/red/modules/ticker/ticker.js"
-		]
-	},
-
-	"plugins" : {
-		"source" : [
-			"js/libs/plugins/jquery.easing.js",
-			"js/libs/plugins/jquery.tmpl.js"
-		],
-		
-		"output" : "js/libs/plugins/plugins.min.js"
-	},
-	
-	"red" : {
-		"source" : [
-			"js/red/base/class.js",
-			"js/red/site.js"
-		],
-		
-		"output" : "js/red/red.min.js"
-	},
-	
 	"site" : {
 		"source" : [
-			"js/example/site.js",
-			"js/example/base/page.js",
-			
-			"js/example/shell.js",
-			"js/example/home.js"
+			"js/libs/mustache.js",
+
+			// Plugins
+			"js/libs/plugins/jquery.easing.js",
+			"js/libs/plugins/jquery.pubsub.js",
+			"js/libs/plugins/jquery.imagesloaded.js",
+			"js/libs/plugins/jquery.mask-image.js",
+			"js/libs/plugins/jquery.reflect-image.js",
+			"js/libs/plugins/jquery.clone-canvas.js",
+			"js/libs/plugins/modernizr.custom-tests.js",
+
+			// Rosy Framework
+			"js/red/base/class.js",
+			"js/red/site.js",
+			"js/red/modules/module.js",
+			"js/red/modules/social/facebook.social.js",
+			"js/red/modules/tracking/ga.tracking.js",
+
+			// Site Specific
+			"js/wedding/site.js",
+			"js/wedding/module/module.js",
+			"js/wedding/module/shell.js",
+			"js/wedding/module/tracking/ga.tracking.js",
+
+			"js/wedding/page/page.js",
+			"js/wedding/page/home.js",
+			"js/wedding/page/story.js",
+			"js/wedding/page/guests.js",
+			"js/wedding/page/rsvp.js"
 		],
 		
-		"output" : "js/example/example.min.js"
+		"output" : "js/wedding.min.js"
 	}
 }

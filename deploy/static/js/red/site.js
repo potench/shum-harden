@@ -5,17 +5,17 @@
 var red = window.red || {};
 
 $.extend(true, red, {
-	
+
 	// ## red.Class
 	Class : Class.extend({
-		
+
 		// Middleware preventDefault method. A shortcut to avoid delegation for a simple task.
 		//
 		//     foo.bind("click", this.preventDefault);
 		preventDefault : function (e) {
 			e.preventDefault();
 		},
-		
+
 		// Middleware setTimeout method. Allows for scope retention inside timers.
 		//
 		//     this.setTimeout(function () {

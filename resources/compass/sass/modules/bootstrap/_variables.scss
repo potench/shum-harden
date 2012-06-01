@@ -46,9 +46,9 @@ $linkColorHover:        darken($linkColor, 15) !default;
 // Typography
 // -------------------------
 $baseFontSize:          13px !default;
-$baseFontFamily:        $fonts-p2; //
+$baseFontFamily:        $fonts-p1; //
 $baseLineHeight:        18px !default;
-$altFontFamily:        	$fonts-h2;
+$altFontFamily:        	$fonts-h1;
 
 $headingsFontFamily:    inherit !default; // empty to use BS default, @baseFontFamily
 $headingsFontWeight:    bold !default;    // instead of browser default, bold

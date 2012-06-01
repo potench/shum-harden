@@ -1,0 +1,157 @@
+
+#guests {
+	position:relative;
+	margin-top:-190px;
+	position:relative;
+	font-family:$fonts-h1;
+
+	.background {
+		overflow:hidden;
+	}
+
+	.backing {
+		background:#d8c8e6;
+		top:100px; 
+	}
+
+	.content {
+		padding-bottom:190px;
+		@include microfix();
+
+		.crowd {
+			width: 480px;
+			margin-bottom:40px;
+			border-top:2px solid $text-color;
+
+			figcaption {
+				margin-left: 20px;
+				margin-top: 8px;
+
+
+				strong {
+					display: block;
+				}
+
+				small {
+					width: 270px;
+					margin-top: 10px;
+					margin-left: 5px;
+				}
+			}
+		}
+
+		.hotel {
+			display:inline-block;
+			width:430px;
+			margin-top:40px;
+			margin-right:40px;
+			margin-bottom:60px;
+
+			h3 {
+				margin-top:30px;
+				margin-bottom:20px;
+			}
+
+			span,
+			a {
+				display:block;
+				margin:5px 0;
+			}
+
+			a {
+				color:$text-color-2;
+				font-family:$fonts-h1;
+				font-size:18px;
+				margin-right:20px;
+				text-decoration:underline;
+				display:inline-block;
+			}
+
+			.phone {
+				margin-bottom:20px;
+			}
+
+			.photo {
+				position:relative;
+
+				img {
+					position:relative;
+					z-index:2;
+				}
+
+				&:after {
+					position: absolute;
+					z-index: 1;
+					width: 438px;
+					height: 38px;
+					bottom: -15px;
+					left: -102px;
+					background:image-url('guests/shadow.png') no-repeat;
+					content: "";
+				}
+
+				canvas {
+					position: absolute;
+					bottom: -38px;
+					left: 0;
+					z-index: 2;
+					opacity:.4;
+				}
+			}
+		}
+
+		.headline {
+			text-transform: none;
+			color: $text-color-2;
+			text-shadow: 0px -1px 1px rgba(#000, .4);
+			font-size: 115px;
+			line-height: .9em;
+
+			&:after {
+				color:#f8f2fe;
+			}
+		}
+
+		h2.headline {
+			font-size:80px;
+		}
+
+		.info {
+			margin-left:65px; 
+		}	
+
+
+		.registries {
+			display:inline-block;
+			margin:30px 0;
+			padding:0;
+
+			li {
+				display:inline-block;
+				text-align:center;
+				margin-right:30px;
+
+				span,
+				img {
+					display:block;
+					margin:auto;
+				}
+
+				span {
+					margin:20px auto;
+				}
+
+				a {
+					text-decoration:none;
+					color:$text-color;
+				}
+
+				canvas {
+					opacity:.4;
+					margin-top:2px;
+				}
+			}
+		}
+	}
+	
+}

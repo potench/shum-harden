@@ -1,0 +1,95 @@
+<section id="rsvp" class="page">
+	<div class="background">
+		<div class="backing tilt-left"><div></div></div>
+	</div>
+	<div class="content">
+		<article>
+			<div class="title">
+				<h1 class="headline" data-copy="RSVP">RSVP</h1>
+				<p>We hope you can join us on our big day!</p>
+				<p>The favor of your reply is requested <br/>by July 1st 2012.</p>
+				<aside>
+					<span>2%</span>
+					<p>The likelihood Nikki will still be your friend if you don't RSVP</p>					
+				</aside>
+				<form action="static/php/index.php" method="post">
+					<fieldset>
+						<ol>
+							<li>
+								<sup>?</sup>
+								<label class="">
+									<div>
+										<div class="line one"></div>
+										<div class="tip"><div><img src="{{ STATIC_URL }}/img/rsvp/help-code.jpg" alt="Invitation Code Help"/></div></div>
+										<span>Find the code on the wedding invitiation!</span>
+									</div>
+								</label>
+								<div class="error">
+									<p>You shaaallll not pass!</p>
+								</div>
+								<input name="code" type="text" placeholder="Enter Code" />
+							</li>
+							<li>
+								<sup>?</sup>
+								<label class="">
+									<div>
+										<div class="line two"></div>
+										<div class="tip"><div><img src="{{ STATIC_URL }}/img/rsvp/help-name.jpg" alt="Authenticate through Facebook"/></div></div>
+										<span>Connect to Facebook and we'll pull this information for your lazy ass.</span>
+									</div>
+								</label>
+								<div class="error">
+									<p>Uh... Who are you Voldemort?</p>
+								</div>
+								<input name="name" type="text" placeholder="What's Your Name?" />
+							</li>
+							<li>
+								<sup>?</sup>
+								<label class="">
+									<div>
+										<div class="line one"></div>
+										<div class="tip"><div><img src="{{ STATIC_URL }}/img/rsvp/help-buddy.jpg" alt="Invitation Code Help"/></div></div>
+										<span>Leave this blank if you're coming alone</span>
+									</div>
+								</label>
+								<input name="guest" type="text" placeholder="Who's coming with you?" />
+							</li>
+							<li class="radios">
+								<label>We will be very sad if you can't join :( but we understand.</label>
+								<div>
+									<input type="radio" name="attending" value="yes" checked />
+									<span>Will Attend</span>
+									<div class="radio on"></div>
+								</div>
+								<div>
+									<input type="radio" name="attending" value="no" />
+									<span>Will <strong>Not</strong> Attend</span>
+									<div class="radio"></div>
+								</div>
+							</li>
+							<li>
+								<label>Leave us a message!</label>
+								<div class="error">
+									<p>No introverts allowed... time to speak up!</p>
+								</div>
+								<textarea placeholder="Leave us a message!" name="message"></textarea>
+							</li>
+							<li class="hidden" data-logged-in="true">
+								<sup>?</sup>
+								<label>Let everyone on Facebook know you're coming!</label>
+								<input type="checkbox" name="shareable" checked value="yes" />
+							</li>
+							<li class="submit">
+								<div class="error">
+									<p>Kabooom! Something went horribly wrong.  Please try again later and let me know about the issue by cliking here.</p>
+								</div>
+								<span class="headline submit" data-busy="Sending..." data-ready="Send" data-copy="Send">Send</span>
+								<input type="submit" class="hidden" value="Send">
+							</li>
+						</ol>
+					</fieldset>
+				</form>
+			</div>
+		</article>
+	</div>
+</section>

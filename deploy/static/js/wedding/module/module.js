@@ -7,12 +7,12 @@ var red = red || {};
 // ## Local Namespace
 // You should replace the namespace "wedding" with your own Site namespace, this is only an wedding.
 var wedding = wedding || {};
-	wedding.module = wedding.module || {};
+wedding.module = wedding.module || {};
 
 // Site shell object
-wedding.module.Module = (function () {
+wedding.Module = (function () {
 	
-	return wedding.Module.extend({
+	return red.Module.extend({
 		vars : {
 			delays : [],
 			delay_timer : null,

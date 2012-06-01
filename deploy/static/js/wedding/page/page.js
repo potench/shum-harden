@@ -1,19 +1,29 @@
-var wedding = wedding || {};
-wedding.page = wedding.page || {};
-	
+// ### Part of the [Rosy Framework](http://github.com/ff0000/rosy)
+/* home.js */
 
-wedding.page.Page = (function () {
-	
-	return wedding.Class.extend({
+// ## Local Namespace
+
+// Home Page class
+
+// Site-specifc namespace
+var wedding = wedding || {};
+
+// Page namespace
+wedding.page = wedding.page || {};
+
+// Home specific instance
+wedding.Page = (function () {
+
+	return red.Class.extend({
 
 		vars : {
 
 		},
-		
-		init : function () {
-			this.unity = new wedding.module.Unity();
-		}
-		
-	});
 
+		// Home  page level functionality
+		init : function () {
+			
+		}
+	});
+	
 }.call(wedding));
