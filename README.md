@@ -1,7 +1,16 @@
-Red-optimized HTML5 Boilerplate [http://html5boilerplate.com](http://html5boilerplate.com)
-========================================================================================== 
+# Shum-Harden Wedding Website
+==============================
 
-## Includes
+There's some fun tools used in this site that I'd like to document here, but there's seriously no time right now.  I promise to come back after launch is deemed successful to improve this documentation.
+
+### Forthcoming Document Includes
+
+- Some <canvas> utilities (js)
+- google documents spreadsheet library (php)
+- tracking and facebook utilities (js)
+
+==============================
+## Development Environment
 
 - H5BP-friendly [base.html template](/ff0000/red-boilerplate/project/templates/base.html)
 - [Holmes CSS Debugger](http://www.red-root.com/sandbox/holmes/)
@@ -17,13 +26,6 @@ Adding the RBP to your project
 
     git remote add --fetch --no-tags --track master boilerplate git://github.com/ff0000/red-boilerplate.git && git pull boilerplate master
 
-Updating the RBP
-================
-
-It is recommended you keep your boilerplate up-to-date. The RBP is actively maintained and keeps a close eye on the master HTML5 boilerlplate. Run the following command to update:
-
-    rake dev:update
-
 Front-end build tools
 =====================
 
@@ -37,11 +39,6 @@ Front-end build tools
 	- Ubuntu: `sudo apt-get install rubygems`
 - [Bundler](http://gembundler.com/)
 	- `gem install bundler`
-- [Java](http://www.java.com/en/download/index.jsp)
-	- OS X: Pre-installed
-	- Ubuntu: `sudo apt-get install openjdk-6-jre`
-
-## Optional
 
 - [RVM](http://beginrescueend.com/)
 	- RVM is a command-line tool which allows you to easily install, manage and work with multiple ruby environments, from interpreters to sets of gems.
@@ -63,6 +60,7 @@ Front-end build tools
 
     gem install bundler
     bundle install --gemfile resources/tasks/config/Gemfile
+    statix server -p 8000
 
 ## Rake tasks
 
