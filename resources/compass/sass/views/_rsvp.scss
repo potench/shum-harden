@@ -272,6 +272,10 @@
 				display:none;
 			}
 
+			input[type="checkbox"] {
+				display:none;
+			}
+
 			.radios > div {
 				margin-top: -10px;
 				text-align: right;
@@ -293,6 +297,7 @@
 				}
 			}
 
+			.checkbox,
 			.radio {
 				width:50px;
 				height:50px;

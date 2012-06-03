@@ -9,13 +9,39 @@
 		<link rel="dns-prefetch" href="{{ STATIC_URL }}" />
 		<link rel="media-url" href="{{ STATIC_URL }}" />
 
-		<title>{% block title %}Shum-Harden Wedding Website{% endblock title %}</title>
+		<title>{% block title %}Shum-Harden - Wedding Website{% endblock title %}</title>
 
-		<meta name="description" content="" />
+		<meta name="description" content="Nikki Shum and Christian Harden are getting married August 10th 2012 in Malibu California." />
 		<meta name="author" content="Christian Harden" />
+		<meta name="keywords" content="Nikki Shum, Chrisian Harden, Nikki Shum-Harden, Christian Shum-Harden, Wedding" />
 
-		<!-- Mobile viewport optimized: j.mp/bplateviewport -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=1024, maximum-scale=1"  />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#f85d90" />
+
+		<link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico">
+
+		<link rel="apple-touch-icon" href="{{ STATIC_URL }}/img/touch-icon/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="57x57" href="{{ STATIC_URL }}img/touch-icon/ipad-57x57.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}img/touch-icon/ipad-72x72.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}img/touch-icon/ipad-114x114.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="{{ STATIC_URL }}img/touch-icon/ipad-144x144.png" />
+
+		<!-- <link rel="apple-touch-startup-image" href="{{MEDIA_URL}}img/startup/tablet-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 1)" />
+		<link rel="apple-touch-startup-image" href="{{MEDIA_URL}}img/startup/tablet-landscape-retina.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 2)" /> -->
+
+		<!-- startup image for web apps - iPad - landscape (748x1024) 
+		     Note: iPad landscape startup image has to be exactly 748x1024 pixels (portrait, with contents rotated).-->
+		<link rel="apple-touch-startup-image" href="{{ STATIC_URL }}img/startup/tablet-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" />
+
+		<!-- startup image for web apps - iPad - portrait (768x1004) -->
+		<link rel="apple-touch-startup-image" href="{{ STATIC_URL }}img/startup/tablet-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" />
+
+		<!-- startup image for web apps (320x460) -->
+		<link rel="apple-touch-startup-image" href="{{ STATIC_URL }}img/startup/iphone.png" media="screen and (max-device-width: 320px)" />
+
+
 
 		<meta property="ga:property_id" content="UA-30937664-1"/>
 		<meta property="ga:domain" content="none"/>
@@ -29,8 +55,6 @@
 		<meta property="og:url" content="" />
 		<meta property="og:locale" content="en_us" />
 		<meta property="og:type" content="blog" />
-
-		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
 		<script src="{{ STATIC_URL }}js/libs/modernizr-2.5.3.min.js"></script>

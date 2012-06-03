@@ -14,8 +14,19 @@
 		<meta name="description" content="" />
 		<meta name="author" content="Christian Harden" />
 
-		<!-- Mobile viewport optimized: j.mp/bplateviewport -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=1024" />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#f85d90" />
+
+		<link rel="shortcut icon" href="static/fimg/avicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/img/touch-icon/ipad-72x72.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/img/touch-icon/ipad-144x144.png" />
+
+		
+		<script>(function(){var c,a;a=2===window.devicePixelRatio?"-retina":"";var b;b=function(a,b){return'<link rel="apple-touch-startup-image" href="X" media="screen and (orientation: O)"/>'.replace("X",a).replace("O",b)};/iPad/.test(window.navigator.userAgent)&&(c="static/img/startup/tablet-X.png".replace("X","portrait"+a),a="static/img/startup/tablet-X.png".replace("X","landscape"+a),document.write(b(c,"portrait")+b(a,"landscape")))})();</script>
+		
+
 
 		<meta property="ga:property_id" content="UA-30937664-1"/>
 		<meta property="ga:domain" content="none"/>
@@ -29,8 +40,6 @@
 		<meta property="og:url" content="" />
 		<meta property="og:locale" content="en_us" />
 		<meta property="og:type" content="blog" />
-
-		<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
 		<link rel="stylesheet" href="static/css/style.css" />
 		<script src="static/js/libs/modernizr-2.5.3.min.js"></script>

@@ -62,7 +62,56 @@
 				top: 860px;
 				left: 860px;
 			}
+			[data-line="8"] {
+				top: 1790px;
+				left: 644px;
+			}
+			[data-line="9"] {
+				top: 1790px;
+				left: 294px;
+			}
+			[data-line="10"] {
+				top: 1864px;
+				left: -71px;
+			}
+			[data-line="11"] {
+				top: 2434px;
+				left: 619px;
+			}
+			[data-line="12"] {
+				top: 2277px;
+				left: 259px;
+			}
+			[data-line="13"] {
+				top: 3017px;
+				left: 579px
+			}
+			[data-line="14"] {
+				top: 2867px;
+				left: -121px
+			}
+			[data-line="15"] {
+				top: 2947px;
+				left: 309px;
+			}
+			[data-line="16"] {
+				top: 3267px;
+				left: 250px;
+			}
+			[data-line="17"] {
+				top: 3237px;
+				left: 510px;
+			}
+			[data-line="18"] {
+				top: 3247px;
+				left: -23px;
+			}
+			[data-line="19"] {
+				top: 3327px;
+				left: 637px;
+			}
 		}
+
 		.info {
 			margin-left:65px;
 			position:relative;
@@ -171,6 +220,11 @@
 				border: 10px solid #D78DCD;
 				overflow: hidden;
 				margin: 0 auto;
+
+				> div {
+					border-radius:120px;
+					overflow:hidden;
+				}
 			}
 
 			h1 {
@@ -204,8 +258,36 @@
 			}
 		}
 
+		.others {
+			margin-left:60px;
+
+			h3 {
+				font-size:50px;
+				margin-top:0px;
+			}
+
+			article.player {
+				margin:0px;
+				width:215px;
+
+				> div {
+					width: 170px;
+					height: 170px;
+
+					img {
+						width:100%;
+					}
+				}
+
+				h1 {
+					font-size:20px;
+				}
+
+
+			}
+		}
+
 		.flower-girls,
-		.others,
 		.parents {
 			margin-left:60px;
 

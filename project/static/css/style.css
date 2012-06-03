@@ -1377,27 +1377,22 @@ footer > .content li:last-child:after {
   position: absolute;
   pointer-events: none;
   z-index: 1;
-  left: 630px;
-  top: 310px;
+  left: 570px;
+  top: 360px;
   width: 500px;
   height: 700px;
   background: url('../img/wedding/drinks.jpg') no-repeat 0 0;
 }
-#wedding .content .drinks-top {
-  content: "";
-  position: absolute;
-  width: 62px;
-  height: 96px;
-  left: 937px;
-  top: 310px;
-  z-index: 3;
-  background: url('../img/wedding/champaigne-top.png') no-repeat 0 0;
-}
 #wedding .content .stat {
-  padding-top: 0px;
+  padding-top: 10px;
 }
 #wedding .content .stat small {
   text-shadow: 0 0px 1px #fff;
+}
+#wedding .content .stat.weddings figure > div {
+  position: relative;
+  margin-right: 15px;
+  top: 10px;
 }
 #wedding .content .stat.weddings figure figcaption small {
   font-size: 22px;
@@ -1525,6 +1520,54 @@ footer > .content li:last-child:after {
   top: 860px;
   left: 860px;
 }
+#party .content .lines [data-line="8"] {
+  top: 1790px;
+  left: 644px;
+}
+#party .content .lines [data-line="9"] {
+  top: 1790px;
+  left: 294px;
+}
+#party .content .lines [data-line="10"] {
+  top: 1864px;
+  left: -71px;
+}
+#party .content .lines [data-line="11"] {
+  top: 2434px;
+  left: 619px;
+}
+#party .content .lines [data-line="12"] {
+  top: 2277px;
+  left: 259px;
+}
+#party .content .lines [data-line="13"] {
+  top: 3017px;
+  left: 579px;
+}
+#party .content .lines [data-line="14"] {
+  top: 2867px;
+  left: -121px;
+}
+#party .content .lines [data-line="15"] {
+  top: 2947px;
+  left: 309px;
+}
+#party .content .lines [data-line="16"] {
+  top: 3267px;
+  left: 250px;
+}
+#party .content .lines [data-line="17"] {
+  top: 3237px;
+  left: 510px;
+}
+#party .content .lines [data-line="18"] {
+  top: 3247px;
+  left: -23px;
+}
+#party .content .lines [data-line="19"] {
+  top: 3327px;
+  left: 637px;
+}
 #party .content .info {
   margin-left: 65px;
   position: relative;
@@ -1620,6 +1663,10 @@ footer > .content li:last-child:after {
   overflow: hidden;
   margin: 0 auto;
 }
+#party .content article.player > div > div {
+  border-radius: 120px;
+  overflow: hidden;
+}
 #party .content article.player h1 {
   display: inline-block;
   color: #fff;
@@ -1646,25 +1693,42 @@ footer > .content li:last-child:after {
   font-size: 60px;
   top: 70px;
 }
+#party .content .others {
+  margin-left: 60px;
+}
+#party .content .others h3 {
+  font-size: 50px;
+  margin-top: 0px;
+}
+#party .content .others article.player {
+  margin: 0px;
+  width: 215px;
+}
+#party .content .others article.player > div {
+  width: 170px;
+  height: 170px;
+}
+#party .content .others article.player > div img {
+  width: 100%;
+}
+#party .content .others article.player h1 {
+  font-size: 20px;
+}
 #party .content .flower-girls,
-#party .content .others,
 #party .content .parents {
   margin-left: 60px;
 }
 #party .content .flower-girls h3,
-#party .content .others h3,
 #party .content .parents h3 {
   font-size: 50px;
   margin-top: 0px;
 }
 #party .content .flower-girls article.player,
-#party .content .others article.player,
 #party .content .parents article.player {
   width: auto;
   margin-right: 60px;
 }
 #party .content .flower-girls article.player h1,
-#party .content .others article.player h1,
 #party .content .parents article.player h1 {
   text-align: center;
 }
@@ -2087,6 +2151,9 @@ footer > .content li:last-child:after {
 #rsvp .content form input[type="radio"] {
   display: none;
 }
+#rsvp .content form input[type="checkbox"] {
+  display: none;
+}
 #rsvp .content form .radios > div {
   margin-top: -10px;
   text-align: right;
@@ -2105,6 +2172,7 @@ footer > .content li:last-child:after {
   color: #000;
   font-style: italic;
 }
+#rsvp .content form .checkbox,
 #rsvp .content form .radio {
   width: 50px;
   height: 50px;
@@ -2113,6 +2181,7 @@ footer > .content li:last-child:after {
   cursor: pointer;
   background: url('../img/rsvp/radio-off.png') no-repeat;
 }
+#rsvp .content form .checkbox.on,
 #rsvp .content form .radio.on {
   background: url('../img/rsvp/radio-on.png') no-repeat;
 }

@@ -107,6 +107,8 @@ wedding.page.RSVP = (function () {
 				case 1:
 					// SUCCESS
 					$.publish("track", [{type: "event", category: "rsvp", action: "success", label:data.result }]);
+					alert("Thanks! We got your RSVP!");
+					this.toggleSubmit(false);
 					break;
 				case -1:
 					y = $inputs.filter('[name="code"]').siblings(".error")

@@ -1620,6 +1620,10 @@ footer > .content li:last-child:after {
   overflow: hidden;
   margin: 0 auto;
 }
+#party .content article.player > div > div {
+  border-radius: 120px;
+  overflow: hidden;
+}
 #party .content article.player h1 {
   display: inline-block;
   color: #fff;
@@ -2087,6 +2091,9 @@ footer > .content li:last-child:after {
 #rsvp .content form input[type="radio"] {
   display: none;
 }
+#rsvp .content form input[type="checkbox"] {
+  display: none;
+}
 #rsvp .content form .radios > div {
   margin-top: -10px;
   text-align: right;
@@ -2105,6 +2112,7 @@ footer > .content li:last-child:after {
   color: #000;
   font-style: italic;
 }
+#rsvp .content form .checkbox,
 #rsvp .content form .radio {
   width: 50px;
   height: 50px;
@@ -2113,6 +2121,7 @@ footer > .content li:last-child:after {
   cursor: pointer;
   background: url('../img/rsvp/radio-off.png') no-repeat;
 }
+#rsvp .content form .checkbox.on,
 #rsvp .content form .radio.on {
   background: url('../img/rsvp/radio-on.png') no-repeat;
 }

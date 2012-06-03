@@ -58,26 +58,15 @@
 			position:absolute;
 			pointer-events:none;
 			z-index:1;
-			left: 630px;
-			top: 310px;
+			left: 570px;
+			top: 360px;
 			width: 500px;
 			height: 700px;
 			background:image-url("wedding/drinks.jpg") no-repeat 0 0;
 		}
 
-		.drinks-top {
-			content:"";
-			position:absolute;
-			width:62px;
-			height:96px;
-			left: 937px;
-			top: 310px;
-			z-index:3;
-			background:image-url("wedding/champaigne-top.png") no-repeat 0 0;
-		}
-
 		.stat {
-			padding-top:0px;
+			padding-top:10px;
 
 			small {
 				text-shadow: 0 0px 1px #fff;
@@ -87,6 +76,12 @@
 		.stat.weddings {
 
 			figure {
+
+				> div {
+					position: relative;
+					margin-right: 15px;
+					top: 10px;
+				}
 
 				figcaption {
 
