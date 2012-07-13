@@ -1,6 +1,8 @@
 # Shum-Harden Wedding Website
 ==============================
 
+http://shum-harden.com
+
 There's some fun tools used in this site that I'd like to document here, but there's seriously no time right now.  I promise to come back after launch is deemed successful to improve this documentation.
 
 ### Forthcoming Document Includes
