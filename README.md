@@ -98,6 +98,3 @@ License
 
 The Unlicense (aka: public domain)
 
-### RED Interactive
-
-Code modified by RED under the [MIT license](https://github.com/ff0000/red-boilerplate/blob/master/LICENSE.txt).
