@@ -1,7 +1,9 @@
 # Shum-Harden Wedding Website
 ==============================
 
-http://shum-harden.com
+git@github.com:potench/shum-harden.git
+
+[![CLA assistant](https://cla-assistant.io/readme/badge/potench/shum-harden)](https://cla-assistant.io/potench/shum-harden)
 
 There's some fun tools used in this site that I'd like to document here, but there's seriously no time right now.  I promise to come back after launch is deemed successful to improve this documentation.
 
